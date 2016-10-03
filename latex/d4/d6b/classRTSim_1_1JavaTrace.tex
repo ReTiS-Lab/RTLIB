@@ -1,0 +1,73 @@
+\hypertarget{classRTSim_1_1JavaTrace}{}\section{R\+T\+Sim\+:\+:Java\+Trace Class Reference}
+\label{classRTSim_1_1JavaTrace}\index{R\+T\+Sim\+::\+Java\+Trace@{R\+T\+Sim\+::\+Java\+Trace}}
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Java\+Trace\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Java\+Trace\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries T\+R\+A\+C\+E\+\_\+\+E\+N\+D\+I\+A\+N\+E\+SS} \{ {\bfseries T\+R\+A\+C\+E\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+N\+D\+I\+AN}, 
+{\bfseries T\+R\+A\+C\+E\+\_\+\+B\+I\+G\+\_\+\+E\+N\+D\+I\+AN}, 
+{\bfseries T\+R\+A\+C\+E\+\_\+\+L\+I\+T\+T\+L\+E\+\_\+\+E\+N\+D\+I\+AN}
+ \}\hypertarget{classRTSim_1_1JavaTrace_aef738e04abe677ba1bf155204828bbd2}{}\label{classRTSim_1_1JavaTrace_aef738e04abe677ba1bf155204828bbd2}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Java\+Trace} (const char $\ast$name, bool tof=true, unsigned long int limit=1000000)\hypertarget{classRTSim_1_1JavaTrace_afb4db6d18f0f967123f30de6c405f58a}{}\label{classRTSim_1_1JavaTrace_afb4db6d18f0f967123f30de6c405f58a}
+
+\item 
+virtual void {\bfseries close} ()\hypertarget{classRTSim_1_1JavaTrace_ac53823bc4866f29216ccc65be6d0e916}{}\label{classRTSim_1_1JavaTrace_ac53823bc4866f29216ccc65be6d0e916}
+
+\item 
+vector$<$ \hyperlink{classRTSim_1_1TraceEvent}{Trace\+Event} $\ast$ $>$ {\bfseries get\+Data} ()\hypertarget{classRTSim_1_1JavaTrace_af2504d5d2b9de4c00997e5e0af1882f0}{}\label{classRTSim_1_1JavaTrace_af2504d5d2b9de4c00997e5e0af1882f0}
+
+\item 
+virtual void {\bfseries record} (Event $\ast$e)\hypertarget{classRTSim_1_1JavaTrace_a9a69d2ae6a25d9a4e62ac8f1924953e2}{}\label{classRTSim_1_1JavaTrace_a9a69d2ae6a25d9a4e62ac8f1924953e2}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries probe\+Endianess} (void)\hypertarget{classRTSim_1_1JavaTrace_a0637e7d77c2218bc3dc0a6ef22e5de7b}{}\label{classRTSim_1_1JavaTrace_a0637e7d77c2218bc3dc0a6ef22e5de7b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static T\+R\+A\+C\+E\+\_\+\+E\+N\+D\+I\+A\+N\+E\+SS {\bfseries endianess} = T\+R\+A\+C\+E\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+E\+N\+D\+I\+AN\hypertarget{classRTSim_1_1JavaTrace_a5fd8ed7bdbb813a51ecef064b5cf3f62}{}\label{classRTSim_1_1JavaTrace_a5fd8ed7bdbb813a51ecef064b5cf3f62}
+
+\item 
+static string {\bfseries version} = \char`\"{}1.\+2\char`\"{}\hypertarget{classRTSim_1_1JavaTrace_a4341c0afc04110d51e4877c19fed56fd}{}\label{classRTSim_1_1JavaTrace_a4341c0afc04110d51e4877c19fed56fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{classRTSim_1_1TraceEvent}{Trace\+Event} $\ast$ $>$ {\bfseries data}\hypertarget{classRTSim_1_1JavaTrace_a93b126898a801b4dc30c351b43a53468}{}\label{classRTSim_1_1JavaTrace_a93b126898a801b4dc30c351b43a53468}
+
+\item 
+int {\bfseries filenum}\hypertarget{classRTSim_1_1JavaTrace_acdc95d0d598a20a1c3b10fa1f907ab41}{}\label{classRTSim_1_1JavaTrace_acdc95d0d598a20a1c3b10fa1f907ab41}
+
+\item 
+unsigned long int {\bfseries counter}\hypertarget{classRTSim_1_1JavaTrace_a1a39834408aa1eaa545fdf2ed62b0ba1}{}\label{classRTSim_1_1JavaTrace_a1a39834408aa1eaa545fdf2ed62b0ba1}
+
+\item 
+unsigned long int {\bfseries file\+Limit}\hypertarget{classRTSim_1_1JavaTrace_a77748363d6a841150b7fda121e9db005}{}\label{classRTSim_1_1JavaTrace_a77748363d6a841150b7fda121e9db005}
+
+\item 
+vector$<$ int $>$ {\bfseries task\+List}\hypertarget{classRTSim_1_1JavaTrace_aea04d59ab8c738e0bcc0f46839d26ef2}{}\label{classRTSim_1_1JavaTrace_aea04d59ab8c738e0bcc0f46839d26ef2}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/jtrace.\+hpp\item 
+src/jtrace.\+cpp\end{DoxyCompactItemize}

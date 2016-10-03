@@ -1,0 +1,156 @@
+\hypertarget{classRTSim_1_1CBServer}{}\section{R\+T\+Sim\+:\+:C\+B\+Server Class Reference}
+\label{classRTSim_1_1CBServer}\index{R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}}
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:C\+B\+Server\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:C\+B\+Server\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries policy\+\_\+t} \{ {\bfseries O\+R\+I\+G\+I\+N\+AL}, 
+{\bfseries R\+E\+U\+S\+E\+\_\+\+D\+L\+I\+NE}
+ \}\hypertarget{classRTSim_1_1CBServer_a83e49c2a7a5031a437cb392822a38f58}{}\label{classRTSim_1_1CBServer_a83e49c2a7a5031a437cb392822a38f58}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries C\+B\+Server} (Tick q, Tick p, Tick d, bool HR, const std\+::string \&name, const std\+::string \&sched=\char`\"{}F\+I\+F\+O\+Sched\char`\"{})\hypertarget{classRTSim_1_1CBServer_aca9cad430235e0e59afc100fd90ce5db}{}\label{classRTSim_1_1CBServer_aca9cad430235e0e59afc100fd90ce5db}
+
+\item 
+void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1CBServer_a8f523b3b1ffe3ffbe7bddd7451646b44}{}\label{classRTSim_1_1CBServer_a8f523b3b1ffe3ffbe7bddd7451646b44}
+
+\item 
+void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1CBServer_a5669a8b76428eb0fd12c5eadca67942f}{}\label{classRTSim_1_1CBServer_a5669a8b76428eb0fd12c5eadca67942f}
+
+\item 
+virtual Tick \hyperlink{classRTSim_1_1CBServer_a9298824b71e817063b8a54b859228def}{get\+Budget} () const 
+\item 
+virtual Tick \hyperlink{classRTSim_1_1CBServer_a61d1dd39522a70c89356302d5732c886}{get\+Period} () const 
+\item 
+Tick \hyperlink{classRTSim_1_1CBServer_a1b252e6325658cbcf672e467fc66b543}{change\+Budget} (const Tick \&n)
+\item 
+Tick {\bfseries changeQ} (const Tick \&n)\hypertarget{classRTSim_1_1CBServer_a71bd5ad9ba2719936b667dc0a94d8fa5}{}\label{classRTSim_1_1CBServer_a71bd5ad9ba2719936b667dc0a94d8fa5}
+
+\item 
+virtual double \hyperlink{classRTSim_1_1CBServer_a2d5572a8ead1c91b45b7d310d32d9fd6}{get\+Virtual\+Time} ()
+\item 
+Tick {\bfseries get\+\_\+remaining\+\_\+budget} ()\hypertarget{classRTSim_1_1CBServer_a539c676059bdde53c5a6f3ed92c8ace7}{}\label{classRTSim_1_1CBServer_a539c676059bdde53c5a6f3ed92c8ace7}
+
+\item 
+policy\+\_\+t {\bfseries get\+\_\+policy} () const \hypertarget{classRTSim_1_1CBServer_a7be1f14798824ebfea0c3b77bcac59f6}{}\label{classRTSim_1_1CBServer_a7be1f14798824ebfea0c3b77bcac59f6}
+
+\item 
+void {\bfseries set\+\_\+policy} (policy\+\_\+t p)\hypertarget{classRTSim_1_1CBServer_a18e59153bf703e07cdf4f2cbaac826a0}{}\label{classRTSim_1_1CBServer_a18e59153bf703e07cdf4f2cbaac826a0}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_a5ebead409a8257bc2db5d64fd59e4943}{idle\+\_\+ready} ()\hypertarget{classRTSim_1_1CBServer_a5ebead409a8257bc2db5d64fd59e4943}{}\label{classRTSim_1_1CBServer_a5ebead409a8257bc2db5d64fd59e4943}
+
+\begin{DoxyCompactList}\small\item\em from idle to active contending (new work to do) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_a812cd8736bd74087a5af13d564b8fc52}{releasing\+\_\+ready} ()\hypertarget{classRTSim_1_1CBServer_a812cd8736bd74087a5af13d564b8fc52}{}\label{classRTSim_1_1CBServer_a812cd8736bd74087a5af13d564b8fc52}
+
+\begin{DoxyCompactList}\small\item\em from active non contending to active contending (more work) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_a11f09e91d0dc74b6418db5d3a70b1a8f}{ready\+\_\+executing} ()\hypertarget{classRTSim_1_1CBServer_a11f09e91d0dc74b6418db5d3a70b1a8f}{}\label{classRTSim_1_1CBServer_a11f09e91d0dc74b6418db5d3a70b1a8f}
+
+\begin{DoxyCompactList}\small\item\em from active contending to executing (dispatching) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_aaac43f2e7622f13a92a6225cd56172e5}{executing\+\_\+ready} ()\hypertarget{classRTSim_1_1CBServer_aaac43f2e7622f13a92a6225cd56172e5}{}\label{classRTSim_1_1CBServer_aaac43f2e7622f13a92a6225cd56172e5}
+
+\begin{DoxyCompactList}\small\item\em from executing to active contenting (preemption) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_a39e2ff4b72555812d3210f447bff562b}{executing\+\_\+releasing} ()\hypertarget{classRTSim_1_1CBServer_a39e2ff4b72555812d3210f447bff562b}{}\label{classRTSim_1_1CBServer_a39e2ff4b72555812d3210f447bff562b}
+
+\begin{DoxyCompactList}\small\item\em from executing to active non contending (no more work) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_aa570da03f1491eaef1dca281f2df9613}{releasing\+\_\+idle} ()\hypertarget{classRTSim_1_1CBServer_aa570da03f1491eaef1dca281f2df9613}{}\label{classRTSim_1_1CBServer_aa570da03f1491eaef1dca281f2df9613}
+
+\begin{DoxyCompactList}\small\item\em from active non contending to idle (no lag) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_a0fc2a46c8fd58286f746550b6d7be54e}{executing\+\_\+recharging} ()\hypertarget{classRTSim_1_1CBServer_a0fc2a46c8fd58286f746550b6d7be54e}{}\label{classRTSim_1_1CBServer_a0fc2a46c8fd58286f746550b6d7be54e}
+
+\begin{DoxyCompactList}\small\item\em from executing to recharging (budget exhausted) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_ad57d1bbe8a7b5199576bf1fbc7c36302}{recharging\+\_\+ready} ()\hypertarget{classRTSim_1_1CBServer_ad57d1bbe8a7b5199576bf1fbc7c36302}{}\label{classRTSim_1_1CBServer_ad57d1bbe8a7b5199576bf1fbc7c36302}
+
+\begin{DoxyCompactList}\small\item\em from recharging to active contending (budget recharged) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1CBServer_ab1eb9431017f98cfa1d27ff3d71d4f69}{recharging\+\_\+idle} ()\hypertarget{classRTSim_1_1CBServer_ab1eb9431017f98cfa1d27ff3d71d4f69}{}\label{classRTSim_1_1CBServer_ab1eb9431017f98cfa1d27ff3d71d4f69}
+
+\begin{DoxyCompactList}\small\item\em from recharging to active contending (budget recharged) \end{DoxyCompactList}\item 
+void {\bfseries on\+Replenishment} (Event $\ast$e)\hypertarget{classRTSim_1_1CBServer_a3fea4ee610c1dec6f9ed75978ea246da}{}\label{classRTSim_1_1CBServer_a3fea4ee610c1dec6f9ed75978ea246da}
+
+\item 
+void {\bfseries on\+Idle} (Event $\ast$e)\hypertarget{classRTSim_1_1CBServer_affcc2152e51a5df18d6e73da81b4ba4f}{}\label{classRTSim_1_1CBServer_affcc2152e51a5df18d6e73da81b4ba4f}
+
+\item 
+void {\bfseries prepare\+\_\+replenishment} (const Tick \&t)\hypertarget{classRTSim_1_1CBServer_a3abcabdd767966194dd37247c088bc08}{}\label{classRTSim_1_1CBServer_a3abcabdd767966194dd37247c088bc08}
+
+\item 
+void {\bfseries check\+\_\+repl} ()\hypertarget{classRTSim_1_1CBServer_a1a003e29511038d17559162e927e60aa}{}\label{classRTSim_1_1CBServer_a1a003e29511038d17559162e927e60aa}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}!change\+Budget@{change\+Budget}}
+\index{change\+Budget@{change\+Budget}!R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}}
+\subsubsection[{\texorpdfstring{change\+Budget(const Tick \&n)}{changeBudget(const Tick &n)}}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+C\+B\+Server\+::change\+Budget (
+\begin{DoxyParamCaption}
+\item[{const Tick \&}]{new\+\_\+budget}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1CBServer_a1b252e6325658cbcf672e467fc66b543}{}\label{classRTSim_1_1CBServer_a1b252e6325658cbcf672e467fc66b543}
+Dynamically changes the budget.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+budget} & the new budget. Can be higher or lower than the current one\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the function returns the time at which the new budget has been imposed. Usually, an increase in the budget is immediately enforced, so it returns the current time. A decrease in the budget, instead, cannot be enforced immediately, so the function will return the time in the future when the new budget has been enforced. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classRTSim_1_1Server_a48d58b30f36de937de7ce3e4700bd18c}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}!get\+Budget@{get\+Budget}}
+\index{get\+Budget@{get\+Budget}!R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}}
+\subsubsection[{\texorpdfstring{get\+Budget() const }{getBudget() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+C\+B\+Server\+::get\+Budget (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1CBServer_a9298824b71e817063b8a54b859228def}{}\label{classRTSim_1_1CBServer_a9298824b71e817063b8a54b859228def}
+Get budget 
+
+Implements \hyperlink{classRTSim_1_1Server_a9a631df5ed8fcf2939eaa117cc652c90}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}!get\+Period@{get\+Period}}
+\index{get\+Period@{get\+Period}!R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}}
+\subsubsection[{\texorpdfstring{get\+Period() const }{getPeriod() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+C\+B\+Server\+::get\+Period (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1CBServer_a61d1dd39522a70c89356302d5732c886}{}\label{classRTSim_1_1CBServer_a61d1dd39522a70c89356302d5732c886}
+Returns the period 
+
+Implements \hyperlink{classRTSim_1_1Server_a0e3112770d8344442fcb51b88cf7ce3d}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}!get\+Virtual\+Time@{get\+Virtual\+Time}}
+\index{get\+Virtual\+Time@{get\+Virtual\+Time}!R\+T\+Sim\+::\+C\+B\+Server@{R\+T\+Sim\+::\+C\+B\+Server}}
+\subsubsection[{\texorpdfstring{get\+Virtual\+Time()}{getVirtualTime()}}]{\setlength{\rightskip}{0pt plus 5cm}double R\+T\+Sim\+::\+C\+B\+Server\+::get\+Virtual\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1CBServer_a2d5572a8ead1c91b45b7d310d32d9fd6}{}\label{classRTSim_1_1CBServer_a2d5572a8ead1c91b45b7d310d32d9fd6}
+Return the server virtual time. 
+
+Implements \hyperlink{classRTSim_1_1Server_a1397b6ddbad8ed5857c7242261ec737d}{R\+T\+Sim\+::\+Server}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/cbserver.\+hpp\item 
+src/cbserver.\+cpp\end{DoxyCompactItemize}

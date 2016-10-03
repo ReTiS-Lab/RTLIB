@@ -1,0 +1,41 @@
+\hypertarget{classRTSim_1_1EndDispatchMultiEvt}{}\section{R\+T\+Sim\+:\+:End\+Dispatch\+Multi\+Evt Class Reference}
+\label{classRTSim_1_1EndDispatchMultiEvt}\index{R\+T\+Sim\+::\+End\+Dispatch\+Multi\+Evt@{R\+T\+Sim\+::\+End\+Dispatch\+Multi\+Evt}}
+
+
+{\ttfamily \#include $<$mrtkernel.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:End\+Dispatch\+Multi\+Evt\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:End\+Dispatch\+Multi\+Evt\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries End\+Dispatch\+Multi\+Evt} (\hyperlink{classRTSim_1_1MRTKernel}{M\+R\+T\+Kernel} \&k, \hyperlink{classRTSim_1_1CPU}{C\+PU} \&c)\hypertarget{classRTSim_1_1EndDispatchMultiEvt_a2b512e9fde718f4535a17921488c8941}{}\label{classRTSim_1_1EndDispatchMultiEvt_a2b512e9fde718f4535a17921488c8941}
+
+\item 
+\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ {\bfseries get\+C\+PU} ()\hypertarget{classRTSim_1_1EndDispatchMultiEvt_a7d777e70b7fd9c59dd2ab29a2c007dee}{}\label{classRTSim_1_1EndDispatchMultiEvt_a7d777e70b7fd9c59dd2ab29a2c007dee}
+
+\item 
+void {\bfseries set\+Task} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)\hypertarget{classRTSim_1_1EndDispatchMultiEvt_a5ea43ec6e80c581d053edb4270a8ceb0}{}\label{classRTSim_1_1EndDispatchMultiEvt_a5ea43ec6e80c581d053edb4270a8ceb0}
+
+\item 
+\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ {\bfseries get\+Task} ()\hypertarget{classRTSim_1_1EndDispatchMultiEvt_aee122683cb4cfd2c50e362183eaaf592}{}\label{classRTSim_1_1EndDispatchMultiEvt_aee122683cb4cfd2c50e362183eaaf592}
+
+\item 
+virtual void {\bfseries doit} ()\hypertarget{classRTSim_1_1EndDispatchMultiEvt_a3ab68baa99813232c1ede82a636f112b}{}\label{classRTSim_1_1EndDispatchMultiEvt_a3ab68baa99813232c1ede82a636f112b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class models and event of \char`\"{}start of context switch\char`\"{}. It serves to implement a context switch on a certain processor. Different from the \hyperlink{classRTSim_1_1EndDispatchEvt}{End\+Dispatch\+Evt} for single processor kernels (\hyperlink{classRTSim_1_1RTKernel}{R\+T\+Kernel}), since it needs to store a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on which the contxt switch may happen. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/mrtkernel.\+hpp\item 
+src/mrtkernel.\+cpp\end{DoxyCompactItemize}

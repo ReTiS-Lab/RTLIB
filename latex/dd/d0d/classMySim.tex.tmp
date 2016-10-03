@@ -1,0 +1,65 @@
+\hypertarget{classMySim}{}\section{My\+Sim Class Reference}
+\label{classMySim}\index{My\+Sim@{My\+Sim}}
+
+
+Collaboration diagram for My\+Sim\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries My\+Sim} (double u, double hl, double ul=0.\+99)\hypertarget{classMySim_a3577312c83f096cc100a10580446a151}{}\label{classMySim_a3577312c83f096cc100a10580446a151}
+
+\item 
+void {\bfseries add\+\_\+to\+\_\+sim} (\hyperlink{classRTSim_1_1Grub}{Grub} $\ast$s, \hyperlink{classRTSim_1_1Task}{Task} \&task)\hypertarget{classMySim_a4db5b7da929f8318373f020ef53252a2}{}\label{classMySim_a4db5b7da929f8318373f020ef53252a2}
+
+\item 
+void {\bfseries create\+\_\+high\+\_\+server} (\hyperlink{classRTSim_1_1Task}{Task} \&task)\hypertarget{classMySim_a6c2605da8789b053608954786c53d58d}{}\label{classMySim_a6c2605da8789b053608954786c53d58d}
+
+\item 
+void {\bfseries create\+\_\+low\+\_\+server} (\hyperlink{classRTSim_1_1Task}{Task} \&task, double lu)\hypertarget{classMySim_a9792e0b9568a198b578537be73e3b023}{}\label{classMySim_a9792e0b9568a198b578537be73e3b023}
+
+\item 
+void {\bfseries create\+\_\+single\+\_\+server} (\hyperlink{classRTSim_1_1Task}{Task} \&task, Tick period)\hypertarget{classMySim_a9e1fcf8dca42ffc4c6455ba2f8ea338a}{}\label{classMySim_a9e1fcf8dca42ffc4c6455ba2f8ea338a}
+
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1EDFScheduler}{E\+D\+F\+Scheduler} {\bfseries sched}\hypertarget{classMySim_aa0a68bdf85506e4a53a2dc3a6f053a21}{}\label{classMySim_aa0a68bdf85506e4a53a2dc3a6f053a21}
+
+\item 
+\hyperlink{classRTSim_1_1RTKernel}{R\+T\+Kernel} {\bfseries kern}\hypertarget{classMySim_a4651366b0f9a863093ae04471e777eb5}{}\label{classMySim_a4651366b0f9a863093ae04471e777eb5}
+
+\item 
+\hyperlink{classRTSim_1_1GrubSupervisor}{Grub\+Supervisor} {\bfseries super}\hypertarget{classMySim_ab3287fa3d62ff48963344b17687441eb}{}\label{classMySim_ab3287fa3d62ff48963344b17687441eb}
+
+\item 
+\hyperlink{classRTSim_1_1TextTrace}{Text\+Trace} {\bfseries ttrace}\hypertarget{classMySim_a2459b25dae38d01fe463439f877cc545}{}\label{classMySim_a2459b25dae38d01fe463439f877cc545}
+
+\item 
+vector$<$ \hyperlink{classRTSim_1_1Grub}{Grub} $\ast$ $>$ {\bfseries servers}\hypertarget{classMySim_a40f6fab7f3a3388e2159730fa23c7183}{}\label{classMySim_a40f6fab7f3a3388e2159730fa23c7183}
+
+\item 
+\hyperlink{classRTSim_1_1Grub}{Grub} $\ast$ {\bfseries Low\+Server}\hypertarget{classMySim_aaec1666e4d09c5ea9ba58d3630f7fbac}{}\label{classMySim_aaec1666e4d09c5ea9ba58d3630f7fbac}
+
+\item 
+double {\bfseries hl\+\_\+ratio}\hypertarget{classMySim_a427ea919f133316c4d6bc8ce2304cda1}{}\label{classMySim_a427ea919f133316c4d6bc8ce2304cda1}
+
+\item 
+double {\bfseries High\+Util}\hypertarget{classMySim_ac2a73bcbf3fb06fd09904204cdad7f75}{}\label{classMySim_ac2a73bcbf3fb06fd09904204cdad7f75}
+
+\item 
+double {\bfseries High\+Low\+Util}\hypertarget{classMySim_a1c173ebcc4b9f63432f4886466d17503}{}\label{classMySim_a1c173ebcc4b9f63432f4886466d17503}
+
+\item 
+double {\bfseries Low\+Util}\hypertarget{classMySim_a9e1653cd5d09ae22a24b55d4d9736935}{}\label{classMySim_a9e1653cd5d09ae22a24b55d4d9736935}
+
+\item 
+double {\bfseries upper\+\_\+limit}\hypertarget{classMySim_a12243b22e603c60a89443d6a15dd0dcf}{}\label{classMySim_a12243b22e603c60a89443d6a15dd0dcf}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+examples/grub/sim\+\_\+structs.\+hpp\end{DoxyCompactItemize}

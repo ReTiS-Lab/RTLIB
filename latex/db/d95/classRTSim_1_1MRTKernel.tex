@@ -1,0 +1,345 @@
+\hypertarget{classRTSim_1_1MRTKernel}{}\section{R\+T\+Sim\+:\+:M\+R\+T\+Kernel Class Reference}
+\label{classRTSim_1_1MRTKernel}\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+
+
+{\ttfamily \#include $<$mrtkernel.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:M\+R\+T\+Kernel\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:M\+R\+T\+Kernel\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1MRTKernel_a0af9407b80533f14021f3a0385ff9d12}{M\+R\+T\+Kernel} (\hyperlink{classRTSim_1_1Scheduler}{Scheduler} $\ast$, \hyperlink{classRTSim_1_1absCPUFactory}{abs\+C\+P\+U\+Factory} $\ast$, int n=1, const std\+::string \&name=\char`\"{}\char`\"{})
+\item 
+\hyperlink{classRTSim_1_1MRTKernel_a215e28dc1d5b2161befc74901bf5dfb9}{M\+R\+T\+Kernel} (\hyperlink{classRTSim_1_1Scheduler}{Scheduler} $\ast$, int n=1, const std\+::string \&name=\char`\"{}\char`\"{})
+\item 
+\hyperlink{classRTSim_1_1MRTKernel_ab4248818c4f41c5b4621781899424c76}{M\+R\+T\+Kernel} (\hyperlink{classRTSim_1_1Scheduler}{Scheduler} $\ast$, const std\+::string \&name)
+\item 
+void \hyperlink{classRTSim_1_1MRTKernel_a903c249fc30d7f9f2fc4c4fd7270b5be}{add\+C\+PU} (\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$)
+\item 
+void \hyperlink{classRTSim_1_1MRTKernel_a040cdf664733c628ac532341938be7f7}{add\+Task} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} \&t, const std\+::string \&param=\char`\"{}\char`\"{})
+\item 
+virtual void \hyperlink{classRTSim_1_1MRTKernel_abf3b27a6c51995a47539214345d9b193}{on\+Arrival} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+virtual void \hyperlink{classRTSim_1_1MRTKernel_a016ed93346f3505e11389cb8a8cdc777}{suspend} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+virtual void \hyperlink{classRTSim_1_1MRTKernel_a9bc95fb1eaa73383b470ed6122770f44}{on\+End} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+void \hyperlink{classRTSim_1_1MRTKernel_a8283b7b4c2cd26b8ae345b9242c4436b}{dispatch} (\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$cpu)
+\item 
+virtual void \hyperlink{classRTSim_1_1MRTKernel_a2c93872c83ec92ebb02f788d80a3a874}{dispatch} ()
+\item 
+void {\bfseries on\+Begin\+Dispatch\+Multi} (\hyperlink{classRTSim_1_1BeginDispatchMultiEvt}{Begin\+Dispatch\+Multi\+Evt} $\ast$e)\hypertarget{classRTSim_1_1MRTKernel_a0a8e8fa0b649e0896e9fed39c1241e5c}{}\label{classRTSim_1_1MRTKernel_a0a8e8fa0b649e0896e9fed39c1241e5c}
+
+\item 
+void {\bfseries on\+End\+Dispatch\+Multi} (\hyperlink{classRTSim_1_1EndDispatchMultiEvt}{End\+Dispatch\+Multi\+Evt} $\ast$e)\hypertarget{classRTSim_1_1MRTKernel_a77e4370094191739b9bf845ccb65a8af}{}\label{classRTSim_1_1MRTKernel_a77e4370094191739b9bf845ccb65a8af}
+
+\item 
+virtual \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1MRTKernel_a465c7322be4b9ce5c4ef2594bd9e213a}{get\+Processor} (const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$) const 
+\item 
+virtual \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1MRTKernel_a132a1ad4926f4c91fdce20335e1312f3}{get\+Old\+Processor} (const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$) const 
+\item 
+std\+::vector$<$ \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ $>$ \hyperlink{classRTSim_1_1MRTKernel_a6c544578f9fe343193bc9fce190d21b1}{get\+Processors} () const 
+\item 
+void \hyperlink{classRTSim_1_1MRTKernel_a5f3d0c99ad98628bb6471a8b30b6fc0d}{set\+Migration\+Delay} (const Tick \&t)
+\item 
+virtual void \hyperlink{classRTSim_1_1MRTKernel_a19a55420054446e83b5b32954ab9be3b}{new\+Run} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1MRTKernel_a79e1a32c34a15ed969eb3c9172fb4783}{end\+Run} ()
+\item 
+virtual void {\bfseries print} ()\hypertarget{classRTSim_1_1MRTKernel_a2e5cdecd40d6ba8e28115ffa13593064}{}\label{classRTSim_1_1MRTKernel_a2e5cdecd40d6ba8e28115ffa13593064}
+
+\item 
+virtual void {\bfseries print\+State} ()\hypertarget{classRTSim_1_1MRTKernel_a38270bbcbc8dfded9dc24299cd45c234}{}\label{classRTSim_1_1MRTKernel_a38270bbcbc8dfded9dc24299cd45c234}
+
+\item 
+virtual \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ \hyperlink{classRTSim_1_1MRTKernel_aed42ba73399b65a839a7a582a963f1c5}{get\+Task} (\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$)
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \hyperlink{classRTSim_1_1MRTKernel_ae591128d0e72f25fd28fc3267a50e767}{get\+Running\+Tasks} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef map$<$ \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$, \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ $>$\+::iterator {\bfseries I\+T\+C\+PU}\hypertarget{classRTSim_1_1MRTKernel_a66872fb82ae1c27f03f0ab8301ae629e}{}\label{classRTSim_1_1MRTKernel_a66872fb82ae1c27f03f0ab8301ae629e}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries internal\+Constructor} (int n)\hypertarget{classRTSim_1_1MRTKernel_ae85739cf98fd842184b3fbefd4a7a482}{}\label{classRTSim_1_1MRTKernel_ae85739cf98fd842184b3fbefd4a7a482}
+
+\item 
+\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1MRTKernel_a2c894e825ebef88417decac4bd29388b}{get\+Free\+Processor} ()
+\item 
+bool {\bfseries is\+Dispatched} (\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$p)\hypertarget{classRTSim_1_1MRTKernel_a1b718cfa78c6f0811c9714c31918ad6f}{}\label{classRTSim_1_1MRTKernel_a1b718cfa78c6f0811c9714c31918ad6f}
+
+\item 
+I\+T\+C\+PU {\bfseries get\+Next\+Free\+Proc} (I\+T\+C\+PU s, I\+T\+C\+PU e)\hypertarget{classRTSim_1_1MRTKernel_aec7e4f34a3fece23b944a64c61e47b8e}{}\label{classRTSim_1_1MRTKernel_aec7e4f34a3fece23b944a64c61e47b8e}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1absCPUFactory}{abs\+C\+P\+U\+Factory} $\ast$ \hyperlink{classRTSim_1_1MRTKernel_a373a1adbd42000b91513ec766c65b038}{\+\_\+\+C\+P\+U\+Factory}\hypertarget{classRTSim_1_1MRTKernel_a373a1adbd42000b91513ec766c65b038}{}\label{classRTSim_1_1MRTKernel_a373a1adbd42000b91513ec766c65b038}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classRTSim_1_1CPU}{C\+PU} Factory. Used in one of the constructors. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$, \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ $>$ \hyperlink{classRTSim_1_1MRTKernel_a2fc640eac40ed488b79f90061f640bff}{\+\_\+m\+\_\+curr\+Exe}\hypertarget{classRTSim_1_1MRTKernel_a2fc640eac40ed488b79f90061f640bff}{}\label{classRTSim_1_1MRTKernel_a2fc640eac40ed488b79f90061f640bff}
+
+\begin{DoxyCompactList}\small\item\em The currently executing tasks (one per processor). \end{DoxyCompactList}\item 
+std\+::map$<$ const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$, \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ $>$ \hyperlink{classRTSim_1_1MRTKernel_a19730467da360a5b5d30a03731867fa8}{\+\_\+m\+\_\+old\+Exe}\hypertarget{classRTSim_1_1MRTKernel_a19730467da360a5b5d30a03731867fa8}{}\label{classRTSim_1_1MRTKernel_a19730467da360a5b5d30a03731867fa8}
+
+\begin{DoxyCompactList}\small\item\em Where the task was executing before being suspended. \end{DoxyCompactList}\item 
+std\+::map$<$ const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$, \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ $>$ \hyperlink{classRTSim_1_1MRTKernel_af0023ed24a2bb68347cc8e1b758e02ee}{\+\_\+m\+\_\+dispatched}
+\item 
+std\+::map$<$ \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$, bool $>$ \hyperlink{classRTSim_1_1MRTKernel_a85532e4ef383391213dae404e276b024}{\+\_\+is\+Context\+Switching}\hypertarget{classRTSim_1_1MRTKernel_a85532e4ef383391213dae404e276b024}{}\label{classRTSim_1_1MRTKernel_a85532e4ef383391213dae404e276b024}
+
+\begin{DoxyCompactList}\small\item\em true is the \hyperlink{classRTSim_1_1CPU}{C\+PU} is on a context switch \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$, \hyperlink{classRTSim_1_1BeginDispatchMultiEvt}{Begin\+Dispatch\+Multi\+Evt} $\ast$ $>$ \hyperlink{classRTSim_1_1MRTKernel_af54e9a148f0269a13be7c7950fe0c6ce}{\+\_\+begin\+Evt}\hypertarget{classRTSim_1_1MRTKernel_af54e9a148f0269a13be7c7950fe0c6ce}{}\label{classRTSim_1_1MRTKernel_af54e9a148f0269a13be7c7950fe0c6ce}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRTSim_1_1BeginDispatchMultiEvt}{Begin\+Dispatch\+Multi\+Evt} for every \hyperlink{classRTSim_1_1CPU}{C\+PU}. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$, \hyperlink{classRTSim_1_1EndDispatchMultiEvt}{End\+Dispatch\+Multi\+Evt} $\ast$ $>$ \hyperlink{classRTSim_1_1MRTKernel_a692d97c393f0c9e2169f0ecc94371c50}{\+\_\+end\+Evt}\hypertarget{classRTSim_1_1MRTKernel_a692d97c393f0c9e2169f0ecc94371c50}{}\label{classRTSim_1_1MRTKernel_a692d97c393f0c9e2169f0ecc94371c50}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRTSim_1_1EndDispatchMultiEvt}{End\+Dispatch\+Multi\+Evt} for every \hyperlink{classRTSim_1_1CPU}{C\+PU}. \end{DoxyCompactList}\item 
+Tick \hyperlink{classRTSim_1_1MRTKernel_ab54d11942b5876bbc20a860d4ab8e5f3}{\+\_\+migration\+Delay}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An implementation of a real-\/time multi processor kernel with global scheduling. It contains\+:
+
+
+\begin{DoxyItemize}
+\item a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} factory used to create C\+P\+Us managed by the kernel;
+\item a pointer to a \hyperlink{classRTSim_1_1Scheduler}{Scheduler}, which implements the scheduling policy;
+\item a pointer to a \hyperlink{classRTSim_1_1Resource}{Resource} Manager, which is responsable for resource access related operations and thus implements a resource allocation policy;
+\item a map of pointers to \hyperlink{classRTSim_1_1CPU}{C\+PU} and task, which keeps the information about current task assignment to C\+P\+Us;
+\item the set of tasks handled by this kernel.
+\end{DoxyItemize}
+
+This implementation is quite general\+: it lets the user of this class the freedom to adopt any scheduler derived form \hyperlink{classRTSim_1_1Scheduler}{Scheduler} and a resorce manager derived from \hyperlink{classRTSim_1_1ResManager}{Res\+Manager} or no resorce manager at all. The kernel for a multiprocessor system with different C\+P\+Us can be also be simulated. It is up to the instruction class to implement the correct duration of its execution by asking the kernel of its task the speed of the processor on whitch it\textquotesingle{}s scheduled.
+
+We will probably have to derive from this class to implement static partition and mixed task allocation to \hyperlink{classRTSim_1_1CPU}{C\+PU}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1absCPUFactory}{abs\+C\+P\+U\+Factory}, \hyperlink{classRTSim_1_1Scheduler}{Scheduler}, \hyperlink{classRTSim_1_1ResManager}{Res\+Manager}, \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!M\+R\+T\+Kernel@{M\+R\+T\+Kernel}}
+\index{M\+R\+T\+Kernel@{M\+R\+T\+Kernel}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{M\+R\+T\+Kernel(\+Scheduler $\ast$, abs\+C\+P\+U\+Factory $\ast$, int n=1, const std\+::string \&name="""")}{MRTKernel(Scheduler *, absCPUFactory *, int n=1, const std::string &name="")}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::\+M\+R\+T\+Kernel (
+\begin{DoxyParamCaption}
+\item[{{\bf Scheduler} $\ast$}]{, }
+\item[{{\bf abs\+C\+P\+U\+Factory} $\ast$}]{, }
+\item[{int}]{n = {\ttfamily 1}, }
+\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1MRTKernel_a0af9407b80533f14021f3a0385ff9d12}{}\label{classRTSim_1_1MRTKernel_a0af9407b80533f14021f3a0385ff9d12}
+Constructor\+: needs to know which scheduler and \hyperlink{classRTSim_1_1CPU}{C\+PU} factory the kernel want to use, and how many processor the system is composed of. \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!M\+R\+T\+Kernel@{M\+R\+T\+Kernel}}
+\index{M\+R\+T\+Kernel@{M\+R\+T\+Kernel}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{M\+R\+T\+Kernel(\+Scheduler $\ast$, int n=1, const std\+::string \&name="""")}{MRTKernel(Scheduler *, int n=1, const std::string &name="")}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::\+M\+R\+T\+Kernel (
+\begin{DoxyParamCaption}
+\item[{{\bf Scheduler} $\ast$}]{, }
+\item[{int}]{n = {\ttfamily 1}, }
+\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1MRTKernel_a215e28dc1d5b2161befc74901bf5dfb9}{}\label{classRTSim_1_1MRTKernel_a215e28dc1d5b2161befc74901bf5dfb9}
+Constructor\+: needs to know which scheduler the kernel want to use, and from how many processor the system is composed. \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!M\+R\+T\+Kernel@{M\+R\+T\+Kernel}}
+\index{M\+R\+T\+Kernel@{M\+R\+T\+Kernel}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{M\+R\+T\+Kernel(\+Scheduler $\ast$, const std\+::string \&name)}{MRTKernel(Scheduler *, const std::string &name)}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::\+M\+R\+T\+Kernel (
+\begin{DoxyParamCaption}
+\item[{{\bf Scheduler} $\ast$}]{, }
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1MRTKernel_ab4248818c4f41c5b4621781899424c76}{}\label{classRTSim_1_1MRTKernel_ab4248818c4f41c5b4621781899424c76}
+Needs to know scheduler and name 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!add\+C\+PU@{add\+C\+PU}}
+\index{add\+C\+PU@{add\+C\+PU}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{add\+C\+P\+U(\+C\+P\+U $\ast$)}{addCPU(CPU *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::add\+C\+PU (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+PU} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1MRTKernel_a903c249fc30d7f9f2fc4c4fd7270b5be}{}\label{classRTSim_1_1MRTKernel_a903c249fc30d7f9f2fc4c4fd7270b5be}
+Adds a \hyperlink{classRTSim_1_1CPU}{C\+PU} to the set of C\+P\+Us handled by the kernel. \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!add\+Task@{add\+Task}}
+\index{add\+Task@{add\+Task}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{add\+Task(\+Abs\+R\+T\+Task \&t, const std\+::string \&param="""")}{addTask(AbsRTTask &t, const std::string &param="")}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::add\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} \&}]{t, }
+\item[{const std\+::string \&}]{param = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1MRTKernel_a040cdf664733c628ac532341938be7f7}{}\label{classRTSim_1_1MRTKernel_a040cdf664733c628ac532341938be7f7}
+Add a task to the kernel
+
+Spcify the scheduling parameters in param. \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{dispatch(\+C\+P\+U $\ast$cpu)}{dispatch(CPU *cpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::dispatch (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+PU} $\ast$}]{cpu}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1MRTKernel_a8283b7b4c2cd26b8ae345b9242c4436b}{}\label{classRTSim_1_1MRTKernel_a8283b7b4c2cd26b8ae345b9242c4436b}
+Dispatching on a given \hyperlink{classRTSim_1_1CPU}{C\+PU}.
+
+This is different from the version we have on \hyperlink{classRTSim_1_1RTKernel}{R\+T\+Kernel}, since we may need to specify on which \hyperlink{classRTSim_1_1CPU}{C\+PU} we have to select a new task (for example, in the \hyperlink{classRTSim_1_1MRTKernel_a9bc95fb1eaa73383b470ed6122770f44}{on\+End()} and \hyperlink{classRTSim_1_1MRTKernel_a016ed93346f3505e11389cb8a8cdc777}{suspend()} functions). In the \hyperlink{classRTSim_1_1MRTKernel_abf3b27a6c51995a47539214345d9b193}{on\+Arrival()} function, instead, we stil do not know which processor is free! \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{dispatch()}{dispatch()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::dispatch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a2c93872c83ec92ebb02f788d80a3a874}{}\label{classRTSim_1_1MRTKernel_a2c93872c83ec92ebb02f788d80a3a874}
+This function is called by the on\+Arrival and by the activate function. When we call this, we first select a free processor, then we call the other dispatch, specifying on which processor we need to schedule. 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!end\+Run@{end\+Run}}
+\index{end\+Run@{end\+Run}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{end\+Run()}{endRun()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::end\+Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a79e1a32c34a15ed969eb3c9172fb4783}{}\label{classRTSim_1_1MRTKernel_a79e1a32c34a15ed969eb3c9172fb4783}
+This function is common to all Entity objects. after every new simulation run, this function is invoked. In this case, it just puts the \+\_\+curr\+Exe pointer to N\+U\+LL. 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_a2bc0b04bbb785f54e4ae60440bbcd816}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!get\+Free\+Processor@{get\+Free\+Processor}}
+\index{get\+Free\+Processor@{get\+Free\+Processor}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Free\+Processor()}{getFreeProcessor()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+PU} $\ast$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::get\+Free\+Processor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classRTSim_1_1MRTKernel_a2c894e825ebef88417decac4bd29388b}{}\label{classRTSim_1_1MRTKernel_a2c894e825ebef88417decac4bd29388b}
+Returns a pointer to a free \hyperlink{classRTSim_1_1CPU}{C\+PU} (N\+U\+LL if every \hyperlink{classRTSim_1_1CPU}{C\+PU} is busy). \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!get\+Old\+Processor@{get\+Old\+Processor}}
+\index{get\+Old\+Processor@{get\+Old\+Processor}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Old\+Processor(const Abs\+R\+T\+Task $\ast$) const }{getOldProcessor(const AbsRTTask *) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+PU} $\ast$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::get\+Old\+Processor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a132a1ad4926f4c91fdce20335e1312f3}{}\label{classRTSim_1_1MRTKernel_a132a1ad4926f4c91fdce20335e1312f3}
+Returns a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on whitch t was running (N\+U\+LL if t was not running on any \hyperlink{classRTSim_1_1CPU}{C\+PU}) 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_aeb28ef73743303f89bf6c8faa20aae17}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!get\+Processor@{get\+Processor}}
+\index{get\+Processor@{get\+Processor}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Processor(const Abs\+R\+T\+Task $\ast$) const }{getProcessor(const AbsRTTask *) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+PU} $\ast$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::get\+Processor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a465c7322be4b9ce5c4ef2594bd9e213a}{}\label{classRTSim_1_1MRTKernel_a465c7322be4b9ce5c4ef2594bd9e213a}
+Returns a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on whitch t is running (N\+U\+LL if t is not running on any \hyperlink{classRTSim_1_1CPU}{C\+PU}) 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_a243501a194428985a2b0b26848e06f9a}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!get\+Processors@{get\+Processors}}
+\index{get\+Processors@{get\+Processors}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Processors() const }{getProcessors() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf C\+PU} $\ast$ $>$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::get\+Processors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classRTSim_1_1MRTKernel_a6c544578f9fe343193bc9fce190d21b1}{}\label{classRTSim_1_1MRTKernel_a6c544578f9fe343193bc9fce190d21b1}
+Returns a vector containing the pointers to the processors.
+
+Deprecated, will be removed soon \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!get\+Running\+Tasks@{get\+Running\+Tasks}}
+\index{get\+Running\+Tasks@{get\+Running\+Tasks}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Running\+Tasks()}{getRunningTasks()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::string $>$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::get\+Running\+Tasks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_ae591128d0e72f25fd28fc3267a50e767}{}\label{classRTSim_1_1MRTKernel_ae591128d0e72f25fd28fc3267a50e767}
+It returns the name of the tasks (std\+::string) stored in a std\+::vector$<$std\+::string$>$. Each element of the vector corresponds to the name of a different running task. 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_a3120222bdc8beb0f9c81763791332caf}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!get\+Task@{get\+Task}}
+\index{get\+Task@{get\+Task}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Task(\+C\+P\+U $\ast$)}{getTask(CPU *)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abs\+R\+T\+Task} $\ast$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::get\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+PU} $\ast$}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_aed42ba73399b65a839a7a582a963f1c5}{}\label{classRTSim_1_1MRTKernel_aed42ba73399b65a839a7a582a963f1c5}
+Returns a pointer to the task which is executing on given \hyperlink{classRTSim_1_1CPU}{C\+PU} (N\+U\+LL if given \hyperlink{classRTSim_1_1CPU}{C\+PU} is idle) \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!new\+Run@{new\+Run}}
+\index{new\+Run@{new\+Run}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{new\+Run()}{newRun()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::new\+Run (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a19a55420054446e83b5b32954ab9be3b}{}\label{classRTSim_1_1MRTKernel_a19a55420054446e83b5b32954ab9be3b}
+This function is common to all Entity objects. Before every new simulation run, this function is invoked. In this case, it just puts the \+\_\+curr\+Exe pointer to N\+U\+LL. 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_add9fb52593157121107b225ed25e13a1}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!on\+Arrival@{on\+Arrival}}
+\index{on\+Arrival@{on\+Arrival}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{on\+Arrival(\+Abs\+R\+T\+Task $\ast$)}{onArrival(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::on\+Arrival (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_abf3b27a6c51995a47539214345d9b193}{}\label{classRTSim_1_1MRTKernel_abf3b27a6c51995a47539214345d9b193}
+This function is invoked from the task on\+Arrival function, which in turn is invoked when a task arrival event is triggred. It inserts the task in the ready queue and calls the refresh method.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}{refresh} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_aec25abba77131876143e5fd395fe7b7e}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!on\+End@{on\+End}}
+\index{on\+End@{on\+End}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{on\+End(\+Abs\+R\+T\+Task $\ast$)}{onEnd(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::on\+End (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a9bc95fb1eaa73383b470ed6122770f44}{}\label{classRTSim_1_1MRTKernel_a9bc95fb1eaa73383b470ed6122770f44}
+This function is invoked from the task on\+End function, which in turn is invoked when a task completes the execution of the current instance. It removes the task from the ready queue, set \+\_\+curr\+Exe pointer to N\+U\+LL and invokes the refresh.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}{refresh} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_af3d6767555d2d7ea9ee029a892d5bc43}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!set\+Migration\+Delay@{set\+Migration\+Delay}}
+\index{set\+Migration\+Delay@{set\+Migration\+Delay}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{set\+Migration\+Delay(const Tick \&t)}{setMigrationDelay(const Tick &t)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::set\+Migration\+Delay (
+\begin{DoxyParamCaption}
+\item[{const Tick \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classRTSim_1_1MRTKernel_a5f3d0c99ad98628bb6471a8b30b6fc0d}{}\label{classRTSim_1_1MRTKernel_a5f3d0c99ad98628bb6471a8b30b6fc0d}
+Set the migration delay. This is the overhead to be added to the Context\+Switch\+Delay when the task is migrated from one processor to another. \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!suspend@{suspend}}
+\index{suspend@{suspend}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{suspend(\+Abs\+R\+T\+Task $\ast$)}{suspend(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::suspend (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1MRTKernel_a016ed93346f3505e11389cb8a8cdc777}{}\label{classRTSim_1_1MRTKernel_a016ed93346f3505e11389cb8a8cdc777}
+Removes the task from the ready queue. If the task was executing, the task is \char`\"{}descheduled\char`\"{}, and pointer \+\_\+curr\+Exe is set to N\+U\+LL. Otherwise, the task is simply removed from the ready queue, and nothing happens to the executing task. 
+
+Reimplemented from \hyperlink{classRTSim_1_1RTKernel_a9cc3e67f5f9ca883246d024d071a13b1}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+
+
+\subsection{Field Documentation}
+\index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!\+\_\+m\+\_\+dispatched@{\+\_\+m\+\_\+dispatched}}
+\index{\+\_\+m\+\_\+dispatched@{\+\_\+m\+\_\+dispatched}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{\+\_\+m\+\_\+dispatched}{_m_dispatched}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$const {\bf Abs\+R\+T\+Task} $\ast$, {\bf C\+PU}$\ast$$>$ R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::\+\_\+m\+\_\+dispatched\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classRTSim_1_1MRTKernel_af0023ed24a2bb68347cc8e1b758e02ee}{}\label{classRTSim_1_1MRTKernel_af0023ed24a2bb68347cc8e1b758e02ee}
+This denotes where the task has been dispatched. The set of dispatched tasks includes the set of executing tasks\+: first a task is dispatched, (but not executing yet) in the on\+Begin\+Dispatch\+Multi. Then, in the on\+End\+Dispatch\+Multi, its execution starts on the processor. \index{R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}!\+\_\+migration\+Delay@{\+\_\+migration\+Delay}}
+\index{\+\_\+migration\+Delay@{\+\_\+migration\+Delay}!R\+T\+Sim\+::\+M\+R\+T\+Kernel@{R\+T\+Sim\+::\+M\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{\+\_\+migration\+Delay}{_migrationDelay}}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+M\+R\+T\+Kernel\+::\+\_\+migration\+Delay\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classRTSim_1_1MRTKernel_ab54d11942b5876bbc20a860d4ab8e5f3}{}\label{classRTSim_1_1MRTKernel_ab54d11942b5876bbc20a860d4ab8e5f3}
+the amount of delay due to migration (will become a Random\+Var eventually). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/mrtkernel.\+hpp\item 
+src/mrtkernel.\+cpp\end{DoxyCompactItemize}

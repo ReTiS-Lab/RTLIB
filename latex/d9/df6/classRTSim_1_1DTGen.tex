@@ -1,0 +1,61 @@
+\hypertarget{classRTSim_1_1DTGen}{}\section{R\+T\+Sim\+:\+:D\+T\+Gen Class Reference}
+\label{classRTSim_1_1DTGen}\index{R\+T\+Sim\+::\+D\+T\+Gen@{R\+T\+Sim\+::\+D\+T\+Gen}}
+
+
+{\ttfamily \#include $<$load.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:D\+T\+Gen\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:D\+T\+Gen\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries bind} (\hyperlink{classRTSim_1_1RandomTaskSetFactory}{Random\+Task\+Set\+Factory} $\ast$ts, \hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$i, \hyperlink{classRTSim_1_1CTGen}{C\+T\+Gen} $\ast$c)\hypertarget{classRTSim_1_1DTGen_a4d11dc37e061bba0fcd80f633d7a6ca2}{}\label{classRTSim_1_1DTGen_a4d11dc37e061bba0fcd80f633d7a6ca2}
+
+\item 
+virtual Tick {\bfseries get\+Min} (int i) const \hypertarget{classRTSim_1_1DTGen_ae563abe8964f02b96b5e03edf3c7f4ad}{}\label{classRTSim_1_1DTGen_ae563abe8964f02b96b5e03edf3c7f4ad}
+
+\item 
+virtual Tick {\bfseries get\+Avg} (int i) const \hypertarget{classRTSim_1_1DTGen_a869e4cb63acd95b8d9752ae3cd01aa7a}{}\label{classRTSim_1_1DTGen_a869e4cb63acd95b8d9752ae3cd01aa7a}
+
+\item 
+virtual Tick {\bfseries get\+Max} (int i) const \hypertarget{classRTSim_1_1DTGen_a37f662065d96b5fafc272fb5a2097785}{}\label{classRTSim_1_1DTGen_a37f662065d96b5fafc272fb5a2097785}
+
+\item 
+void {\bfseries bind} (\hyperlink{classRTSim_1_1RandomTaskSetFactory}{Random\+Task\+Set\+Factory} $\ast$ts, \hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$i, \hyperlink{classRTSim_1_1CTGen}{C\+T\+Gen} $\ast$c)\hypertarget{classRTSim_1_1DTGen_a4d11dc37e061bba0fcd80f633d7a6ca2}{}\label{classRTSim_1_1DTGen_a4d11dc37e061bba0fcd80f633d7a6ca2}
+
+\item 
+virtual Tick {\bfseries get\+Min} (int i) const \hypertarget{classRTSim_1_1DTGen_ac98c79a9f19af8fdb74091d96bb9e39b}{}\label{classRTSim_1_1DTGen_ac98c79a9f19af8fdb74091d96bb9e39b}
+
+\item 
+virtual Tick {\bfseries get\+Avg} (int i) const \hypertarget{classRTSim_1_1DTGen_a3787597662f2f10f728094f3cf01d985}{}\label{classRTSim_1_1DTGen_a3787597662f2f10f728094f3cf01d985}
+
+\item 
+virtual Tick {\bfseries get\+Max} (int i) const \hypertarget{classRTSim_1_1DTGen_a420c1953f7b056a0069b62e19a603272}{}\label{classRTSim_1_1DTGen_a420c1953f7b056a0069b62e19a603272}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$ {\bfseries iat\+Gen}\hypertarget{classRTSim_1_1DTGen_a26b42f17279cdb07a28b3fc481d410de}{}\label{classRTSim_1_1DTGen_a26b42f17279cdb07a28b3fc481d410de}
+
+\item 
+\hyperlink{classRTSim_1_1CTGen}{C\+T\+Gen} $\ast$ {\bfseries ct\+Gen}\hypertarget{classRTSim_1_1DTGen_a61c0c57f3eb9ff7c5d642ad393a22c16}{}\label{classRTSim_1_1DTGen_a61c0c57f3eb9ff7c5d642ad393a22c16}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the abstract class for generating the relative deadline. The other concrete generators are derived from here. It defines a standard bind() function, the get\+Min, get\+Avg and get\+Max values. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/load.\+hpp\item 
+src/rtload.\+hpp\item 
+src/load.\+cpp\item 
+src/rtload.\+cpp\end{DoxyCompactItemize}

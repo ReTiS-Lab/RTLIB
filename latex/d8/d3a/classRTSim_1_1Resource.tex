@@ -1,0 +1,73 @@
+\hypertarget{classRTSim_1_1Resource}{}\section{R\+T\+Sim\+:\+:Resource Class Reference}
+\label{classRTSim_1_1Resource}\index{R\+T\+Sim\+::\+Resource@{R\+T\+Sim\+::\+Resource}}
+
+
+{\ttfamily \#include $<$resource.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Resource\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Resource\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1Resource_a8d0cf3becb3c7dde07034ec7829a2e46}{Resource} (const string \&n, int nr=1)\hypertarget{classRTSim_1_1Resource_a8d0cf3becb3c7dde07034ec7829a2e46}{}\label{classRTSim_1_1Resource_a8d0cf3becb3c7dde07034ec7829a2e46}
+
+\begin{DoxyCompactList}\small\item\em simple constructor \end{DoxyCompactList}\item 
+\hyperlink{classRTSim_1_1Resource_afb6750a035a62adf669d7f33c24993ba}{Resource} (const \hyperlink{classRTSim_1_1Resource}{Resource} \&r)\hypertarget{classRTSim_1_1Resource_afb6750a035a62adf669d7f33c24993ba}{}\label{classRTSim_1_1Resource_afb6750a035a62adf669d7f33c24993ba}
+
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+void \hyperlink{classRTSim_1_1Resource_a0166bd5745ce30fa2a02953fc8fd05af}{lock} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$owner, int n=1)\hypertarget{classRTSim_1_1Resource_a0166bd5745ce30fa2a02953fc8fd05af}{}\label{classRTSim_1_1Resource_a0166bd5745ce30fa2a02953fc8fd05af}
+
+\begin{DoxyCompactList}\small\item\em lock the resource \end{DoxyCompactList}\item 
+void \hyperlink{classRTSim_1_1Resource_aa70228bd96c89985232c3cd14c1632f5}{unlock} (int n=1)\hypertarget{classRTSim_1_1Resource_aa70228bd96c89985232c3cd14c1632f5}{}\label{classRTSim_1_1Resource_aa70228bd96c89985232c3cd14c1632f5}
+
+\begin{DoxyCompactList}\small\item\em unlock the resource \end{DoxyCompactList}\item 
+bool \hyperlink{classRTSim_1_1Resource_afb4669d32c5db77ec37e7edff8b0ad45}{is\+Locked} () const \hypertarget{classRTSim_1_1Resource_afb4669d32c5db77ec37e7edff8b0ad45}{}\label{classRTSim_1_1Resource_afb4669d32c5db77ec37e7edff8b0ad45}
+
+\begin{DoxyCompactList}\small\item\em checks if the resource is locked \end{DoxyCompactList}\item 
+int \hyperlink{classRTSim_1_1Resource_a6f3c631e0cacd8617c4fafcd9de1fac0}{available} () const \hypertarget{classRTSim_1_1Resource_a6f3c631e0cacd8617c4fafcd9de1fac0}{}\label{classRTSim_1_1Resource_a6f3c631e0cacd8617c4fafcd9de1fac0}
+
+\begin{DoxyCompactList}\small\item\em returns how many resource units are available \end{DoxyCompactList}\item 
+int \hyperlink{classRTSim_1_1Resource_a0e035922e5b90b5467c8115ed4fd0908}{total} () const \hypertarget{classRTSim_1_1Resource_a0e035922e5b90b5467c8115ed4fd0908}{}\label{classRTSim_1_1Resource_a0e035922e5b90b5467c8115ed4fd0908}
+
+\begin{DoxyCompactList}\small\item\em maximum number of resource units \end{DoxyCompactList}\item 
+\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ \hyperlink{classRTSim_1_1Resource_a32a8927b522f27adbb37452502ecdad9}{get\+Owner} () const \hypertarget{classRTSim_1_1Resource_a32a8927b522f27adbb37452502ecdad9}{}\label{classRTSim_1_1Resource_a32a8927b522f27adbb37452502ecdad9}
+
+\begin{DoxyCompactList}\small\item\em returns the resource owner \end{DoxyCompactList}\item 
+void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1Resource_a85ae90d04c090a0702839b7f10e9bfb7}{}\label{classRTSim_1_1Resource_a85ae90d04c090a0702839b7f10e9bfb7}
+
+\item 
+void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1Resource_aa50100e6ec17a39476d25d1510b03c21}{}\label{classRTSim_1_1Resource_aa50100e6ec17a39476d25d1510b03c21}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries \+\_\+total}\hypertarget{classRTSim_1_1Resource_ae5514797d40b8f2cd0a2cf0acd67d06c}{}\label{classRTSim_1_1Resource_ae5514797d40b8f2cd0a2cf0acd67d06c}
+
+\item 
+int {\bfseries \+\_\+available}\hypertarget{classRTSim_1_1Resource_a825ed23b84ac619d48d08f252695f1eb}{}\label{classRTSim_1_1Resource_a825ed23b84ac619d48d08f252695f1eb}
+
+\item 
+\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ {\bfseries \+\_\+owner}\hypertarget{classRTSim_1_1Resource_a247736232a741e0c430e304a45779eab}{}\label{classRTSim_1_1Resource_a247736232a741e0c430e304a45779eab}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Very simple class that models a resource shared by two or more tasks. Every task should use this resource only through a critical section surrounded by wait and signal instructions.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1ResManager}{Res\+Manager}, \hyperlink{classRTSim_1_1WaitInstr}{Wait\+Instr}, \hyperlink{classRTSim_1_1SignalInstr}{Signal\+Instr} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/resource.\+hpp\item 
+src/resource.\+cpp\end{DoxyCompactItemize}

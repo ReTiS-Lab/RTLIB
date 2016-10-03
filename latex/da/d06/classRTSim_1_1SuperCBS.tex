@@ -1,0 +1,148 @@
+\hypertarget{classRTSim_1_1SuperCBS}{}\section{R\+T\+Sim\+:\+:Super\+C\+BS Class Reference}
+\label{classRTSim_1_1SuperCBS}\index{R\+T\+Sim\+::\+Super\+C\+BS@{R\+T\+Sim\+::\+Super\+C\+BS}}
+
+
+{\ttfamily \#include $<$supercbs.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Super\+C\+BS\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Super\+C\+BS\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classRTSim_1_1SuperCBS_1_1ChangeBudgetEvt}{Change\+Budget\+Evt}
+\item 
+class \hyperlink{classRTSim_1_1SuperCBS_1_1SuperCBSExc}{Super\+C\+B\+S\+Exc}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ Tick $>$ {\bfseries row\+\_\+t}\hypertarget{classRTSim_1_1SuperCBS_aa0332b1488d4da4d50bb4e62cfc9a47d}{}\label{classRTSim_1_1SuperCBS_aa0332b1488d4da4d50bb4e62cfc9a47d}
+
+\item 
+typedef std\+::vector$<$ double $>$ {\bfseries u\+\_\+row\+\_\+t}\hypertarget{classRTSim_1_1SuperCBS_a6351666534171968d8394c2801bf6fbf}{}\label{classRTSim_1_1SuperCBS_a6351666534171968d8394c2801bf6fbf}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Super\+C\+BS} (const string \&name)\hypertarget{classRTSim_1_1SuperCBS_ae6ea8286f4ee51e41651c79f2af79b57}{}\label{classRTSim_1_1SuperCBS_ae6ea8286f4ee51e41651c79f2af79b57}
+
+\item 
+double {\bfseries sensitivity} (int task)\hypertarget{classRTSim_1_1SuperCBS_a861bb81b50abe26585340fcef2c94b41}{}\label{classRTSim_1_1SuperCBS_a861bb81b50abe26585340fcef2c94b41}
+
+\item 
+Tick \hyperlink{classRTSim_1_1SuperCBS_a9c0519d592dd55136451e304e6979411}{change\+Budget} (\hyperlink{classRTSim_1_1Server}{Server} $\ast$s, Tick delta\+\_\+budget)
+\item 
+void \hyperlink{classRTSim_1_1SuperCBS_a9e63d37c47dfa38519f9e9d1e50e9246}{add\+Server} (\hyperlink{classRTSim_1_1Server}{Server} $\ast$s)
+\item 
+void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1SuperCBS_a8486ea357290efc2c96875f4fe1d8580}{}\label{classRTSim_1_1SuperCBS_a8486ea357290efc2c96875f4fe1d8580}
+
+\item 
+void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1SuperCBS_a6ca005dc09047a1c0ab36ce68d7bd492}{}\label{classRTSim_1_1SuperCBS_a6ca005dc09047a1c0ab36ce68d7bd492}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Super\+C\+BS} (const \hyperlink{classRTSim_1_1SuperCBS}{Super\+C\+BS} \&)\hypertarget{classRTSim_1_1SuperCBS_ad207660484fb165b1e63a85563fadc3b}{}\label{classRTSim_1_1SuperCBS_ad207660484fb165b1e63a85563fadc3b}
+
+\item 
+\hyperlink{classRTSim_1_1SuperCBS}{Super\+C\+BS} \& {\bfseries operator=} (const \hyperlink{classRTSim_1_1SuperCBS}{Super\+C\+BS} \&)\hypertarget{classRTSim_1_1SuperCBS_adf5f666442c82c378a60ac6de4a4d960}{}\label{classRTSim_1_1SuperCBS_adf5f666442c82c378a60ac6de4a4d960}
+
+\item 
+void {\bfseries on\+Change\+Budget} (\hyperlink{classRTSim_1_1SuperCBS_1_1ChangeBudgetEvt}{Change\+Budget\+Evt} $\ast$e)\hypertarget{classRTSim_1_1SuperCBS_a88fc9e834ff19b6f7db60fe0b2085d3d}{}\label{classRTSim_1_1SuperCBS_a88fc9e834ff19b6f7db60fe0b2085d3d}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries counter}\hypertarget{classRTSim_1_1SuperCBS_a3fdfd4f51b7df68c11c056b9d93d148f}{}\label{classRTSim_1_1SuperCBS_a3fdfd4f51b7df68c11c056b9d93d148f}
+
+\item 
+Tick {\bfseries last\+\_\+change\+\_\+time}\hypertarget{classRTSim_1_1SuperCBS_af7af544a8eecb734866a36dc8aa725af}{}\label{classRTSim_1_1SuperCBS_af7af544a8eecb734866a36dc8aa725af}
+
+\item 
+std\+::map$<$ \hyperlink{classRTSim_1_1Server}{Server} $\ast$, int $>$ {\bfseries servers}\hypertarget{classRTSim_1_1SuperCBS_aaaf76bb4645c754b3bee9066b653d4d1}{}\label{classRTSim_1_1SuperCBS_aaaf76bb4645c754b3bee9066b653d4d1}
+
+\item 
+int {\bfseries n\+Task}\hypertarget{classRTSim_1_1SuperCBS_a8018271d5899c5e54d8ce317864bd10b}{}\label{classRTSim_1_1SuperCBS_a8018271d5899c5e54d8ce317864bd10b}
+
+\item 
+row\+\_\+t {\bfseries period}\hypertarget{classRTSim_1_1SuperCBS_a9d1acbebb10c3dc18dd038e89ca3c289}{}\label{classRTSim_1_1SuperCBS_a9d1acbebb10c3dc18dd038e89ca3c289}
+
+\item 
+row\+\_\+t {\bfseries wcet}\hypertarget{classRTSim_1_1SuperCBS_a140449cf07340e47ee36df8fe8b35379}{}\label{classRTSim_1_1SuperCBS_a140449cf07340e47ee36df8fe8b35379}
+
+\item 
+u\+\_\+row\+\_\+t {\bfseries U}\hypertarget{classRTSim_1_1SuperCBS_a363afee83e3823396b4387f71d9ffe57}{}\label{classRTSim_1_1SuperCBS_a363afee83e3823396b4387f71d9ffe57}
+
+\item 
+int {\bfseries task}\hypertarget{classRTSim_1_1SuperCBS_a66c8bd37151621110e5a9d1edc5b4a3e}{}\label{classRTSim_1_1SuperCBS_a66c8bd37151621110e5a9d1edc5b4a3e}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Change\+Budget\+Evt}\hypertarget{classRTSim_1_1SuperCBS_abf46210d564ea7de60da68280c259620}{}\label{classRTSim_1_1SuperCBS_abf46210d564ea7de60da68280c259620}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements the schedpoints algorithm. See paper\+:
+
+{\itshape by Enrico Bini} 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Super\+C\+BS@{R\+T\+Sim\+::\+Super\+C\+BS}!add\+Server@{add\+Server}}
+\index{add\+Server@{add\+Server}!R\+T\+Sim\+::\+Super\+C\+BS@{R\+T\+Sim\+::\+Super\+C\+BS}}
+\subsubsection[{\texorpdfstring{add\+Server(\+Server $\ast$s)}{addServer(Server *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Super\+C\+B\+S\+::add\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf Server} $\ast$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SuperCBS_a9e63d37c47dfa38519f9e9d1e50e9246}{}\label{classRTSim_1_1SuperCBS_a9e63d37c47dfa38519f9e9d1e50e9246}
+Adds a new server to the \hyperlink{classRTSim_1_1SchedPoint}{Sched\+Point} algorithm. The servers have to be added in decreasing priority order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & reference to the server \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classRTSim_1_1Supervisor}{R\+T\+Sim\+::\+Supervisor}.
+
+\index{R\+T\+Sim\+::\+Super\+C\+BS@{R\+T\+Sim\+::\+Super\+C\+BS}!change\+Budget@{change\+Budget}}
+\index{change\+Budget@{change\+Budget}!R\+T\+Sim\+::\+Super\+C\+BS@{R\+T\+Sim\+::\+Super\+C\+BS}}
+\subsubsection[{\texorpdfstring{change\+Budget(\+Server $\ast$s, Tick delta\+\_\+budget)}{changeBudget(Server *s, Tick delta_budget)}}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+Super\+C\+B\+S\+::change\+Budget (
+\begin{DoxyParamCaption}
+\item[{{\bf Server} $\ast$}]{s, }
+\item[{Tick}]{delta\+\_\+budget}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SuperCBS_a9c0519d592dd55136451e304e6979411}{}\label{classRTSim_1_1SuperCBS_a9c0519d592dd55136451e304e6979411}
+This function requests a change (positive or negative) to the budget of the server. The function is usually called from a feedback module.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+\_\+budget} & increment (or decrement) in the budget\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the effective increment (or decrement) in the budget. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classRTSim_1_1Supervisor}{R\+T\+Sim\+::\+Supervisor}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/supercbs.\+hpp\item 
+src/supercbs.\+cpp\end{DoxyCompactItemize}

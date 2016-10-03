@@ -1,0 +1,28 @@
+digraph "RTSim::OffsetGen"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="RTSim::OffsetGen",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="RTSim::AbstractGen\l\< Tick \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/da6/classRTSim_1_1AbstractGen.html"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" taskSet" ,fontname="Helvetica"];
+  Node3 [label="RTSim::RandomTaskSetFactory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dc/d61/classRTSim_1_1RandomTaskSetFactory.html"];
+  Node1 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" offGen" ,fontname="Helvetica"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" dtGen" ,fontname="Helvetica"];
+  Node4 [label="RTSim::DTGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/df6/classRTSim_1_1DTGen.html"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ctGen" ,fontname="Helvetica"];
+  Node5 [label="RTSim::CTGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d22/classRTSim_1_1CTGen.html"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="RTSim::AbstractGen\l\< RandomVar * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/da6/classRTSim_1_1AbstractGen.html"];
+  Node3 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" taskSet" ,fontname="Helvetica"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" iatGen" ,fontname="Helvetica"];
+  Node7 [label="RTSim::IATGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d1/db1/classRTSim_1_1IATGen.html"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" iatGen" ,fontname="Helvetica"];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ctGen" ,fontname="Helvetica"];
+  Node7 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" iatGen" ,fontname="Helvetica"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" iatGen" ,fontname="Helvetica"];
+}

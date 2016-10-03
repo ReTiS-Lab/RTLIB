@@ -1,0 +1,82 @@
+\hypertarget{classCatch_1_1Config}{}\section{Catch\+:\+:Config Class Reference}
+\label{classCatch_1_1Config}\index{Catch\+::\+Config@{Catch\+::\+Config}}
+
+
+Inheritance diagram for Catch\+:\+:Config\+:
+% FIG 0
+
+
+Collaboration diagram for Catch\+:\+:Config\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Config} (\hyperlink{structCatch_1_1ConfigData}{Config\+Data} const \&data)\hypertarget{classCatch_1_1Config_a25ad0360a8386e7bc068c9c1ac5320bf}{}\label{classCatch_1_1Config_a25ad0360a8386e7bc068c9c1ac5320bf}
+
+\item 
+void {\bfseries set\+Filename} (std\+::string const \&filename)\hypertarget{classCatch_1_1Config_a08d869cec45133f75153a3e0f6095c71}{}\label{classCatch_1_1Config_a08d869cec45133f75153a3e0f6095c71}
+
+\item 
+std\+::string const \& {\bfseries get\+Filename} () const \hypertarget{classCatch_1_1Config_aa9e256dae92ddb8502ff3680f8a5d87f}{}\label{classCatch_1_1Config_aa9e256dae92ddb8502ff3680f8a5d87f}
+
+\item 
+bool {\bfseries list\+Tests} () const \hypertarget{classCatch_1_1Config_aea015d29bfbe2518c4645ff0ea6d210e}{}\label{classCatch_1_1Config_aea015d29bfbe2518c4645ff0ea6d210e}
+
+\item 
+bool {\bfseries list\+Tags} () const \hypertarget{classCatch_1_1Config_a9dff59d5f71ce2d43719926d017e496e}{}\label{classCatch_1_1Config_a9dff59d5f71ce2d43719926d017e496e}
+
+\item 
+bool {\bfseries list\+Reporters} () const \hypertarget{classCatch_1_1Config_a3107e37f61a84ca8914a107ecd1cb343}{}\label{classCatch_1_1Config_a3107e37f61a84ca8914a107ecd1cb343}
+
+\item 
+std\+::string {\bfseries get\+Process\+Name} () const \hypertarget{classCatch_1_1Config_a7b0b80011521c7247f2365e213d0057c}{}\label{classCatch_1_1Config_a7b0b80011521c7247f2365e213d0057c}
+
+\item 
+bool {\bfseries should\+Debug\+Break} () const \hypertarget{classCatch_1_1Config_a404b40d7f51f3ee0955e737a4729a162}{}\label{classCatch_1_1Config_a404b40d7f51f3ee0955e737a4729a162}
+
+\item 
+void {\bfseries set\+Stream\+Buf} (std\+::streambuf $\ast$buf)\hypertarget{classCatch_1_1Config_adacc2540c7876de06869ba56b14504da}{}\label{classCatch_1_1Config_adacc2540c7876de06869ba56b14504da}
+
+\item 
+void {\bfseries use\+Stream} (std\+::string const \&stream\+Name)\hypertarget{classCatch_1_1Config_ad54597f3f1f23f5a1cc862b5029bf231}{}\label{classCatch_1_1Config_ad54597f3f1f23f5a1cc862b5029bf231}
+
+\item 
+std\+::string {\bfseries get\+Reporter\+Name} () const \hypertarget{classCatch_1_1Config_a6973175899892f42dd47a1d7701fbed7}{}\label{classCatch_1_1Config_a6973175899892f42dd47a1d7701fbed7}
+
+\item 
+void {\bfseries add\+Test\+Spec} (std\+::string const \&test\+Spec)\hypertarget{classCatch_1_1Config_a50283ece0b30d1cd3c8e47588942232a}{}\label{classCatch_1_1Config_a50283ece0b30d1cd3c8e47588942232a}
+
+\item 
+int {\bfseries abort\+After} () const \hypertarget{classCatch_1_1Config_a0ab98435c16d87681d370266b8755672}{}\label{classCatch_1_1Config_a0ab98435c16d87681d370266b8755672}
+
+\item 
+std\+::vector$<$ \hyperlink{classCatch_1_1TestCaseFilters}{Test\+Case\+Filters} $>$ const \& {\bfseries filters} () const \hypertarget{classCatch_1_1Config_ab91866ab6b895892ac29b4e9cfc1c1dd}{}\label{classCatch_1_1Config_ab91866ab6b895892ac29b4e9cfc1c1dd}
+
+\item 
+bool {\bfseries show\+Help} () const \hypertarget{classCatch_1_1Config_a338e89c6dd7c90d2772fc161cb77e9b4}{}\label{classCatch_1_1Config_a338e89c6dd7c90d2772fc161cb77e9b4}
+
+\item 
+virtual bool {\bfseries allow\+Throws} () const \hypertarget{classCatch_1_1Config_ae6a5aea5e85afc2886b5ec8e3b610afa}{}\label{classCatch_1_1Config_ae6a5aea5e85afc2886b5ec8e3b610afa}
+
+\item 
+virtual std\+::ostream \& {\bfseries stream} () const \hypertarget{classCatch_1_1Config_a51a5f372698eaed4dd89c8bb03d2fdc4}{}\label{classCatch_1_1Config_a51a5f372698eaed4dd89c8bb03d2fdc4}
+
+\item 
+virtual std\+::string {\bfseries name} () const \hypertarget{classCatch_1_1Config_a740c0195e2935033b71e3c3eaf0220c9}{}\label{classCatch_1_1Config_a740c0195e2935033b71e3c3eaf0220c9}
+
+\item 
+virtual bool {\bfseries include\+Successful\+Results} () const \hypertarget{classCatch_1_1Config_aea5f577057289ee2113cbe5adf296e69}{}\label{classCatch_1_1Config_aea5f577057289ee2113cbe5adf296e69}
+
+\item 
+virtual bool {\bfseries warn\+About\+Missing\+Assertions} () const \hypertarget{classCatch_1_1Config_ab8fdb451c6e214a24e8ff538ffaaa7e5}{}\label{classCatch_1_1Config_ab8fdb451c6e214a24e8ff538ffaaa7e5}
+
+\item 
+virtual Show\+Durations\+::\+Or\+Not {\bfseries show\+Durations} () const \hypertarget{classCatch_1_1Config_a192ff42482ade89d8225fcc0851909fd}{}\label{classCatch_1_1Config_a192ff42482ade89d8225fcc0851909fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+test/catch.\+hpp\end{DoxyCompactItemize}

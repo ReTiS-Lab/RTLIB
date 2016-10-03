@@ -1,0 +1,166 @@
+\hypertarget{classRTSim_1_1SparePot}{}\section{R\+T\+Sim\+:\+:Spare\+Pot Class Reference}
+\label{classRTSim_1_1SparePot}\index{R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}}
+
+
+{\ttfamily \#include $<$sparepot.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Spare\+Pot\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Spare\+Pot\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classRTSim_1_1SparePot_1_1ChangeBudgetEvt}{Change\+Budget\+Evt}
+\item 
+struct \hyperlink{structRTSim_1_1SparePot_1_1server__struct}{server\+\_\+struct}
+\item 
+class \hyperlink{classRTSim_1_1SparePot_1_1SparePotExc}{Spare\+Pot\+Exc}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ double $>$ {\bfseries row\+\_\+t}\hypertarget{classRTSim_1_1SparePot_a3253ffa714d073a95c643b3d0ba1146f}{}\label{classRTSim_1_1SparePot_a3253ffa714d073a95c643b3d0ba1146f}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Spare\+Pot} (const string \&name)\hypertarget{classRTSim_1_1SparePot_a0bafc3b270453c42501d34b65e2f40a3}{}\label{classRTSim_1_1SparePot_a0bafc3b270453c42501d34b65e2f40a3}
+
+\item 
+void {\bfseries add\+Server} (\hyperlink{classRTSim_1_1Server}{Server} $\ast$s)\hypertarget{classRTSim_1_1SparePot_a27add401fc76c4de669132c3872129e7}{}\label{classRTSim_1_1SparePot_a27add401fc76c4de669132c3872129e7}
+
+\item 
+Tick \hyperlink{classRTSim_1_1SparePot_a90d4212ce2627ee8a16a3317e395251b}{change\+Budget} (\hyperlink{classRTSim_1_1Server}{Server} $\ast$s, Tick delta\+\_\+budget)
+\item 
+void \hyperlink{classRTSim_1_1SparePot_a9ac3e7da1b8c19b393b5288fff0aee41}{compute\+\_\+matrix} (Tick b, Tick p)
+\item 
+void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1SparePot_a249bba5ac479f888230d5c8a6fe74288}{}\label{classRTSim_1_1SparePot_a249bba5ac479f888230d5c8a6fe74288}
+
+\item 
+void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1SparePot_a992b72fd24c7258010a92ab460960058}{}\label{classRTSim_1_1SparePot_a992b72fd24c7258010a92ab460960058}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Spare\+Pot} (const \hyperlink{classRTSim_1_1SparePot}{Spare\+Pot} \&)\hypertarget{classRTSim_1_1SparePot_ae5c1d0e85c7c3278cfa3aadbb05129a7}{}\label{classRTSim_1_1SparePot_ae5c1d0e85c7c3278cfa3aadbb05129a7}
+
+\item 
+\hyperlink{classRTSim_1_1SparePot}{Spare\+Pot} \& {\bfseries operator=} (const \hyperlink{classRTSim_1_1SparePot}{Spare\+Pot} \&)\hypertarget{classRTSim_1_1SparePot_af0a4109be50f3e9fce833f763b925dcd}{}\label{classRTSim_1_1SparePot_af0a4109be50f3e9fce833f763b925dcd}
+
+\item 
+void \hyperlink{classRTSim_1_1SparePot_a272529c0e94310bbd153296630406378}{add\+My\+Server} (\hyperlink{classRTSim_1_1SporadicServer}{Sporadic\+Server} $\ast$s, const row\+\_\+t \&m)
+\item 
+void \hyperlink{classRTSim_1_1SparePot_aef4bb9ec3b549e33ae202bd8958379dc}{set\+Spare} (const Tick \&budget, const Tick \&period)
+\item 
+void {\bfseries on\+Change\+Budget} (\hyperlink{classRTSim_1_1SparePot_1_1ChangeBudgetEvt}{Change\+Budget\+Evt} $\ast$e)\hypertarget{classRTSim_1_1SparePot_af47d24fd23637e69c8ce1d16f83aff40}{}\label{classRTSim_1_1SparePot_af47d24fd23637e69c8ce1d16f83aff40}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structRTSim_1_1SparePot_1_1server__struct}{server\+\_\+struct} $>$ {\bfseries server\+\_\+vector}\hypertarget{classRTSim_1_1SparePot_a471b988e1a635abfa8c04fe91d3d5719}{}\label{classRTSim_1_1SparePot_a471b988e1a635abfa8c04fe91d3d5719}
+
+\item 
+std\+::map$<$ \hyperlink{classRTSim_1_1SporadicServer}{Sporadic\+Server} $\ast$, int $>$ {\bfseries servers}\hypertarget{classRTSim_1_1SparePot_aca67a5ad1c36bab41b80d9692864947e}{}\label{classRTSim_1_1SparePot_aca67a5ad1c36bab41b80d9692864947e}
+
+\item 
+int {\bfseries counter}\hypertarget{classRTSim_1_1SparePot_a5bd61c3f17f18e4c4dee0be3048b8b67}{}\label{classRTSim_1_1SparePot_a5bd61c3f17f18e4c4dee0be3048b8b67}
+
+\item 
+std\+::vector$<$ row\+\_\+t $>$ {\bfseries pi}\hypertarget{classRTSim_1_1SparePot_a059d657dadf69e7ebc3c294f4c0d1fda}{}\label{classRTSim_1_1SparePot_a059d657dadf69e7ebc3c294f4c0d1fda}
+
+\item 
+std\+::vector$<$ double $>$ {\bfseries delta}\hypertarget{classRTSim_1_1SparePot_abb0af09c6871b29918e2276c7240911e}{}\label{classRTSim_1_1SparePot_abb0af09c6871b29918e2276c7240911e}
+
+\item 
+std\+::vector$<$ row\+\_\+t $>$ {\bfseries coeff}\hypertarget{classRTSim_1_1SparePot_ac3e5df35ae6ced1e52fbd9f60712770e}{}\label{classRTSim_1_1SparePot_ac3e5df35ae6ced1e52fbd9f60712770e}
+
+\item 
+Tick {\bfseries last\+\_\+change\+\_\+time}\hypertarget{classRTSim_1_1SparePot_a8b7f8e3284d7bbe2ab24dc13a1e15f21}{}\label{classRTSim_1_1SparePot_a8b7f8e3284d7bbe2ab24dc13a1e15f21}
+
+\item 
+Tick {\bfseries spare\+\_\+budget}\hypertarget{classRTSim_1_1SparePot_aa2ed166e456c5a2839140d0dbcc3275d}{}\label{classRTSim_1_1SparePot_aa2ed166e456c5a2839140d0dbcc3275d}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Change\+Budget\+Evt}\hypertarget{classRTSim_1_1SparePot_abf46210d564ea7de60da68280c259620}{}\label{classRTSim_1_1SparePot_abf46210d564ea7de60da68280c259620}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements the Spare Pot Algorithm. See paper\+:
+
+{\itshape Rodrigo Santos, Giuseppe Lipari, Enrico Bini, "Efficient on-\/line schedulability test for feedback scheduling of soft real-\/time tasks under fixed-\/priority", I\+E\+EE Real-\/\+Time and Embedded Technology and Applications Symposium, Saint Louis U\+SA (2008)} 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}!add\+My\+Server@{add\+My\+Server}}
+\index{add\+My\+Server@{add\+My\+Server}!R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}}
+\subsubsection[{\texorpdfstring{add\+My\+Server(\+Sporadic\+Server $\ast$s, const row\+\_\+t \&m)}{addMyServer(SporadicServer *s, const row_t &m)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Spare\+Pot\+::add\+My\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf Sporadic\+Server} $\ast$}]{s, }
+\item[{const row\+\_\+t \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classRTSim_1_1SparePot_a272529c0e94310bbd153296630406378}{}\label{classRTSim_1_1SparePot_a272529c0e94310bbd153296630406378}
+Adds a new server to the Spare Pot algorithm. The servers have to be added in decreasing priority order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & reference to the server\\
+\hline
+{\em mij} & list of coefficients for the server. For each server, I have to specify the list of the coefficient of this server with all the higher priority ones. So, for the i-\/th server in the matrix, I have to specify i elements in the list, where the first element is m\+\_\+\{i,0\}, and the last is m\+\_\+\{i,i\} (always equal to 1). \\
+\hline
+\end{DoxyParams}
+\index{R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}!change\+Budget@{change\+Budget}}
+\index{change\+Budget@{change\+Budget}!R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}}
+\subsubsection[{\texorpdfstring{change\+Budget(\+Server $\ast$s, Tick delta\+\_\+budget)}{changeBudget(Server *s, Tick delta_budget)}}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+Spare\+Pot\+::change\+Budget (
+\begin{DoxyParamCaption}
+\item[{{\bf Server} $\ast$}]{s, }
+\item[{Tick}]{delta\+\_\+budget}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SparePot_a90d4212ce2627ee8a16a3317e395251b}{}\label{classRTSim_1_1SparePot_a90d4212ce2627ee8a16a3317e395251b}
+This function requests a change (positive or negative) to the budget of the server. The function is usually called from a feedback module.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+\_\+budget} & increment (or decrement) in the budget\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the effective increment (or decrement) in the budget. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classRTSim_1_1Supervisor}{R\+T\+Sim\+::\+Supervisor}.
+
+\index{R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}!compute\+\_\+matrix@{compute\+\_\+matrix}}
+\index{compute\+\_\+matrix@{compute\+\_\+matrix}!R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}}
+\subsubsection[{\texorpdfstring{compute\+\_\+matrix(\+Tick b, Tick p)}{compute_matrix(Tick b, Tick p)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Spare\+Pot\+::compute\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{Tick}]{b, }
+\item[{Tick}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1SparePot_a9ac3e7da1b8c19b393b5288fff0aee41}{}\label{classRTSim_1_1SparePot_a9ac3e7da1b8c19b393b5288fff0aee41}
+It takes budget and period of the spare pot \index{R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}!set\+Spare@{set\+Spare}}
+\index{set\+Spare@{set\+Spare}!R\+T\+Sim\+::\+Spare\+Pot@{R\+T\+Sim\+::\+Spare\+Pot}}
+\subsubsection[{\texorpdfstring{set\+Spare(const Tick \&budget, const Tick \&period)}{setSpare(const Tick &budget, const Tick &period)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Spare\+Pot\+::set\+Spare (
+\begin{DoxyParamCaption}
+\item[{const Tick \&}]{budget, }
+\item[{const Tick \&}]{period}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classRTSim_1_1SparePot_aef4bb9ec3b549e33ae202bd8958379dc}{}\label{classRTSim_1_1SparePot_aef4bb9ec3b549e33ae202bd8958379dc}
+Specifies the amount of spare handled by this algorithm. It corresponds to server 0. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sparepot.\+hpp\item 
+src/sparepot.\+cpp\end{DoxyCompactItemize}

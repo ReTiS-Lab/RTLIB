@@ -1,0 +1,69 @@
+\hypertarget{structCatch_1_1StreamingReporterBase}{}\section{Catch\+:\+:Streaming\+Reporter\+Base Struct Reference}
+\label{structCatch_1_1StreamingReporterBase}\index{Catch\+::\+Streaming\+Reporter\+Base@{Catch\+::\+Streaming\+Reporter\+Base}}
+
+
+Inheritance diagram for Catch\+:\+:Streaming\+Reporter\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for Catch\+:\+:Streaming\+Reporter\+Base\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Streaming\+Reporter\+Base} (\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config} const \&\+\_\+config)\hypertarget{structCatch_1_1StreamingReporterBase_a917efb4cef0198b4f2f41f40bfda0459}{}\label{structCatch_1_1StreamingReporterBase_a917efb4cef0198b4f2f41f40bfda0459}
+
+\item 
+virtual void {\bfseries no\+Matching\+Test\+Cases} (std\+::string const \&)\hypertarget{structCatch_1_1StreamingReporterBase_a5f315896a20f8c67274d3587657a4c9e}{}\label{structCatch_1_1StreamingReporterBase_a5f315896a20f8c67274d3587657a4c9e}
+
+\item 
+virtual void {\bfseries test\+Run\+Starting} (\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info} const \&\+\_\+test\+Run\+Info)\hypertarget{structCatch_1_1StreamingReporterBase_a0f97c112f559488dfb998c0e14bde600}{}\label{structCatch_1_1StreamingReporterBase_a0f97c112f559488dfb998c0e14bde600}
+
+\item 
+virtual void {\bfseries test\+Group\+Starting} (\hyperlink{structCatch_1_1GroupInfo}{Group\+Info} const \&\+\_\+group\+Info)\hypertarget{structCatch_1_1StreamingReporterBase_a2731bbea2eb6150d1bed4df25c1a747b}{}\label{structCatch_1_1StreamingReporterBase_a2731bbea2eb6150d1bed4df25c1a747b}
+
+\item 
+virtual void {\bfseries test\+Case\+Starting} (\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info} const \&\+\_\+test\+Info)\hypertarget{structCatch_1_1StreamingReporterBase_add5764ac7e0a90833d0ef601b09fc52d}{}\label{structCatch_1_1StreamingReporterBase_add5764ac7e0a90833d0ef601b09fc52d}
+
+\item 
+virtual void {\bfseries section\+Starting} (\hyperlink{structCatch_1_1SectionInfo}{Section\+Info} const \&\+\_\+section\+Info)\hypertarget{structCatch_1_1StreamingReporterBase_a5b8de23466f372a7ebd5fe2aa01f5e39}{}\label{structCatch_1_1StreamingReporterBase_a5b8de23466f372a7ebd5fe2aa01f5e39}
+
+\item 
+virtual void {\bfseries section\+Ended} (\hyperlink{structCatch_1_1SectionStats}{Section\+Stats} const \&)\hypertarget{structCatch_1_1StreamingReporterBase_a6e596fd52cf2a70092fcd45a0c400989}{}\label{structCatch_1_1StreamingReporterBase_a6e596fd52cf2a70092fcd45a0c400989}
+
+\item 
+virtual void {\bfseries test\+Case\+Ended} (\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats} const \&)\hypertarget{structCatch_1_1StreamingReporterBase_addb1a3987064941ae03a013cfc855699}{}\label{structCatch_1_1StreamingReporterBase_addb1a3987064941ae03a013cfc855699}
+
+\item 
+virtual void {\bfseries test\+Group\+Ended} (\hyperlink{structCatch_1_1TestGroupStats}{Test\+Group\+Stats} const \&)\hypertarget{structCatch_1_1StreamingReporterBase_a42fc1d27c45657cba3c60f5c3ed8a3eb}{}\label{structCatch_1_1StreamingReporterBase_a42fc1d27c45657cba3c60f5c3ed8a3eb}
+
+\item 
+virtual void {\bfseries test\+Run\+Ended} (\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats} const \&)\hypertarget{structCatch_1_1StreamingReporterBase_adb6b8987a3402e9365c2150efa563c72}{}\label{structCatch_1_1StreamingReporterBase_adb6b8987a3402e9365c2150efa563c72}
+
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCatch_1_1Ptr}{Ptr}$<$ \hyperlink{structCatch_1_1IConfig}{I\+Config} $>$ {\bfseries m\+\_\+config}\hypertarget{structCatch_1_1StreamingReporterBase_a7d77cac272194543ed81dea9f5c4f3a0}{}\label{structCatch_1_1StreamingReporterBase_a7d77cac272194543ed81dea9f5c4f3a0}
+
+\item 
+std\+::ostream \& {\bfseries stream}\hypertarget{structCatch_1_1StreamingReporterBase_aee935c9ec91eca10af8598a88258bde4}{}\label{structCatch_1_1StreamingReporterBase_aee935c9ec91eca10af8598a88258bde4}
+
+\item 
+\hyperlink{structCatch_1_1LazyStat}{Lazy\+Stat}$<$ \hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info} $>$ {\bfseries current\+Test\+Run\+Info}\hypertarget{structCatch_1_1StreamingReporterBase_af4d83c6abacdbcc7790497f0d50545af}{}\label{structCatch_1_1StreamingReporterBase_af4d83c6abacdbcc7790497f0d50545af}
+
+\item 
+\hyperlink{structCatch_1_1LazyStat}{Lazy\+Stat}$<$ \hyperlink{structCatch_1_1GroupInfo}{Group\+Info} $>$ {\bfseries current\+Group\+Info}\hypertarget{structCatch_1_1StreamingReporterBase_aae9f9ccd5346f51d378fc19d5de5d868}{}\label{structCatch_1_1StreamingReporterBase_aae9f9ccd5346f51d378fc19d5de5d868}
+
+\item 
+\hyperlink{structCatch_1_1LazyStat}{Lazy\+Stat}$<$ \hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info} $>$ {\bfseries current\+Test\+Case\+Info}\hypertarget{structCatch_1_1StreamingReporterBase_a8bd70da6d93c21962a2628c3e84991b5}{}\label{structCatch_1_1StreamingReporterBase_a8bd70da6d93c21962a2628c3e84991b5}
+
+\item 
+std\+::vector$<$ \hyperlink{structCatch_1_1SectionInfo}{Section\+Info} $>$ {\bfseries m\+\_\+section\+Stack}\hypertarget{structCatch_1_1StreamingReporterBase_a82f2a7a5dec58bc093f6ab26a9e47bd8}{}\label{structCatch_1_1StreamingReporterBase_a82f2a7a5dec58bc093f6ab26a9e47bd8}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+test/catch.\+hpp\end{DoxyCompactItemize}

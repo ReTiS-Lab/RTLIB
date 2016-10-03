@@ -1,0 +1,72 @@
+\hypertarget{classRTSim_1_1PeriodicTask}{}\section{R\+T\+Sim\+:\+:Periodic\+Task Class Reference}
+\label{classRTSim_1_1PeriodicTask}\index{R\+T\+Sim\+::\+Periodic\+Task@{R\+T\+Sim\+::\+Periodic\+Task}}
+
+
+{\ttfamily \#include $<$rttask.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Periodic\+Task\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Periodic\+Task\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Periodic\+Task} (Tick iat)\hypertarget{classRTSim_1_1PeriodicTask_ae278c3cae75594a6d71869ad2778800b}{}\label{classRTSim_1_1PeriodicTask_ae278c3cae75594a6d71869ad2778800b}
+
+\item 
+{\bfseries Periodic\+Task} (Tick iat, Tick rdl, Tick ph=0, const std\+::string \&name=\char`\"{}\char`\"{}, long qs=100)\hypertarget{classRTSim_1_1PeriodicTask_abcf8dc946f78acde75a7c2ccc078f136}{}\label{classRTSim_1_1PeriodicTask_abcf8dc946f78acde75a7c2ccc078f136}
+
+\item 
+Tick {\bfseries get\+Period} ()\hypertarget{classRTSim_1_1PeriodicTask_aeb133c73161edecd31ff7c72ec4c5242}{}\label{classRTSim_1_1PeriodicTask_aeb133c73161edecd31ff7c72ec4c5242}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classRTSim_1_1PeriodicTask}{Periodic\+Task} $\ast$ \hyperlink{classRTSim_1_1PeriodicTask_a66d41fe6fde0fd3aa5b0695e35b8fa75}{create\+Instance} (vector$<$ string $>$ \&par)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Models a simple periodic task. It\textquotesingle{}s a simpler interface to \hyperlink{classRTSim_1_1Task}{Task}. 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Periodic\+Task@{R\+T\+Sim\+::\+Periodic\+Task}!create\+Instance@{create\+Instance}}
+\index{create\+Instance@{create\+Instance}!R\+T\+Sim\+::\+Periodic\+Task@{R\+T\+Sim\+::\+Periodic\+Task}}
+\subsubsection[{\texorpdfstring{create\+Instance(vector$<$ string $>$ \&par)}{createInstance(vector< string > &par)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Periodic\+Task} $\ast$ R\+T\+Sim\+::\+Periodic\+Task\+::create\+Instance (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$ \&}]{par}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classRTSim_1_1PeriodicTask_a66d41fe6fde0fd3aa5b0695e35b8fa75}{}\label{classRTSim_1_1PeriodicTask_a66d41fe6fde0fd3aa5b0695e35b8fa75}
+Used to build tasks with the Factory. The string must contain a set of comma separated values, in the same order as in the constructor\+:
+
+
+\begin{DoxyItemize}
+\item period, deadline, phase
+\end{DoxyItemize}
+
+Then a set of optional paramters can be given\+: -\/ name (a string), queuesize, abort (true/false)
+
+Please take into account that at least 3 arguments of numerical type must be given!
+
+Example\+:
+\begin{DoxyItemize}
+\item Periodi\+Task $\ast$p = \hyperlink{classRTSim_1_1PeriodicTask_a66d41fe6fde0fd3aa5b0695e35b8fa75}{Periodic\+Task\+::create\+Instance}(\char`\"{}10, 10, 0, task1\char`\"{});
+\end{DoxyItemize}
+
+is the same as
+
+
+\begin{DoxyItemize}
+\item \hyperlink{classRTSim_1_1PeriodicTask}{Periodic\+Task} $\ast$p = new \hyperlink{classRTSim_1_1PeriodicTask}{Periodic\+Task}(10, 10, 0, \char`\"{}task1\char`\"{}); 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/rttask.\+hpp\item 
+src/rttask.\+cpp\end{DoxyCompactItemize}

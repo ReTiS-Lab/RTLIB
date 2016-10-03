@@ -1,0 +1,72 @@
+\hypertarget{classRTSim_1_1FIFOScheduler}{}\section{R\+T\+Sim\+:\+:F\+I\+F\+O\+Scheduler Class Reference}
+\label{classRTSim_1_1FIFOScheduler}\index{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}}
+
+
+{\ttfamily \#include $<$fifosched.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:F\+I\+F\+O\+Scheduler\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:F\+I\+F\+O\+Scheduler\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classRTSim_1_1FIFOScheduler_ae5903b9623629b109aa2005e6e1726fa}{add\+Task} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)  throw (\+R\+T\+Sched\+Exc)
+\item 
+void \hyperlink{classRTSim_1_1FIFOScheduler_a28a58e39cb902e4223595954e53df193}{add\+Task} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t, const std\+::string \&p)
+\item 
+void \hyperlink{classRTSim_1_1FIFOScheduler_abce461f0e71d448175e1edcc3ce340a7}{remove\+Task} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classRTSim_1_1FIFOScheduler}{F\+I\+F\+O\+Scheduler} $\ast$ {\bfseries create\+Instance} (vector$<$ string $>$ \&par)\hypertarget{classRTSim_1_1FIFOScheduler_a72e2beee458b0f9541f156f7ebd9b7e7}{}\label{classRTSim_1_1FIFOScheduler_a72e2beee458b0f9541f156f7ebd9b7e7}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class implements a simple First in First out scheduling policy. In other words, tasks are order by their arrival time. It redefines only the add\+Task function, because most of the work is done in the \hyperlink{classRTSim_1_1Scheduler}{Scheduler} class. 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}!add\+Task@{add\+Task}}
+\index{add\+Task@{add\+Task}!R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}}
+\subsubsection[{\texorpdfstring{add\+Task(\+Abs\+R\+T\+Task $\ast$t)}{addTask(AbsRTTask *t)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler\+::add\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+) throw  {\bf R\+T\+Sched\+Exc}) }\hypertarget{classRTSim_1_1FIFOScheduler_ae5903b9623629b109aa2005e6e1726fa}{}\label{classRTSim_1_1FIFOScheduler_ae5903b9623629b109aa2005e6e1726fa}
+Create an F\+I\+F\+O\+Model, passing the task. It throws a \hyperlink{classRTSim_1_1RTSchedExc}{R\+T\+Sched\+Exc} exception if the task is already present in this scheduler. \index{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}!add\+Task@{add\+Task}}
+\index{add\+Task@{add\+Task}!R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}}
+\subsubsection[{\texorpdfstring{add\+Task(\+Abs\+R\+T\+Task $\ast$t, const std\+::string \&p)}{addTask(AbsRTTask *t, const std::string &p)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler\+::add\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task, }
+\item[{const std\+::string \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1FIFOScheduler_a28a58e39cb902e4223595954e53df193}{}\label{classRTSim_1_1FIFOScheduler_a28a58e39cb902e4223595954e53df193}
+Add a task with the proper scheduling parameters 
+
+Implements \hyperlink{classRTSim_1_1Scheduler_a7b4a2776f1d528c0df09b34e611c6622}{R\+T\+Sim\+::\+Scheduler}.
+
+\index{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}!remove\+Task@{remove\+Task}}
+\index{remove\+Task@{remove\+Task}!R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler@{R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler}}
+\subsubsection[{\texorpdfstring{remove\+Task(\+Abs\+R\+T\+Task $\ast$t)}{removeTask(AbsRTTask *t)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+F\+I\+F\+O\+Scheduler\+::remove\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1FIFOScheduler_abce461f0e71d448175e1edcc3ce340a7}{}\label{classRTSim_1_1FIFOScheduler_abce461f0e71d448175e1edcc3ce340a7}
+Remove a task from this scheduler 
+
+Implements \hyperlink{classRTSim_1_1Scheduler_ac16fd71a26168e189e5b6cec3a99be67}{R\+T\+Sim\+::\+Scheduler}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/fifosched.\+hpp\item 
+src/fifosched.\+cpp\end{DoxyCompactItemize}

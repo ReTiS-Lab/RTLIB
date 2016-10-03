@@ -1,0 +1,67 @@
+\hypertarget{classRTSim_1_1UniformCTGen}{}\section{R\+T\+Sim\+:\+:Uniform\+C\+T\+Gen Class Reference}
+\label{classRTSim_1_1UniformCTGen}\index{R\+T\+Sim\+::\+Uniform\+C\+T\+Gen@{R\+T\+Sim\+::\+Uniform\+C\+T\+Gen}}
+
+
+{\ttfamily \#include $<$load.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Uniform\+C\+T\+Gen\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Uniform\+C\+T\+Gen\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1UniformCTGen_a2ee90b134e046e6e114fc7054687fbe4}{Uniform\+C\+T\+Gen} (Tick cmin=C\+M\+I\+N\+\_\+\+D\+EF, double d=D\+E\+L\+T\+A\+\_\+\+D\+EF)
+\item 
+virtual bool {\bfseries generate} ()\hypertarget{classRTSim_1_1UniformCTGen_a514cde20bd9bb24ca2ffaab3d729bbde}{}\label{classRTSim_1_1UniformCTGen_a514cde20bd9bb24ca2ffaab3d729bbde}
+
+\item 
+virtual Tick {\bfseries get\+Min} (int i) const \hypertarget{classRTSim_1_1UniformCTGen_a8478d27066256fce18e2eec0a21f6a26}{}\label{classRTSim_1_1UniformCTGen_a8478d27066256fce18e2eec0a21f6a26}
+
+\item 
+virtual Tick {\bfseries get\+Max} (int i) const \hypertarget{classRTSim_1_1UniformCTGen_aeb3399f238adb3def507cd8c1074203b}{}\label{classRTSim_1_1UniformCTGen_aeb3399f238adb3def507cd8c1074203b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const double {\bfseries D\+E\+L\+T\+A\+\_\+\+D\+EF} = 0.\+1\hypertarget{classRTSim_1_1UniformCTGen_a9e979a81fd766e79ea08ea407cb9ba1a}{}\label{classRTSim_1_1UniformCTGen_a9e979a81fd766e79ea08ea407cb9ba1a}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries delta}\hypertarget{classRTSim_1_1UniformCTGen_a8f103cb02c09b2001d1275c198807f51}{}\label{classRTSim_1_1UniformCTGen_a8f103cb02c09b2001d1275c198807f51}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generates variable computation times, uniformely distributed between \mbox{[}c(1-\/d), c(1+d)\mbox{]}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+Uniform\+C\+T\+Gen@{R\+T\+Sim\+::\+Uniform\+C\+T\+Gen}!Uniform\+C\+T\+Gen@{Uniform\+C\+T\+Gen}}
+\index{Uniform\+C\+T\+Gen@{Uniform\+C\+T\+Gen}!R\+T\+Sim\+::\+Uniform\+C\+T\+Gen@{R\+T\+Sim\+::\+Uniform\+C\+T\+Gen}}
+\subsubsection[{\texorpdfstring{Uniform\+C\+T\+Gen(\+Tick cmin=\+C\+M\+I\+N\+\_\+\+D\+E\+F, double d=\+D\+E\+L\+T\+A\+\_\+\+D\+E\+F)}{UniformCTGen(Tick cmin=CMIN_DEF, double d=DELTA_DEF)}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+Uniform\+C\+T\+Gen\+::\+Uniform\+C\+T\+Gen (
+\begin{DoxyParamCaption}
+\item[{Tick}]{cmin = {\ttfamily CMIN\+\_\+DEF}, }
+\item[{double}]{d = {\ttfamily DELTA\+\_\+DEF}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classRTSim_1_1UniformCTGen_a2ee90b134e046e6e114fc7054687fbe4}{}\label{classRTSim_1_1UniformCTGen_a2ee90b134e046e6e114fc7054687fbe4}
+The computation times are variable, within \mbox{[}max(cmin, c$\ast$(1-\/d), c$\ast$(1+d)\mbox{]} and c is computed from the interarrival times. 
+\begin{DoxyParams}{Parameters}
+{\em cmin} & (optional) minimum possible computation time by default is 1 \\
+\hline
+{\em d} & (optional) the percentage of variation. By default, is 0.\+1 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/load.\+hpp\item 
+src/load.\+cpp\end{DoxyCompactItemize}

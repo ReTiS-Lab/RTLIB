@@ -1,0 +1,221 @@
+\hypertarget{classRTSim_1_1ExecInstr}{}\section{R\+T\+Sim\+:\+:Exec\+Instr Class Reference}
+\label{classRTSim_1_1ExecInstr}\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+
+
+{\ttfamily \#include $<$exeinstr.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Exec\+Instr\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Exec\+Instr\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1ExecInstr_a1a40a2a8a6378c47846de4535bb3501a}{Exec\+Instr} (\hyperlink{classRTSim_1_1Task}{Task} $\ast$f, Random\+Var $\ast$c, char $\ast$n=\char`\"{}\char`\"{})
+\item 
+{\bfseries Exec\+Instr} (\hyperlink{classRTSim_1_1Task}{Task} $\ast$f, auto\+\_\+ptr$<$ Random\+Var $>$ \&c, char $\ast$n=\char`\"{}\char`\"{})\hypertarget{classRTSim_1_1ExecInstr_a116fb98a6d2657eb6b83018b3c08be81}{}\label{classRTSim_1_1ExecInstr_a116fb98a6d2657eb6b83018b3c08be81}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1ExecInstr_ac3ee1947f5bc6d19f0283b6fc8881dae}{schedule} ()  throw (\+Instr\+Exc)
+\item 
+virtual void \hyperlink{classRTSim_1_1ExecInstr_a1de7df8b33227e842077f59f0541f5aa}{deschedule} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1ExecInstr_a527f08d8c27a75dda7bb7a1b532772be}{on\+End} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1ExecInstr_ac4ac02cd84200d9c2195eab52a12805e}{reset} ()
+\item 
+virtual Tick \hyperlink{classRTSim_1_1ExecInstr_af2e21e2e455d82aeea048c275979effc}{get\+Duration} () const 
+\item 
+virtual Tick \hyperlink{classRTSim_1_1ExecInstr_a9a78eccb58f69adc2443223b35f3f8f1}{get\+W\+C\+ET} () const   throw (\+Random\+Var\+::\+Max\+Exception)
+\item 
+virtual Tick \hyperlink{classRTSim_1_1ExecInstr_a6c72932483ca3664ea3ed8350abb82d1}{get\+Exec\+Time} () const 
+\item 
+virtual void {\bfseries set\+Trace} (Trace $\ast$t)\hypertarget{classRTSim_1_1ExecInstr_a629f1cb13e79890d2f6f5398b516a0fd}{}\label{classRTSim_1_1ExecInstr_a629f1cb13e79890d2f6f5398b516a0fd}
+
+\item 
+virtual void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1ExecInstr_adb88c181407801963d33778a23556037}{}\label{classRTSim_1_1ExecInstr_adb88c181407801963d33778a23556037}
+
+\item 
+virtual void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1ExecInstr_ae7c910f19ab0d3e2b8977504a0473db9}{}\label{classRTSim_1_1ExecInstr_ae7c910f19ab0d3e2b8977504a0473db9}
+
+\item 
+void \hyperlink{classRTSim_1_1ExecInstr_af927f330d66689797c2c53bda31e3f63}{refresh\+Exec} (double old\+Speed, double new\+Speed)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classRTSim_1_1Instr}{Instr} $\ast$ {\bfseries create\+Instance} (vector$<$ string $>$ \&par)\hypertarget{classRTSim_1_1ExecInstr_a5d2dd06c62a259283b40e35af0940260}{}\label{classRTSim_1_1ExecInstr_a5d2dd06c62a259283b40e35af0940260}
+
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1EndInstrEvt}{End\+Instr\+Evt} {\bfseries \+\_\+end\+Evt}\hypertarget{classRTSim_1_1ExecInstr_a3d84bbb75da7c0f1c0b95c72a27b3c73}{}\label{classRTSim_1_1ExecInstr_a3d84bbb75da7c0f1c0b95c72a27b3c73}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classRTSim_1_1ExecInstr_abc71aa7b4d9c28f480853739a5bd11c6}{flag}\hypertarget{classRTSim_1_1ExecInstr_abc71aa7b4d9c28f480853739a5bd11c6}{}\label{classRTSim_1_1ExecInstr_abc71aa7b4d9c28f480853739a5bd11c6}
+
+\begin{DoxyCompactList}\small\item\em End of Instruction flag. \end{DoxyCompactList}\item 
+auto\+\_\+ptr$<$ Random\+Var $>$ \hyperlink{classRTSim_1_1ExecInstr_a59364d932851fe476a01154b764319de}{cost}\hypertarget{classRTSim_1_1ExecInstr_a59364d932851fe476a01154b764319de}{}\label{classRTSim_1_1ExecInstr_a59364d932851fe476a01154b764319de}
+
+\begin{DoxyCompactList}\small\item\em Random var representing the instruction cost/duration. \end{DoxyCompactList}\item 
+Tick \hyperlink{classRTSim_1_1ExecInstr_a613162544f50897f4ad19eadbb292add}{execd\+Time}\hypertarget{classRTSim_1_1ExecInstr_a613162544f50897f4ad19eadbb292add}{}\label{classRTSim_1_1ExecInstr_a613162544f50897f4ad19eadbb292add}
+
+\begin{DoxyCompactList}\small\item\em Actual Real-\/\+Time execution of the instruction. \end{DoxyCompactList}\item 
+Tick \hyperlink{classRTSim_1_1ExecInstr_a8a548195887c57b7f1cdff3ba6b26d78}{current\+Cost}\hypertarget{classRTSim_1_1ExecInstr_a8a548195887c57b7f1cdff3ba6b26d78}{}\label{classRTSim_1_1ExecInstr_a8a548195887c57b7f1cdff3ba6b26d78}
+
+\begin{DoxyCompactList}\small\item\em Duration of the current instruction. \end{DoxyCompactList}\item 
+double \hyperlink{classRTSim_1_1ExecInstr_adf08bddc61622ffa5afcca4380bc5516}{act\+Time}\hypertarget{classRTSim_1_1ExecInstr_adf08bddc61622ffa5afcca4380bc5516}{}\label{classRTSim_1_1ExecInstr_adf08bddc61622ffa5afcca4380bc5516}
+
+\begin{DoxyCompactList}\small\item\em Execution time spent by the instruction. \end{DoxyCompactList}\item 
+Tick \hyperlink{classRTSim_1_1ExecInstr_a7865329ba4b87921ae575ed3d095a67f}{last\+Time}\hypertarget{classRTSim_1_1ExecInstr_a7865329ba4b87921ae575ed3d095a67f}{}\label{classRTSim_1_1ExecInstr_a7865329ba4b87921ae575ed3d095a67f}
+
+\begin{DoxyCompactList}\small\item\em Last instant of time this instruction was scheduled. \end{DoxyCompactList}\item 
+bool \hyperlink{classRTSim_1_1ExecInstr_aa6051a6e5e1941bc2c0febb7d2e94cc4}{executing}\hypertarget{classRTSim_1_1ExecInstr_aa6051a6e5e1941bc2c0febb7d2e94cc4}{}\label{classRTSim_1_1ExecInstr_aa6051a6e5e1941bc2c0febb7d2e94cc4}
+
+\begin{DoxyCompactList}\small\item\em True if the instruction is currently executing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+These instructions (\hyperlink{classRTSim_1_1ExecInstr}{Exec\+Instr} \& \hyperlink{classRTSim_1_1FixedInstr}{Fixed\+Instr}) are used to model a basic block of time-\/consuming computation, and are the basic building block of a real task
+
+\begin{DoxyAuthor}{Author}
+Luigi Palopoli, Giuseppe Lipari, Gerardo Lamastra, Antonio Casile 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1Instr}{Instr} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!Exec\+Instr@{Exec\+Instr}}
+\index{Exec\+Instr@{Exec\+Instr}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{Exec\+Instr(\+Task $\ast$f, Random\+Var $\ast$c, char $\ast$n="""")}{ExecInstr(Task *f, RandomVar *c, char *n="")}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+Exec\+Instr\+::\+Exec\+Instr (
+\begin{DoxyParamCaption}
+\item[{{\bf Task} $\ast$}]{f, }
+\item[{Random\+Var $\ast$}]{c, }
+\item[{char $\ast$}]{n = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1ExecInstr_a1a40a2a8a6378c47846de4535bb3501a}{}\label{classRTSim_1_1ExecInstr_a1a40a2a8a6378c47846de4535bb3501a}
+This is the constructor of the \hyperlink{classRTSim_1_1ExecInstr}{Exec\+Instr} 
+\begin{DoxyParams}{Parameters}
+{\em f} & is a pointer to the task containing the pseudo intruction \\
+\hline
+{\em c} & is a random variable containing the duration of the instruction \\
+\hline
+{\em n} & is the instruction name \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!deschedule@{deschedule}}
+\index{deschedule@{deschedule}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{deschedule()}{deschedule()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Exec\+Instr\+::deschedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_a1de7df8b33227e842077f59f0541f5aa}{}\label{classRTSim_1_1ExecInstr_a1de7df8b33227e842077f59f0541f5aa}
+Called when the instruction is descheduled. 
+
+Implements \hyperlink{classRTSim_1_1Instr_a747331d23e49cd1e976508bba6621d86}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!get\+Duration@{get\+Duration}}
+\index{get\+Duration@{get\+Duration}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{get\+Duration() const }{getDuration() const }}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+Exec\+Instr\+::get\+Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_af2e21e2e455d82aeea048c275979effc}{}\label{classRTSim_1_1ExecInstr_af2e21e2e455d82aeea048c275979effc}
+Returns the total computation time of the instruction 
+
+Implements \hyperlink{classRTSim_1_1Instr_acd03599661897f2bd4ed4eb67a9d91de}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!get\+Exec\+Time@{get\+Exec\+Time}}
+\index{get\+Exec\+Time@{get\+Exec\+Time}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{get\+Exec\+Time() const }{getExecTime() const }}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+Exec\+Instr\+::get\+Exec\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_a6c72932483ca3664ea3ed8350abb82d1}{}\label{classRTSim_1_1ExecInstr_a6c72932483ca3664ea3ed8350abb82d1}
+Returns how long the instrucion has been executed from the last \hyperlink{classRTSim_1_1ExecInstr_ac4ac02cd84200d9c2195eab52a12805e}{reset()}.
+
+N\+O\+TE\+: the reset\+Execd\+Time is now implicit!!!! 
+
+Implements \hyperlink{classRTSim_1_1Instr_a52e0132196ab12de7083a76351c3a883}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!get\+W\+C\+ET@{get\+W\+C\+ET}}
+\index{get\+W\+C\+ET@{get\+W\+C\+ET}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{get\+W\+C\+E\+T() const }{getWCET() const }}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+Exec\+Instr\+::get\+W\+C\+ET (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  Random\+Var\+::\+Max\+Exception) \hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_a9a78eccb58f69adc2443223b35f3f8f1}{}\label{classRTSim_1_1ExecInstr_a9a78eccb58f69adc2443223b35f3f8f1}
+Returns the worst-\/case execution time for this instruction. 
+
+Implements \hyperlink{classRTSim_1_1Instr_aa47f89b0339f259998576787d787a64a}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!on\+End@{on\+End}}
+\index{on\+End@{on\+End}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{on\+End()}{onEnd()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Exec\+Instr\+::on\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_a527f08d8c27a75dda7bb7a1b532772be}{}\label{classRTSim_1_1ExecInstr_a527f08d8c27a75dda7bb7a1b532772be}
+Called upon the instruction end event 
+
+Reimplemented from \hyperlink{classRTSim_1_1Instr_a5cef8bd2a108f0781087ed436c3c31e7}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!refresh\+Exec@{refresh\+Exec}}
+\index{refresh\+Exec@{refresh\+Exec}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{refresh\+Exec(double old\+Speed, double new\+Speed)}{refreshExec(double oldSpeed, double newSpeed)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Exec\+Instr\+::refresh\+Exec (
+\begin{DoxyParamCaption}
+\item[{double}]{old\+Speed, }
+\item[{double}]{new\+Speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_af927f330d66689797c2c53bda31e3f63}{}\label{classRTSim_1_1ExecInstr_af927f330d66689797c2c53bda31e3f63}
+Function inherited from \hyperlink{classRTSim_1_1Instr}{Instr}. It refreshes the state of the executing instruction when a change of the \hyperlink{classRTSim_1_1CPU}{C\+PU} speed occurs. 
+
+Implements \hyperlink{classRTSim_1_1Instr_a2cc82b248c136c45e9d7132a1bff46da}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!reset@{reset}}
+\index{reset@{reset}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Exec\+Instr\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_ac4ac02cd84200d9c2195eab52a12805e}{}\label{classRTSim_1_1ExecInstr_ac4ac02cd84200d9c2195eab52a12805e}
+This method permits to kill a task which is currently executing. It resets the internal state of the executing instruction.
+
+This is currently used only by the fault-\/tolerant scheduling algorithms. 
+
+Implements \hyperlink{classRTSim_1_1Instr_af76965cd2bc75ccbeaa1737cceebaa87}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}!schedule@{schedule}}
+\index{schedule@{schedule}!R\+T\+Sim\+::\+Exec\+Instr@{R\+T\+Sim\+::\+Exec\+Instr}}
+\subsubsection[{\texorpdfstring{schedule()}{schedule()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Exec\+Instr\+::schedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Instr\+Exc}) \hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1ExecInstr_ac3ee1947f5bc6d19f0283b6fc8881dae}{}\label{classRTSim_1_1ExecInstr_ac3ee1947f5bc6d19f0283b6fc8881dae}
+Called when the instruction is scheduled. 
+
+Implements \hyperlink{classRTSim_1_1Instr_abc0649d21500454888e17e6cf33513d0}{R\+T\+Sim\+::\+Instr}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/exeinstr.\+hpp\item 
+src/exeinstr.\+cpp\end{DoxyCompactItemize}

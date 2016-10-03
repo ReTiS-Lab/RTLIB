@@ -1,0 +1,475 @@
+\hypertarget{classRTSim_1_1RTKernel}{}\section{R\+T\+Sim\+:\+:R\+T\+Kernel Class Reference}
+\label{classRTSim_1_1RTKernel}\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+
+
+{\ttfamily \#include $<$kernel.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:R\+T\+Kernel\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:R\+T\+Kernel\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1RTKernel_a775bf589feac92aa3e8ae1d489381650}{R\+T\+Kernel} (\hyperlink{classRTSim_1_1Scheduler}{Scheduler} $\ast$s, const std\+::string \&name=\char`\"{}\char`\"{}, \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$c=N\+U\+LL)
+\item 
+virtual \hyperlink{classRTSim_1_1RTKernel_a38234487b31fd3cbc99646403001aa3c}{$\sim$\+R\+T\+Kernel} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a87d98a7fe77c37cb49034a132311a552}{activate} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a9cc3e67f5f9ca883246d024d071a13b1}{suspend} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{dispatch} ()
+\item 
+virtual void {\bfseries on\+Begin\+Dispatch} (Event $\ast$e)\hypertarget{classRTSim_1_1RTKernel_ae7285d05124d4e1c0f7fa05b1afca9cf}{}\label{classRTSim_1_1RTKernel_ae7285d05124d4e1c0f7fa05b1afca9cf}
+
+\item 
+virtual void {\bfseries on\+End\+Dispatch} (Event $\ast$e)\hypertarget{classRTSim_1_1RTKernel_a31b5e4c8f7ff6f65cb69cfe9f4a8acf4}{}\label{classRTSim_1_1RTKernel_a31b5e4c8f7ff6f65cb69cfe9f4a8acf4}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_aec25abba77131876143e5fd395fe7b7e}{on\+Arrival} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_af3d6767555d2d7ea9ee029a892d5bc43}{on\+End} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}{refresh} ()
+\item 
+void \hyperlink{classRTSim_1_1RTKernel_a1e8f5b51180348e12100a630707e9dda}{set\+Res\+Manager} (\hyperlink{classRTSim_1_1ResManager}{Res\+Manager} $\ast$rm)
+\item 
+virtual bool \hyperlink{classRTSim_1_1RTKernel_ab43eb6107bda5a0c326ecf46642628b7}{request\+Resource} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t, const string \&r, int n=1)  throw (\+R\+T\+Kernel\+Exc)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a1f62880205ac0e6bc08484a761bb449b}{release\+Resource} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t, const string \&r, int n=1)  throw (\+R\+T\+Kernel\+Exc)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_ae6fa4ba9b518b799142bbe22a4ed1e8d}{set\+Threshold} (const int th)
+\item 
+virtual int {\bfseries enable\+Threshold} ()\hypertarget{classRTSim_1_1RTKernel_afa762282eb758fb57f4a1f55ff2e1487}{}\label{classRTSim_1_1RTKernel_afa762282eb758fb57f4a1f55ff2e1487}
+
+\item 
+virtual void {\bfseries disable\+Threshold} ()\hypertarget{classRTSim_1_1RTKernel_a61aad046c8b171b3e4038ffd03edb677}{}\label{classRTSim_1_1RTKernel_a61aad046c8b171b3e4038ffd03edb677}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a884cabc7ad53a0c2cee69d68b9bb7cba}{add\+Task} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} \&t, const string \&param=\char`\"{}\char`\"{})
+\item 
+virtual \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1RTKernel_a243501a194428985a2b0b26848e06f9a}{get\+Processor} (const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t) const 
+\item 
+virtual \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1RTKernel_aeb28ef73743303f89bf6c8faa20aae17}{get\+Old\+Processor} (const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t) const 
+\item 
+\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ {\bfseries get\+Curr\+Exe} () const \hypertarget{classRTSim_1_1RTKernel_a954411b60db7a3672966e30814dd7e77}{}\label{classRTSim_1_1RTKernel_a954411b60db7a3672966e30814dd7e77}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_aa569e1eae8cf795b31c13ca6f08dd141}{print\+State} () const 
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a6f461987f92abd46fe7b60d2ffe357b6}{discard\+Tasks} (bool)
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_add9fb52593157121107b225ed25e13a1}{new\+Run} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a2bc0b04bbb785f54e4ae60440bbcd816}{end\+Run} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_a2f7c6287046804748fc6c385f53b5227}{print} () const 
+\item 
+double \hyperlink{classRTSim_1_1RTKernel_a2f21033e802331a25e2072c3de420406}{get\+Speed} () const 
+\item 
+double \hyperlink{classRTSim_1_1RTKernel_a19595afa9a8e1da3cf8f631487fa6d4a}{set\+Speed} (double new\+Load)
+\item 
+virtual bool \hyperlink{classRTSim_1_1RTKernel_a7f9afeb2b707eff616671f92b4f7f690}{is\+Context\+Switching} () const 
+\item 
+virtual void \hyperlink{classRTSim_1_1RTKernel_aa022825e71c6da8662270e8ba50c4163}{set\+Context\+Switch\+Delay} (const Tick \&t)
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \hyperlink{classRTSim_1_1RTKernel_a3120222bdc8beb0f9c81763791332caf}{get\+Running\+Tasks} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1BeginDispatchEvt}{Begin\+Dispatch\+Evt} {\bfseries begin\+Dispatch\+Evt}\hypertarget{classRTSim_1_1RTKernel_a1a060d88c57af90543c3083a511ded6a}{}\label{classRTSim_1_1RTKernel_a1a060d88c57af90543c3083a511ded6a}
+
+\item 
+\hyperlink{classRTSim_1_1EndDispatchEvt}{End\+Dispatch\+Evt} {\bfseries end\+Dispatch\+Evt}\hypertarget{classRTSim_1_1RTKernel_a546ea9db388ac378b1a76a986ba096d1}{}\label{classRTSim_1_1RTKernel_a546ea9db388ac378b1a76a986ba096d1}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1Scheduler}{Scheduler} $\ast$ \hyperlink{classRTSim_1_1RTKernel_a7dea869ce38978127ef98e16a967bf9b}{\+\_\+sched}\hypertarget{classRTSim_1_1RTKernel_a7dea869ce38978127ef98e16a967bf9b}{}\label{classRTSim_1_1RTKernel_a7dea869ce38978127ef98e16a967bf9b}
+
+\begin{DoxyCompactList}\small\item\em The real-\/time scheduler. \end{DoxyCompactList}\item 
+\hyperlink{classRTSim_1_1ResManager}{Res\+Manager} $\ast$ \hyperlink{classRTSim_1_1RTKernel_aa760277cb86c98795b9f84b9d6a749d2}{\+\_\+res\+Mng}\hypertarget{classRTSim_1_1RTKernel_aa760277cb86c98795b9f84b9d6a749d2}{}\label{classRTSim_1_1RTKernel_aa760277cb86c98795b9f84b9d6a749d2}
+
+\begin{DoxyCompactList}\small\item\em The resource manager. \end{DoxyCompactList}\item 
+\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ \hyperlink{classRTSim_1_1RTKernel_a85c7fc03da5a482baee0e5ed5be6ee45}{\+\_\+curr\+Exe}\hypertarget{classRTSim_1_1RTKernel_a85c7fc03da5a482baee0e5ed5be6ee45}{}\label{classRTSim_1_1RTKernel_a85c7fc03da5a482baee0e5ed5be6ee45}
+
+\begin{DoxyCompactList}\small\item\em The currently executing task. \end{DoxyCompactList}\item 
+\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1RTKernel_a828974044d251cec3ebc55cb41ba225e}{\+\_\+cpu}\hypertarget{classRTSim_1_1RTKernel_a828974044d251cec3ebc55cb41ba225e}{}\label{classRTSim_1_1RTKernel_a828974044d251cec3ebc55cb41ba225e}
+
+\begin{DoxyCompactList}\small\item\em The processor... \end{DoxyCompactList}\item 
+deque$<$ \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$ $>$ \hyperlink{classRTSim_1_1RTKernel_ae8207a07fb5face06e974081c5e187dd}{\+\_\+handled}\hypertarget{classRTSim_1_1RTKernel_ae8207a07fb5face06e974081c5e187dd}{}\label{classRTSim_1_1RTKernel_ae8207a07fb5face06e974081c5e187dd}
+
+\begin{DoxyCompactList}\small\item\em List of the tasks. \end{DoxyCompactList}\item 
+bool {\bfseries \+\_\+is\+Context\+Switching}\hypertarget{classRTSim_1_1RTKernel_ada61dd77cf35ce0e573b373d58e17c46}{}\label{classRTSim_1_1RTKernel_ada61dd77cf35ce0e573b373d58e17c46}
+
+\item 
+Tick {\bfseries \+\_\+context\+Switch\+Delay}\hypertarget{classRTSim_1_1RTKernel_a07cfb107641531f116feb5be20975c84}{}\label{classRTSim_1_1RTKernel_a07cfb107641531f116feb5be20975c84}
+
+\item 
+bool \hyperlink{classRTSim_1_1RTKernel_aff329e6c8a49b2d35274b65a5b6b348e}{internal\+Cpu}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Dispatch\+Evt}\hypertarget{classRTSim_1_1RTKernel_a57cee237f5e501dcd346440f0dacc159}{}\label{classRTSim_1_1RTKernel_a57cee237f5e501dcd346440f0dacc159}
+
+\item 
+class {\bfseries Begin\+Dispatch\+Evt}\hypertarget{classRTSim_1_1RTKernel_a66461f9646ef25f76aa349848fd2acb1}{}\label{classRTSim_1_1RTKernel_a66461f9646ef25f76aa349848fd2acb1}
+
+\item 
+class {\bfseries End\+Dispatch\+Evt}\hypertarget{classRTSim_1_1RTKernel_a8734b9ff7c1c12196edd3bde79e193bb}{}\label{classRTSim_1_1RTKernel_a8734b9ff7c1c12196edd3bde79e193bb}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An implementation of a real-\/time single processor kernel. It contains \+:
+
+
+\begin{DoxyItemize}
+\item a ponter to one \hyperlink{classRTSim_1_1CPU}{C\+PU}
+\item a pointer to a \hyperlink{classRTSim_1_1Scheduler}{Scheduler}, which implements the scheduling policy;
+\item a pointer to a \hyperlink{classRTSim_1_1Resource}{Resource} Manager, which is responsable for resource access related operations and thus implements a resource allocation policy;
+\item the set of task handled by this kernel.
+\end{DoxyItemize}
+
+This implementation is quite general\+: it lets the user of this class the freedom to adopt any scheduler derived form \hyperlink{classRTSim_1_1Scheduler}{Scheduler} and a resorce manager derived from \hyperlink{classRTSim_1_1ResManager}{Res\+Manager} or no resorce manager at all.
+
+It is up to the instruction class to implemet the correct duration of its execution by asking the kernel of its task the speed of the processor on whitch it\textquotesingle{}s scheduled.
+
+We will probably have to derive from this class to implement static partition and mixed task allocation to \hyperlink{classRTSim_1_1CPU}{C\+PU}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1absCPUFactory}{abs\+C\+P\+U\+Factory}, \hyperlink{classRTSim_1_1Scheduler}{Scheduler}, \hyperlink{classRTSim_1_1ResManager}{Res\+Manager}, \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!R\+T\+Kernel@{R\+T\+Kernel}}
+\index{R\+T\+Kernel@{R\+T\+Kernel}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{R\+T\+Kernel(\+Scheduler $\ast$s, const std\+::string \&name="""", C\+P\+U $\ast$c=\+N\+U\+L\+L)}{RTKernel(Scheduler *s, const std::string &name="", CPU *c=NULL)}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+R\+T\+Kernel\+::\+R\+T\+Kernel (
+\begin{DoxyParamCaption}
+\item[{{\bf Scheduler} $\ast$}]{s, }
+\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{{\bf C\+PU} $\ast$}]{c = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1RTKernel_a775bf589feac92aa3e8ae1d489381650}{}\label{classRTSim_1_1RTKernel_a775bf589feac92aa3e8ae1d489381650}
+Constructor. It needs a pointer to the scheduler. Optionally, it is possible to specify the name of this entity and a \hyperlink{classRTSim_1_1CPU}{C\+PU}. By default, the kernel will use a standard \hyperlink{classRTSim_1_1CPU}{C\+PU} object.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1CPU}{C\+PU}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Real-\/\+Time scheduler to be used in the kernel \\
+\hline
+{\em name} & Name of this kernel \\
+\hline
+{\em c} & Pointer to a \hyperlink{classRTSim_1_1CPU}{C\+PU} object \\
+\hline
+\end{DoxyParams}
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!````~R\+T\+Kernel@{$\sim$\+R\+T\+Kernel}}
+\index{````~R\+T\+Kernel@{$\sim$\+R\+T\+Kernel}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{$\sim$\+R\+T\+Kernel()}{~RTKernel()}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+R\+T\+Kernel\+::$\sim$\+R\+T\+Kernel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a38234487b31fd3cbc99646403001aa3c}{}\label{classRTSim_1_1RTKernel_a38234487b31fd3cbc99646403001aa3c}
+Destructor of the class. It destroys the internal \hyperlink{classRTSim_1_1CPU}{C\+PU} object, unless it was passed as parameter in the constructor. 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!activate@{activate}}
+\index{activate@{activate}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{activate(\+Abs\+R\+T\+Task $\ast$)}{activate(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a87d98a7fe77c37cb49034a132311a552}{}\label{classRTSim_1_1RTKernel_a87d98a7fe77c37cb49034a132311a552}
+This function simply inserts the task in the ready queue. After this function, it is necessary to call the \hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{dispatch()} to force a context switch between the tasks.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{dispatch} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a046cdfcc244a266c8a8d7dd9af0a72fa}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!add\+Task@{add\+Task}}
+\index{add\+Task@{add\+Task}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{add\+Task(\+Abs\+R\+T\+Task \&t, const string \&param="""")}{addTask(AbsRTTask &t, const string &param="")}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::add\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} \&}]{t, }
+\item[{const string \&}]{param = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a884cabc7ad53a0c2cee69d68b9bb7cba}{}\label{classRTSim_1_1RTKernel_a884cabc7ad53a0c2cee69d68b9bb7cba}
+The kernel needs a list of the tasks that are part of this kernel, for many different reason. Therefore, this function has to be called. The typical sequence of operations to create a running system is the following\+:
+
+
+\begin{DoxyItemize}
+\item The scheduler is created;
+\item The kernel is created passing the address of the scheduler
+\item The task is created
+\item The task is added to the kernel, passing the proper scheduling parameters. 
+\end{DoxyItemize}\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!discard\+Tasks@{discard\+Tasks}}
+\index{discard\+Tasks@{discard\+Tasks}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{discard\+Tasks(bool)}{discardTasks(bool)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::discard\+Tasks (
+\begin{DoxyParamCaption}
+\item[{bool}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a6f461987f92abd46fe7b60d2ffe357b6}{}\label{classRTSim_1_1RTKernel_a6f461987f92abd46fe7b60d2ffe357b6}
+Abstract kernels can be combined in a hierarchical way. As an example, a server implements the interface \hyperlink{classRTSim_1_1AbsKernel}{Abs\+Kernel}, and therefore it can be included in another parent kernel. This is not the case of \hyperlink{classRTSim_1_1RTKernel}{R\+T\+Kernel} object, which can never be put on top of another kernel. However, it can be root of the hierarchy.
+
+Since this object must be the end of the hierarchy, this function returns a pointer to itself. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{dispatch()}{dispatch()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::dispatch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{}\label{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}
+Compares \+\_\+curr\+Exe with the first task in the ready queue. If they are different, it forces a context switch. The corresponding schedule and deschedule functions of the two tasks are called. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a29fab5d7ee3a481cec66f806ba823098}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a2c93872c83ec92ebb02f788d80a3a874}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!end\+Run@{end\+Run}}
+\index{end\+Run@{end\+Run}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{end\+Run()}{endRun()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::end\+Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a2bc0b04bbb785f54e4ae60440bbcd816}{}\label{classRTSim_1_1RTKernel_a2bc0b04bbb785f54e4ae60440bbcd816}
+This function is common to all Entity objects. after every new simulation run, this function is invoked. In this case, it just puts the \+\_\+curr\+Exe pointer to N\+U\+LL. 
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a79e1a32c34a15ed969eb3c9172fb4783}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!get\+Old\+Processor@{get\+Old\+Processor}}
+\index{get\+Old\+Processor@{get\+Old\+Processor}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Old\+Processor(const Abs\+R\+T\+Task $\ast$t) const }{getOldProcessor(const AbsRTTask *t) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+PU} $\ast$ R\+T\+Sim\+::\+R\+T\+Kernel\+::get\+Old\+Processor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_aeb28ef73743303f89bf6c8faa20aae17}{}\label{classRTSim_1_1RTKernel_aeb28ef73743303f89bf6c8faa20aae17}
+Returns a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on which t was runnig last. (N\+U\+LL if t has never run on any \hyperlink{classRTSim_1_1CPU}{C\+PU}). In this case, it will always return the same \hyperlink{classRTSim_1_1CPU}{C\+PU}, since we are on a single processor platform. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a9ea84933a3ce4e6b1a2dd114429d1971}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a132a1ad4926f4c91fdce20335e1312f3}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!get\+Processor@{get\+Processor}}
+\index{get\+Processor@{get\+Processor}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Processor(const Abs\+R\+T\+Task $\ast$t) const }{getProcessor(const AbsRTTask *t) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+PU} $\ast$ R\+T\+Sim\+::\+R\+T\+Kernel\+::get\+Processor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a243501a194428985a2b0b26848e06f9a}{}\label{classRTSim_1_1RTKernel_a243501a194428985a2b0b26848e06f9a}
+Returns a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on which t is runnig (N\+U\+LL if t is not running on any \hyperlink{classRTSim_1_1CPU}{C\+PU}). In this case, it will always return the same \hyperlink{classRTSim_1_1CPU}{C\+PU}, since we are on a single processor platform. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a03749f0af85a6bb857569131c1f628f8}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a465c7322be4b9ce5c4ef2594bd9e213a}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!get\+Running\+Tasks@{get\+Running\+Tasks}}
+\index{get\+Running\+Tasks@{get\+Running\+Tasks}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Running\+Tasks()}{getRunningTasks()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::string $>$ R\+T\+Sim\+::\+R\+T\+Kernel\+::get\+Running\+Tasks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a3120222bdc8beb0f9c81763791332caf}{}\label{classRTSim_1_1RTKernel_a3120222bdc8beb0f9c81763791332caf}
+It returns the name of the task (std\+::string) stored in a std\+::vector$<$std\+::string$>$. This solution is proposed to be compliant with the multi core kernel, for which there could be more than one task running at the same time. 
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_ae591128d0e72f25fd28fc3267a50e767}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!get\+Speed@{get\+Speed}}
+\index{get\+Speed@{get\+Speed}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Speed() const }{getSpeed() const }}]{\setlength{\rightskip}{0pt plus 5cm}double R\+T\+Sim\+::\+R\+T\+Kernel\+::get\+Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a2f21033e802331a25e2072c3de420406}{}\label{classRTSim_1_1RTKernel_a2f21033e802331a25e2072c3de420406}
+Function inherited from \hyperlink{classRTSim_1_1AbsKernel}{Abs\+Kernel}. It returns the current speed of the \hyperlink{classRTSim_1_1CPU}{C\+PU}. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!is\+Context\+Switching@{is\+Context\+Switching}}
+\index{is\+Context\+Switching@{is\+Context\+Switching}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{is\+Context\+Switching() const }{isContextSwitching() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool R\+T\+Sim\+::\+R\+T\+Kernel\+::is\+Context\+Switching (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a7f9afeb2b707eff616671f92b4f7f690}{}\label{classRTSim_1_1RTKernel_a7f9afeb2b707eff616671f92b4f7f690}
+Function inherited from \hyperlink{classRTSim_1_1AbsKernel}{Abs\+Kernel}. It says if the kernel is currently in context switch mode. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_aa807b5abf438398cb6bd5c895af7d517}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!new\+Run@{new\+Run}}
+\index{new\+Run@{new\+Run}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{new\+Run()}{newRun()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::new\+Run (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_add9fb52593157121107b225ed25e13a1}{}\label{classRTSim_1_1RTKernel_add9fb52593157121107b225ed25e13a1}
+This function is common to all Entity objects. Before every new simulation run, this function is invoked. In this case, it just puts the \+\_\+curr\+Exe pointer to N\+U\+LL. 
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a19a55420054446e83b5b32954ab9be3b}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!on\+Arrival@{on\+Arrival}}
+\index{on\+Arrival@{on\+Arrival}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{on\+Arrival(\+Abs\+R\+T\+Task $\ast$)}{onArrival(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::on\+Arrival (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_aec25abba77131876143e5fd395fe7b7e}{}\label{classRTSim_1_1RTKernel_aec25abba77131876143e5fd395fe7b7e}
+This function is invoked from the task on\+Arrival function, which in turn is invoked when a task arrival event is triggred. It inserts the task in the ready queue and calls the refresh method.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}{refresh} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a17a0e68b2a00117beaf78fe0f57ed37a}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_abf3b27a6c51995a47539214345d9b193}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!on\+End@{on\+End}}
+\index{on\+End@{on\+End}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{on\+End(\+Abs\+R\+T\+Task $\ast$)}{onEnd(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::on\+End (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_af3d6767555d2d7ea9ee029a892d5bc43}{}\label{classRTSim_1_1RTKernel_af3d6767555d2d7ea9ee029a892d5bc43}
+This function is invoked from the task on\+End function, which in turn is invoked when a task completes the execution of the current instance. It removes the task from the ready queue, set \+\_\+curr\+Exe pointer to N\+U\+LL and invokes the refresh.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}{refresh} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a4f851da0832c325ba8d0ae7744cede48}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a9bc95fb1eaa73383b470ed6122770f44}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!print@{print}}
+\index{print@{print}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{print() const }{print() const }}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a2f7c6287046804748fc6c385f53b5227}{}\label{classRTSim_1_1RTKernel_a2f7c6287046804748fc6c385f53b5227}
+Prints the status of the objects on the D\+E\+B\+UG stream. In reality, this function does nothing! But it is virtual, so check the child classes.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]check all child classes. \end{DoxyRefDesc}
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!print\+State@{print\+State}}
+\index{print\+State@{print\+State}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{print\+State() const }{printState() const }}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::print\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_aa569e1eae8cf795b31c13ca6f08dd141}{}\label{classRTSim_1_1RTKernel_aa569e1eae8cf795b31c13ca6f08dd141}
+Prints on the D\+E\+B\+UG stream the status of the kernel (the name of the task running on each processor). See the debugging features of metasim. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!refresh@{refresh}}
+\index{refresh@{refresh}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{refresh()}{refresh()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::refresh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}{}\label{classRTSim_1_1RTKernel_a0032c42f0589c73721b5880ea6188fac}
+Calls the refresh method of the scheduler to re-\/order the ready queue, and \hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{dispatch()} to update the C\+P\+Us assignment to the tasks.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{dispatch}, \hyperlink{classRTSim_1_1Scheduler}{R\+T\+Sim\+::\+Scheduler} 
+\end{DoxySeeAlso}
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!release\+Resource@{release\+Resource}}
+\index{release\+Resource@{release\+Resource}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{release\+Resource(\+Abs\+R\+T\+Task $\ast$t, const string \&r, int n=1)}{releaseResource(AbsRTTask *t, const string &r, int n=1)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::release\+Resource (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t, }
+\item[{const string \&}]{r, }
+\item[{int}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+) throw  {\bf R\+T\+Kernel\+Exc}) \hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a1f62880205ac0e6bc08484a761bb449b}{}\label{classRTSim_1_1RTKernel_a1f62880205ac0e6bc08484a761bb449b}
+Forwards the release of the resource r by task t to the resource manager. If the resource manager has not been set, a \hyperlink{classRTSim_1_1RTKernelExc}{R\+T\+Kernel\+Exc} is raised. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!request\+Resource@{request\+Resource}}
+\index{request\+Resource@{request\+Resource}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{request\+Resource(\+Abs\+R\+T\+Task $\ast$t, const string \&r, int n=1)}{requestResource(AbsRTTask *t, const string &r, int n=1)}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+T\+Sim\+::\+R\+T\+Kernel\+::request\+Resource (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t, }
+\item[{const string \&}]{r, }
+\item[{int}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+) throw  {\bf R\+T\+Kernel\+Exc}) \hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_ab43eb6107bda5a0c326ecf46642628b7}{}\label{classRTSim_1_1RTKernel_ab43eb6107bda5a0c326ecf46642628b7}
+Forwards the request of resource r from task t to the resource manager. If the resource manager has not been set, a \hyperlink{classRTSim_1_1RTKernelExc}{R\+T\+Kernel\+Exc} exception is raised. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!set\+Context\+Switch\+Delay@{set\+Context\+Switch\+Delay}}
+\index{set\+Context\+Switch\+Delay@{set\+Context\+Switch\+Delay}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{set\+Context\+Switch\+Delay(const Tick \&t)}{setContextSwitchDelay(const Tick &t)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+R\+T\+Kernel\+::set\+Context\+Switch\+Delay (
+\begin{DoxyParamCaption}
+\item[{const Tick \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_aa022825e71c6da8662270e8ba50c4163}{}\label{classRTSim_1_1RTKernel_aa022825e71c6da8662270e8ba50c4163}
+Function to set the overhead of the context switching, that is, by default, zero. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!set\+Res\+Manager@{set\+Res\+Manager}}
+\index{set\+Res\+Manager@{set\+Res\+Manager}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{set\+Res\+Manager(\+Res\+Manager $\ast$rm)}{setResManager(ResManager *rm)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::set\+Res\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Res\+Manager} $\ast$}]{rm}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1RTKernel_a1e8f5b51180348e12100a630707e9dda}{}\label{classRTSim_1_1RTKernel_a1e8f5b51180348e12100a630707e9dda}
+Set the resource manager to be used for handling shared resource between tasks. The default is no resource manager, which means that an exception will be raised in case a task performs a wait or signal opration. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!set\+Speed@{set\+Speed}}
+\index{set\+Speed@{set\+Speed}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{set\+Speed(double new\+Load)}{setSpeed(double newLoad)}}]{\setlength{\rightskip}{0pt plus 5cm}double R\+T\+Sim\+::\+R\+T\+Kernel\+::set\+Speed (
+\begin{DoxyParamCaption}
+\item[{double}]{new\+Load}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a19595afa9a8e1da3cf8f631487fa6d4a}{}\label{classRTSim_1_1RTKernel_a19595afa9a8e1da3cf8f631487fa6d4a}
+Function inherited from \hyperlink{classRTSim_1_1AbsKernel}{Abs\+Kernel}. It sets the speed of the \hyperlink{classRTSim_1_1CPU}{C\+PU} accordingly to the new system load, and returns the new speed. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_a7620a0196c742f3b722498f05987e0ca}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!set\+Threshold@{set\+Threshold}}
+\index{set\+Threshold@{set\+Threshold}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{set\+Threshold(const int th)}{setThreshold(const int th)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::set\+Threshold (
+\begin{DoxyParamCaption}
+\item[{const int}]{th}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_ae6fa4ba9b518b799142bbe22a4ed1e8d}{}\label{classRTSim_1_1RTKernel_ae6fa4ba9b518b799142bbe22a4ed1e8d}
+Forwards the request of preemption threshold raising for the executing task to the scheduler. \index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!suspend@{suspend}}
+\index{suspend@{suspend}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{suspend(\+Abs\+R\+T\+Task $\ast$)}{suspend(AbsRTTask *)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+R\+T\+Kernel\+::suspend (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1RTKernel_a9cc3e67f5f9ca883246d024d071a13b1}{}\label{classRTSim_1_1RTKernel_a9cc3e67f5f9ca883246d024d071a13b1}
+Removes the task from the ready queue. If the task was executing, the task is \char`\"{}descheduled\char`\"{}, and pointer \+\_\+curr\+Exe is set to N\+U\+LL. Otherwise, the task is simply removed from the ready queue, and nothing happens to the executing task. 
+
+Implements \hyperlink{classRTSim_1_1AbsKernel_abdd7e9a6b00559870675d92a1f8c150e}{R\+T\+Sim\+::\+Abs\+Kernel}.
+
+
+
+Reimplemented in \hyperlink{classRTSim_1_1MRTKernel_a016ed93346f3505e11389cb8a8cdc777}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+
+
+\subsection{Field Documentation}
+\index{R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}!internal\+Cpu@{internal\+Cpu}}
+\index{internal\+Cpu@{internal\+Cpu}!R\+T\+Sim\+::\+R\+T\+Kernel@{R\+T\+Sim\+::\+R\+T\+Kernel}}
+\subsubsection[{\texorpdfstring{internal\+Cpu}{internalCpu}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+T\+Sim\+::\+R\+T\+Kernel\+::internal\+Cpu\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classRTSim_1_1RTKernel_aff329e6c8a49b2d35274b65a5b6b348e}{}\label{classRTSim_1_1RTKernel_aff329e6c8a49b2d35274b65a5b6b348e}
+This boolean variable is true if \+\_\+cpu was created using the command \char`\"{}new\char`\"{} in the constructor. It is used in the destructor to know if the delete should be done. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/kernel.\+hpp\item 
+src/kernel.\+cpp\end{DoxyCompactItemize}

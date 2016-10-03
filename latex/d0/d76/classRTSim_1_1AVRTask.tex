@@ -1,0 +1,124 @@
+\hypertarget{classRTSim_1_1AVRTask}{}\section{R\+T\+Sim\+:\+:A\+V\+R\+Task Class Reference}
+\label{classRTSim_1_1AVRTask}\index{R\+T\+Sim\+::\+A\+V\+R\+Task@{R\+T\+Sim\+::\+A\+V\+R\+Task}}
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:A\+V\+R\+Task\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:A\+V\+R\+Task\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries A\+V\+R\+Task} (double ang\+Period, double ang\+Phase, double ang\+Dl, vector$<$ string $>$ instr, vector$<$ double $>$ Omegaplus, vector$<$ double $>$ Omegaminus, const std\+::string \&name)  throw (\+Wrong\+Parameter\+Size)\hypertarget{classRTSim_1_1AVRTask_a877b0615442db3f74278575d48c36668}{}\label{classRTSim_1_1AVRTask_a877b0615442db3f74278575d48c36668}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1AVRTask_af1704bc41d6e891d986f71f40c960b6a}{new\+Run} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1AVRTask_ad2daf3084278c3f85144a70fdb14178a}{handle\+Arrival} (Tick arr)
+\item 
+virtual void {\bfseries activate} (int mode, Tick rdl)  throw (\+Mode\+Out\+Of\+Index)\hypertarget{classRTSim_1_1AVRTask_afc95a09046f0c58cc7ae83a62ba301f5}{}\label{classRTSim_1_1AVRTask_afc95a09046f0c58cc7ae83a62ba301f5}
+
+\item 
+void {\bfseries build\+Instr} (vector$<$ string $>$ param)  throw (\+Parse\+Exc)\hypertarget{classRTSim_1_1AVRTask_a86ceb0a475aa717f14e4445cc0611acc}{}\label{classRTSim_1_1AVRTask_a86ceb0a475aa717f14e4445cc0611acc}
+
+\item 
+void {\bfseries change\+Status} (double angper, double angphase, double angdl, vector$<$ string $>$ instr, vector$<$ double $>$ OmegaM, vector$<$ double $>$ OmegaP)  throw (\+Task\+Already\+Active)\hypertarget{classRTSim_1_1AVRTask_a60071754e31333fe79519de684aa82b2}{}\label{classRTSim_1_1AVRTask_a60071754e31333fe79519de684aa82b2}
+
+\item 
+double {\bfseries get\+Angular\+Phase} ()\hypertarget{classRTSim_1_1AVRTask_a439440f28498a8f72c72e05567d1b032}{}\label{classRTSim_1_1AVRTask_a439440f28498a8f72c72e05567d1b032}
+
+\item 
+double {\bfseries get\+Angular\+Period} ()\hypertarget{classRTSim_1_1AVRTask_a867228ec4724ec4ae9924a7eced327dd}{}\label{classRTSim_1_1AVRTask_a867228ec4724ec4ae9924a7eced327dd}
+
+\item 
+double {\bfseries get\+Angular\+Dl} ()\hypertarget{classRTSim_1_1AVRTask_adc579bebc97c8c65846de19a17b07e96}{}\label{classRTSim_1_1AVRTask_adc579bebc97c8c65846de19a17b07e96}
+
+\item 
+vector$<$ double $>$ {\bfseries get\+Omega\+Plus} ()\hypertarget{classRTSim_1_1AVRTask_a21b021b4da53636c4b90cdda1f72a711}{}\label{classRTSim_1_1AVRTask_a21b021b4da53636c4b90cdda1f72a711}
+
+\item 
+vector$<$ double $>$ {\bfseries get\+Omega\+Minus} ()\hypertarget{classRTSim_1_1AVRTask_a5257063e4f2d4964434c4221612a0ba4}{}\label{classRTSim_1_1AVRTask_a5257063e4f2d4964434c4221612a0ba4}
+
+\item 
+virtual Tick {\bfseries get\+W\+C\+ET} (int index)  throw (\+Mode\+Out\+Of\+Index)\hypertarget{classRTSim_1_1AVRTask_a4d931c613c2562334b9ba664dca2fba6}{}\label{classRTSim_1_1AVRTask_a4d931c613c2562334b9ba664dca2fba6}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classRTSim_1_1AVRTask}{A\+V\+R\+Task} $\ast$ {\bfseries create\+Instance} (vector$<$ string $>$ \&par)\hypertarget{classRTSim_1_1AVRTask_abe52f2c35d0453555966331a42f007c3}{}\label{classRTSim_1_1AVRTask_abe52f2c35d0453555966331a42f007c3}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries Angular\+Period}\hypertarget{classRTSim_1_1AVRTask_a2082057750f55aa68f8d42a03a29d9f2}{}\label{classRTSim_1_1AVRTask_a2082057750f55aa68f8d42a03a29d9f2}
+
+\item 
+double {\bfseries Angular\+Phase}\hypertarget{classRTSim_1_1AVRTask_a7a365a846ad579302d52a409bc93e998}{}\label{classRTSim_1_1AVRTask_a7a365a846ad579302d52a409bc93e998}
+
+\item 
+double {\bfseries Angular\+Dl}\hypertarget{classRTSim_1_1AVRTask_aa856cbdfdac065558ee8b38ce51ef230}{}\label{classRTSim_1_1AVRTask_aa856cbdfdac065558ee8b38ce51ef230}
+
+\item 
+int {\bfseries mode}\hypertarget{classRTSim_1_1AVRTask_af8a45acd6db4e082f538ee70429dc027}{}\label{classRTSim_1_1AVRTask_af8a45acd6db4e082f538ee70429dc027}
+
+\item 
+vector$<$ Tick $>$ {\bfseries Buffered\+Deadlines}\hypertarget{classRTSim_1_1AVRTask_adc1e1fc065733a606277cbd22cc784c4}{}\label{classRTSim_1_1AVRTask_adc1e1fc065733a606277cbd22cc784c4}
+
+\item 
+vector$<$ int $>$ {\bfseries Buffered\+Modes}\hypertarget{classRTSim_1_1AVRTask_a37997c40458744d9a48f1e3fcdd62464}{}\label{classRTSim_1_1AVRTask_a37997c40458744d9a48f1e3fcdd62464}
+
+\item 
+vector$<$ vector$<$ \hyperlink{classRTSim_1_1Instr}{Instr} $\ast$ $>$ $>$ \hyperlink{classRTSim_1_1AVRTask_ac6e66a4eb60560c680a939497db5dc03}{my\+Instr}\hypertarget{classRTSim_1_1AVRTask_ac6e66a4eb60560c680a939497db5dc03}{}\label{classRTSim_1_1AVRTask_ac6e66a4eb60560c680a939497db5dc03}
+
+\begin{DoxyCompactList}\small\item\em !!!this is not the task instruction queue, but all the possible instruction queues (one for each mode) \end{DoxyCompactList}\item 
+vector$<$ double $>$ {\bfseries Omega\+Minus}\hypertarget{classRTSim_1_1AVRTask_ab2d030d7e5265bc7f4481668c3b61c56}{}\label{classRTSim_1_1AVRTask_ab2d030d7e5265bc7f4481668c3b61c56}
+
+\item 
+vector$<$ double $>$ {\bfseries Omega\+Plus}\hypertarget{classRTSim_1_1AVRTask_aa13e909562fd421d8440343ea99838fe}{}\label{classRTSim_1_1AVRTask_aa13e909562fd421d8440343ea99838fe}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+A\+V\+R\+Task@{R\+T\+Sim\+::\+A\+V\+R\+Task}!handle\+Arrival@{handle\+Arrival}}
+\index{handle\+Arrival@{handle\+Arrival}!R\+T\+Sim\+::\+A\+V\+R\+Task@{R\+T\+Sim\+::\+A\+V\+R\+Task}}
+\subsubsection[{\texorpdfstring{handle\+Arrival(\+Tick arr)}{handleArrival(Tick arr)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+A\+V\+R\+Task\+::handle\+Arrival (
+\begin{DoxyParamCaption}
+\item[{Tick}]{arrival}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1AVRTask_ad2daf3084278c3f85144a70fdb14178a}{}\label{classRTSim_1_1AVRTask_ad2daf3084278c3f85144a70fdb14178a}
+Handle arrival. This is the true arrival event handler.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000018}{Todo}]simplify the arrival handling, by reducing the number of methods to be invoked. \end{DoxyRefDesc}
+
+
+Reimplemented from \hyperlink{classRTSim_1_1Task_add22c413ce6d56bd33d7d6391f688658}{R\+T\+Sim\+::\+Task}.
+
+\index{R\+T\+Sim\+::\+A\+V\+R\+Task@{R\+T\+Sim\+::\+A\+V\+R\+Task}!new\+Run@{new\+Run}}
+\index{new\+Run@{new\+Run}!R\+T\+Sim\+::\+A\+V\+R\+Task@{R\+T\+Sim\+::\+A\+V\+R\+Task}}
+\subsubsection[{\texorpdfstring{new\+Run()}{newRun()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+A\+V\+R\+Task\+::new\+Run (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1AVRTask_af1704bc41d6e891d986f71f40c960b6a}{}\label{classRTSim_1_1AVRTask_af1704bc41d6e891d986f71f40c960b6a}
+Initializes the internal task structures at the beginning of each run. For example\+:
+\begin{DoxyItemize}
+\item posts the first arrival event
+\item resets the instruction counter
+\item resets the executed time counter 
+\end{DoxyItemize}
+
+Reimplemented from \hyperlink{classRTSim_1_1Task_a20ba7201d13480a1328686666b916c3e}{R\+T\+Sim\+::\+Task}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/A\+V\+R\+Task.\+hpp\item 
+src/A\+V\+R\+Task.\+cpp\end{DoxyCompactItemize}

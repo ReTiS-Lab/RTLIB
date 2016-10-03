@@ -1,0 +1,108 @@
+\hypertarget{classRTSim_1_1RandomRTTaskSetFactory}{}\section{R\+T\+Sim\+:\+:Random\+R\+T\+Task\+Set\+Factory Class Reference}
+\label{classRTSim_1_1RandomRTTaskSetFactory}\index{R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory@{R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory}}
+
+
+{\ttfamily \#include $<$rtload.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Random\+R\+T\+Task\+Set\+Factory\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Random\+R\+T\+Task\+Set\+Factory\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1RandomRTTaskSetFactory_a99d7a49ee0a42b02fd8ee7447271b784}{Random\+R\+T\+Task\+Set\+Factory} (int n, double u, \hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$g1, \hyperlink{classRTSim_1_1CTGen}{C\+T\+Gen} $\ast$g2, \hyperlink{classRTSim_1_1DTGen}{D\+T\+Gen} $\ast$g3, double minU=U\+M\+I\+N\+\_\+\+D\+EF, bool do\+It=true, bool preciseU=false)  throw (\+Exc)
+\item 
+{\bfseries Random\+R\+T\+Task\+Set\+Factory} (int n, double u, \hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$g1, \hyperlink{classRTSim_1_1CTGen}{C\+T\+Gen} $\ast$g2, \hyperlink{classRTSim_1_1DTGen}{D\+T\+Gen} $\ast$g3, \hyperlink{classRTSim_1_1OffsetGen}{Offset\+Gen} $\ast$g4, double minU=U\+M\+I\+N\+\_\+\+D\+EF, bool doit=true, bool preciseU=false)  throw (\+Exc)\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a09ad14dba8a716ff37a4ba184a0407fa}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a09ad14dba8a716ff37a4ba184a0407fa}
+
+\item 
+R\+T\+Task $\ast$ {\bfseries get\+Task} (int i)\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a2544efe11bc92b01b88cea51101396d7}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a2544efe11bc92b01b88cea51101396d7}
+
+\item 
+virtual bool {\bfseries generate} ()\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a4f0a23a3467987d86e91bd75bb55b6e2}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a4f0a23a3467987d86e91bd75bb55b6e2}
+
+\item 
+virtual \hyperlink{classRTSim_1_1Task}{Task} $\ast$ {\bfseries sinthesize} (int i)\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_ad13d694246b822e0aebd9c801bf635de}{}\label{classRTSim_1_1RandomRTTaskSetFactory_ad13d694246b822e0aebd9c801bf635de}
+
+\item 
+virtual void {\bfseries print} (int i)\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_ae76c0c791430c6b0febc107c1e971b26}{}\label{classRTSim_1_1RandomRTTaskSetFactory_ae76c0c791430c6b0febc107c1e971b26}
+
+\item 
+Tick {\bfseries get\+Offset} (int i) const \hypertarget{classRTSim_1_1RandomRTTaskSetFactory_ae5dd2372c5595958eaa28715c1fb4ece}{}\label{classRTSim_1_1RandomRTTaskSetFactory_ae5dd2372c5595958eaa28715c1fb4ece}
+
+\item 
+Tick {\bfseries get\+Deadline} (int i) const \hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a9feb3d2d4033f40635f4c5cc9260bf3d}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a9feb3d2d4033f40635f4c5cc9260bf3d}
+
+\item 
+virtual void {\bfseries print} ()\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a6833ef006ba5107505fd58fc0e0391cf}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a6833ef006ba5107505fd58fc0e0391cf}
+
+\item 
+virtual void {\bfseries sinthesize} ()\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a28778151a44c041e55407ea823836f62}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a28778151a44c041e55407ea823836f62}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1DTGen}{D\+T\+Gen} $\ast$ {\bfseries dt\+Gen}\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_ad10f6944eb2b2ea384da18f7fc0c0b3a}{}\label{classRTSim_1_1RandomRTTaskSetFactory_ad10f6944eb2b2ea384da18f7fc0c0b3a}
+
+\item 
+\hyperlink{classRTSim_1_1OffsetGen}{Offset\+Gen} $\ast$ {\bfseries off\+Gen}\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_acf89682dc64e81dd7361a0a1fbdcfb47}{}\label{classRTSim_1_1RandomRTTaskSetFactory_acf89682dc64e81dd7361a0a1fbdcfb47}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The RT \hyperlink{classRTSim_1_1Task}{Task} Set factory. For a Real-\/\+Time \hyperlink{classRTSim_1_1Task}{Task} Set we need to update/modify the main generation loop, because we need to generate A\+L\+SO the deadline and the virtual task constructor
+
+It has two constructors\+: one for tasks without offset (i.\+e. with offset 0), and the other for task with offset. In the first case, in addition to the computation time generator and the interarrival time generator, the user must specify the relative deadline generator. In the second case, the user must also specify the offset generator.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000010}{Todo}]It should become a factory only!! The real task set should be in another class that is used for other purpouses. In this way, I could build other kinds of factories. \end{DoxyRefDesc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory@{R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory}!Random\+R\+T\+Task\+Set\+Factory@{Random\+R\+T\+Task\+Set\+Factory}}
+\index{Random\+R\+T\+Task\+Set\+Factory@{Random\+R\+T\+Task\+Set\+Factory}!R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory@{R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory}}
+\subsubsection[{\texorpdfstring{Random\+R\+T\+Task\+Set\+Factory(int n, double u, I\+A\+T\+Gen $\ast$g1, C\+T\+Gen $\ast$g2, D\+T\+Gen $\ast$g3, double min\+U=\+U\+M\+I\+N\+\_\+\+D\+E\+F, bool do\+It=true, bool precise\+U=false)}{RandomRTTaskSetFactory(int n, double u, IATGen *g1, CTGen *g2, DTGen *g3, double minU=UMIN_DEF, bool doIt=true, bool preciseU=false)}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+Random\+R\+T\+Task\+Set\+Factory\+::\+Random\+R\+T\+Task\+Set\+Factory (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{double}]{u, }
+\item[{{\bf I\+A\+T\+Gen} $\ast$}]{g1, }
+\item[{{\bf C\+T\+Gen} $\ast$}]{g2, }
+\item[{{\bf D\+T\+Gen} $\ast$}]{g3, }
+\item[{double}]{minU = {\ttfamily UMIN\+\_\+DEF}, }
+\item[{bool}]{do\+It = {\ttfamily true}, }
+\item[{bool}]{preciseU = {\ttfamily false}}
+\end{DoxyParamCaption}
+) throw  {\bf Exc}) }\hypertarget{classRTSim_1_1RandomRTTaskSetFactory_a99d7a49ee0a42b02fd8ee7447271b784}{}\label{classRTSim_1_1RandomRTTaskSetFactory_a99d7a49ee0a42b02fd8ee7447271b784}
+Constructor. It takes several arguments\+:
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of tasks \\
+\hline
+{\em u} & desired utilization \\
+\hline
+{\em g1} & interarrival time generator (see before) \\
+\hline
+{\em g2} & computation time generator \\
+\hline
+{\em g3} & relative deadline generator \\
+\hline
+{\em minU} & minumum utilizazione for a task \\
+\hline
+{\em do\+It} & if true it creates the tasks. If false, tasks must be created with a call to synthesize. \\
+\hline
+{\em preciseU} & if true, the U is adjusted, so that the final sum is precisely the desired one. If false, no adjustment is done. By default, it is false. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/rtload.\+hpp\end{DoxyCompactItemize}

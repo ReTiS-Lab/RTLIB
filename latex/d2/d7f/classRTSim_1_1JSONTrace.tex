@@ -1,0 +1,47 @@
+\hypertarget{classRTSim_1_1JSONTrace}{}\section{R\+T\+Sim\+:\+:J\+S\+O\+N\+Trace Class Reference}
+\label{classRTSim_1_1JSONTrace}\index{R\+T\+Sim\+::\+J\+S\+O\+N\+Trace@{R\+T\+Sim\+::\+J\+S\+O\+N\+Trace}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries J\+S\+O\+N\+Trace} (const std\+::string \&name)\hypertarget{classRTSim_1_1JSONTrace_a9766c8605ebf1fee5c167dd8f708a04a}{}\label{classRTSim_1_1JSONTrace_a9766c8605ebf1fee5c167dd8f708a04a}
+
+\item 
+void {\bfseries probe} (\hyperlink{classRTSim_1_1ArrEvt}{Arr\+Evt} \&e)\hypertarget{classRTSim_1_1JSONTrace_a79d3c02f6c4ebbc21b5cdec848c481d0}{}\label{classRTSim_1_1JSONTrace_a79d3c02f6c4ebbc21b5cdec848c481d0}
+
+\item 
+void {\bfseries probe} (\hyperlink{classRTSim_1_1EndEvt}{End\+Evt} \&e)\hypertarget{classRTSim_1_1JSONTrace_a171857a592b06e65f73dfecfaa382239}{}\label{classRTSim_1_1JSONTrace_a171857a592b06e65f73dfecfaa382239}
+
+\item 
+void {\bfseries probe} (\hyperlink{classRTSim_1_1SchedEvt}{Sched\+Evt} \&e)\hypertarget{classRTSim_1_1JSONTrace_a3343d4c4055ac2c8a519d5b9450eb725}{}\label{classRTSim_1_1JSONTrace_a3343d4c4055ac2c8a519d5b9450eb725}
+
+\item 
+void {\bfseries probe} (\hyperlink{classRTSim_1_1DeschedEvt}{Desched\+Evt} \&e)\hypertarget{classRTSim_1_1JSONTrace_abb3875e55e09a0262316651d4e938eae}{}\label{classRTSim_1_1JSONTrace_abb3875e55e09a0262316651d4e938eae}
+
+\item 
+void {\bfseries probe} (\hyperlink{classRTSim_1_1DeadEvt}{Dead\+Evt} \&e)\hypertarget{classRTSim_1_1JSONTrace_a2e1a4759bc66c2d7aa8e1c7a1911db48}{}\label{classRTSim_1_1JSONTrace_a2e1a4759bc66c2d7aa8e1c7a1911db48}
+
+\item 
+void {\bfseries attach\+To\+Task} (\hyperlink{classRTSim_1_1Task}{Task} $\ast$t)\hypertarget{classRTSim_1_1JSONTrace_aa6c0e54d4058c2a4136c054ea587a519}{}\label{classRTSim_1_1JSONTrace_aa6c0e54d4058c2a4136c054ea587a519}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries write\+Task\+Event} (const \hyperlink{classRTSim_1_1Task}{Task} \&tt, const std\+::string \&evt\+\_\+name)\hypertarget{classRTSim_1_1JSONTrace_a1a9b47ef7f596a5878b759f47fbaf47d}{}\label{classRTSim_1_1JSONTrace_a1a9b47ef7f596a5878b759f47fbaf47d}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream {\bfseries fd}\hypertarget{classRTSim_1_1JSONTrace_afd69499912e86a79490f5e580dc4dc38}{}\label{classRTSim_1_1JSONTrace_afd69499912e86a79490f5e580dc4dc38}
+
+\item 
+bool {\bfseries first\+\_\+event}\hypertarget{classRTSim_1_1JSONTrace_a918542376d22baf8ad2e92c9000af5e5}{}\label{classRTSim_1_1JSONTrace_a918542376d22baf8ad2e92c9000af5e5}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/json\+\_\+trace.\+hpp\item 
+src/json\+\_\+trace.\+cpp\end{DoxyCompactItemize}

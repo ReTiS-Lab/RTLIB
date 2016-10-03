@@ -1,0 +1,67 @@
+\hypertarget{classRTSim_1_1AbsRTTask}{}\section{R\+T\+Sim\+:\+:Abs\+R\+T\+Task Class Reference}
+\label{classRTSim_1_1AbsRTTask}\index{R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}}
+
+
+{\ttfamily \#include $<$abstask.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Abs\+R\+T\+Task\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Abs\+R\+T\+Task\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Tick \hyperlink{classRTSim_1_1AbsRTTask_aab87ec425b45e295517c7b98bc9dcee0}{get\+Deadline} () const =0
+\item 
+virtual Tick \hyperlink{classRTSim_1_1AbsRTTask_a735b3ff2f6294459cc55d81f18eb547f}{get\+Rel\+Dline} () const =0
+\item 
+virtual int \hyperlink{classRTSim_1_1AbsRTTask_aefea72d5120dcbf15c6ad93f482e24ba}{get\+Task\+Number} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for a real-\/time task. In addition to the \hyperlink{classRTSim_1_1AbsTask}{Abs\+Task} interface, here we have also the deadline. 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}!get\+Deadline@{get\+Deadline}}
+\index{get\+Deadline@{get\+Deadline}!R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}}
+\subsubsection[{\texorpdfstring{get\+Deadline() const =0}{getDeadline() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Abs\+R\+T\+Task\+::get\+Deadline (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsRTTask_aab87ec425b45e295517c7b98bc9dcee0}{}\label{classRTSim_1_1AbsRTTask_aab87ec425b45e295517c7b98bc9dcee0}
+returns the task\textquotesingle{}s deadline 
+
+Implemented in \hyperlink{classRTSim_1_1Task_ab495e2185796b06b00059e879be0d350}{R\+T\+Sim\+::\+Task}, and \hyperlink{classRTSim_1_1Server_ad2116a0eb2b9c41fbc8130a901e7867e}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}!get\+Rel\+Dline@{get\+Rel\+Dline}}
+\index{get\+Rel\+Dline@{get\+Rel\+Dline}!R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}}
+\subsubsection[{\texorpdfstring{get\+Rel\+Dline() const =0}{getRelDline() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Abs\+R\+T\+Task\+::get\+Rel\+Dline (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsRTTask_a735b3ff2f6294459cc55d81f18eb547f}{}\label{classRTSim_1_1AbsRTTask_a735b3ff2f6294459cc55d81f18eb547f}
+returns the task\textquotesingle{}s relative deadline 
+
+Implemented in \hyperlink{classRTSim_1_1Task_a4140b594cc4f42c3b9c94b54af800c60}{R\+T\+Sim\+::\+Task}, and \hyperlink{classRTSim_1_1Server_a661e22db2cfcdddc7e22c043f79eaa74}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}!get\+Task\+Number@{get\+Task\+Number}}
+\index{get\+Task\+Number@{get\+Task\+Number}!R\+T\+Sim\+::\+Abs\+R\+T\+Task@{R\+T\+Sim\+::\+Abs\+R\+T\+Task}}
+\subsubsection[{\texorpdfstring{get\+Task\+Number() const =0}{getTaskNumber() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual int R\+T\+Sim\+::\+Abs\+R\+T\+Task\+::get\+Task\+Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsRTTask_aefea72d5120dcbf15c6ad93f482e24ba}{}\label{classRTSim_1_1AbsRTTask_aefea72d5120dcbf15c6ad93f482e24ba}
+returns the \hyperlink{classRTSim_1_1Task}{Task} ID. 
+
+Implemented in \hyperlink{classRTSim_1_1Task_a06fa9011b893f338fd385f0d0ac4c5ad}{R\+T\+Sim\+::\+Task}, and \hyperlink{classRTSim_1_1Server_a51dbd3d4e2e522f8a045ba120bd1fb46}{R\+T\+Sim\+::\+Server}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/abstask.\+hpp\end{DoxyCompactItemize}

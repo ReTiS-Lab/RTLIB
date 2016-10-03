@@ -1,0 +1,92 @@
+\hypertarget{classRTSim_1_1TraceDlinePostEvent}{}\section{R\+T\+Sim\+:\+:Trace\+Dline\+Post\+Event Class Reference}
+\label{classRTSim_1_1TraceDlinePostEvent}\index{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}}
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Trace\+Dline\+Post\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Trace\+Dline\+Post\+Event\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Trace\+Dline\+Post\+Event} (int time, int task, int dline, int dline2)\hypertarget{classRTSim_1_1TraceDlinePostEvent_a8fca002a46e836388e2919c19294d501}{}\label{classRTSim_1_1TraceDlinePostEvent_a8fca002a46e836388e2919c19294d501}
+
+\item 
+virtual unsigned int {\bfseries get\+Size} () const \hypertarget{classRTSim_1_1TraceDlinePostEvent_a66a9ee1cb099dfd14086ce8ac4dbcd2c}{}\label{classRTSim_1_1TraceDlinePostEvent_a66a9ee1cb099dfd14086ce8ac4dbcd2c}
+
+\item 
+int {\bfseries get\+TaskD} () const \hypertarget{classRTSim_1_1TraceDlinePostEvent_a9ecfc2adf85b98d3a42bf313f60fd61c}{}\label{classRTSim_1_1TraceDlinePostEvent_a9ecfc2adf85b98d3a42bf313f60fd61c}
+
+\item 
+int {\bfseries get\+Task\+D2} () const \hypertarget{classRTSim_1_1TraceDlinePostEvent_a9e8fe4a4e45a299725e623f7ecbd8523}{}\label{classRTSim_1_1TraceDlinePostEvent_a9e8fe4a4e45a299725e623f7ecbd8523}
+
+\item 
+string \hyperlink{classRTSim_1_1TraceDlinePostEvent_ac3e958d55191b191a54ccf914e864f23}{print} ()
+\item 
+string \hyperlink{classRTSim_1_1TraceDlinePostEvent_a64757e378a88739e77a7548b61e2d2f3}{get\+Description} ()
+\item 
+bool \hyperlink{classRTSim_1_1TraceDlinePostEvent_a2fcd6c87305879a98bc10e4ff248ca25}{something\+To\+Draw} (int t)
+\item 
+virtual void {\bfseries write} (ofstream \&f)\hypertarget{classRTSim_1_1TraceDlinePostEvent_a89439c69447b830abd49d97bcbc26e3f}{}\label{classRTSim_1_1TraceDlinePostEvent_a89439c69447b830abd49d97bcbc26e3f}
+
+\item 
+void {\bfseries read} (ifstream \&in)\hypertarget{classRTSim_1_1TraceDlinePostEvent_a2dd92823b903ccb92c2fb341deb1c0cd}{}\label{classRTSim_1_1TraceDlinePostEvent_a2dd92823b903ccb92c2fb341deb1c0cd}
+
+\item 
+bool {\bfseries equals} (\hyperlink{classRTSim_1_1TraceEvent}{Trace\+Event} $\ast$e)\hypertarget{classRTSim_1_1TraceDlinePostEvent_adddc8badf83c6ff6f7dddc64ffc12b0c}{}\label{classRTSim_1_1TraceDlinePostEvent_adddc8badf83c6ff6f7dddc64ffc12b0c}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries \+\_\+taskD}\hypertarget{classRTSim_1_1TraceDlinePostEvent_a509ef271a8210f06fd1f51ffca16738a}{}\label{classRTSim_1_1TraceDlinePostEvent_a509ef271a8210f06fd1f51ffca16738a}
+
+\item 
+int {\bfseries \+\_\+task\+D2}\hypertarget{classRTSim_1_1TraceDlinePostEvent_afee33f3538a677621238aa8390f125e9}{}\label{classRTSim_1_1TraceDlinePostEvent_afee33f3538a677621238aa8390f125e9}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}!get\+Description@{get\+Description}}
+\index{get\+Description@{get\+Description}!R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}}
+\subsubsection[{\texorpdfstring{get\+Description()}{getDescription()}}]{\setlength{\rightskip}{0pt plus 5cm}string R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event\+::get\+Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1TraceDlinePostEvent_a64757e378a88739e77a7548b61e2d2f3}{}\label{classRTSim_1_1TraceDlinePostEvent_a64757e378a88739e77a7548b61e2d2f3}
+Returns a string used for displaying text info. 
+
+Reimplemented from \hyperlink{classRTSim_1_1TraceTaskEvent_a0967a0d232d99305ef475b1f96536e89}{R\+T\+Sim\+::\+Trace\+Task\+Event}.
+
+\index{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}!print@{print}}
+\index{print@{print}!R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}}
+\subsubsection[{\texorpdfstring{print()}{print()}}]{\setlength{\rightskip}{0pt plus 5cm}string R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1TraceDlinePostEvent_ac3e958d55191b191a54ccf914e864f23}{}\label{classRTSim_1_1TraceDlinePostEvent_ac3e958d55191b191a54ccf914e864f23}
+Returns a descriptive string\+: used for debug. 
+
+Reimplemented from \hyperlink{classRTSim_1_1TraceTaskEvent_ac4b6e232c88506a951709d01e6fb5106}{R\+T\+Sim\+::\+Trace\+Task\+Event}.
+
+\index{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}!something\+To\+Draw@{something\+To\+Draw}}
+\index{something\+To\+Draw@{something\+To\+Draw}!R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event@{R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event}}
+\subsubsection[{\texorpdfstring{something\+To\+Draw(int t)}{somethingToDraw(int t)}}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+T\+Sim\+::\+Trace\+Dline\+Post\+Event\+::something\+To\+Draw (
+\begin{DoxyParamCaption}
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1TraceDlinePostEvent_a2fcd6c87305879a98bc10e4ff248ca25}{}\label{classRTSim_1_1TraceDlinePostEvent_a2fcd6c87305879a98bc10e4ff248ca25}
+true if there is something to draw in the temporal window that begins at t. 
+
+Reimplemented from \hyperlink{classRTSim_1_1TraceEvent_a3b001f78f81269d62ef81e893923dd57}{R\+T\+Sim\+::\+Trace\+Event}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/traceevent.\+hpp\item 
+src/traceevent.\+cpp\end{DoxyCompactItemize}

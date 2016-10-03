@@ -1,0 +1,19 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="RTSim::AbstractGen\l\< Tick \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/da6/classRTSim_1_1AbstractGen.html"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="RTSim::DTGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/df6/classRTSim_1_1DTGen.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="RTSim::DlineEquPeriodDTGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$db/db8/classRTSim_1_1DlineEquPeriodDTGen.html"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="RTSim::RandomDTGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$da/d24/classRTSim_1_1RandomDTGen.html"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="RTSim::SporadicDTGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d0/d95/classRTSim_1_1SporadicDTGen.html"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="RTSim::OffsetGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/d62/classRTSim_1_1OffsetGen.html"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="RTSim::RandomOffsetGen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/d1c/classRTSim_1_1RandomOffsetGen.html"];
+}

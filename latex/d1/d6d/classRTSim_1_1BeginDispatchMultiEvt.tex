@@ -1,0 +1,35 @@
+\hypertarget{classRTSim_1_1BeginDispatchMultiEvt}{}\section{R\+T\+Sim\+:\+:Begin\+Dispatch\+Multi\+Evt Class Reference}
+\label{classRTSim_1_1BeginDispatchMultiEvt}\index{R\+T\+Sim\+::\+Begin\+Dispatch\+Multi\+Evt@{R\+T\+Sim\+::\+Begin\+Dispatch\+Multi\+Evt}}
+
+
+{\ttfamily \#include $<$mrtkernel.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Begin\+Dispatch\+Multi\+Evt\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Begin\+Dispatch\+Multi\+Evt\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Begin\+Dispatch\+Multi\+Evt} (\hyperlink{classRTSim_1_1MRTKernel}{M\+R\+T\+Kernel} \&k, \hyperlink{classRTSim_1_1CPU}{C\+PU} \&c)\hypertarget{classRTSim_1_1BeginDispatchMultiEvt_a73517b699d6df307277cac0afeec7f8e}{}\label{classRTSim_1_1BeginDispatchMultiEvt_a73517b699d6df307277cac0afeec7f8e}
+
+\item 
+\hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ {\bfseries get\+C\+PU} ()\hypertarget{classRTSim_1_1BeginDispatchMultiEvt_aebb18e69fb801e86bc079a8f91b04253}{}\label{classRTSim_1_1BeginDispatchMultiEvt_aebb18e69fb801e86bc079a8f91b04253}
+
+\item 
+virtual void {\bfseries doit} ()\hypertarget{classRTSim_1_1BeginDispatchMultiEvt_aac335c5ea99ea3e0cd5c08509ce93080}{}\label{classRTSim_1_1BeginDispatchMultiEvt_aac335c5ea99ea3e0cd5c08509ce93080}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class models and event of \char`\"{}start of context switch\char`\"{}. It serves to implement a context switch on a certain processor. Different from the \hyperlink{classRTSim_1_1BeginDispatchEvt}{Begin\+Dispatch\+Evt} for single processor kernels (\hyperlink{classRTSim_1_1RTKernel}{R\+T\+Kernel}), since it needs to store a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} and the amount of overhead for the context switch (which may also depend on the migration status of the task). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/mrtkernel.\+hpp\item 
+src/mrtkernel.\+cpp\end{DoxyCompactItemize}

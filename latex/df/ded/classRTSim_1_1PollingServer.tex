@@ -1,0 +1,126 @@
+\hypertarget{classRTSim_1_1PollingServer}{}\section{R\+T\+Sim\+:\+:Polling\+Server Class Reference}
+\label{classRTSim_1_1PollingServer}\index{R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}}
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Polling\+Server\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Polling\+Server\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Polling\+Server} (Tick q, Tick p, const std\+::string \&name, const std\+::string \&sched=\char`\"{}F\+I\+F\+O\+Sched\char`\"{})\hypertarget{classRTSim_1_1PollingServer_af2c51ad7143c28f6b9cb95a1790c9998}{}\label{classRTSim_1_1PollingServer_af2c51ad7143c28f6b9cb95a1790c9998}
+
+\item 
+void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1PollingServer_a4d2658e714f1322fcc07c73e744f19d1}{}\label{classRTSim_1_1PollingServer_a4d2658e714f1322fcc07c73e744f19d1}
+
+\item 
+void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1PollingServer_a3e9dc29cb6d6c9c071f3ad91040b7480}{}\label{classRTSim_1_1PollingServer_a3e9dc29cb6d6c9c071f3ad91040b7480}
+
+\item 
+virtual Tick \hyperlink{classRTSim_1_1PollingServer_acc372522f1f24aa331969ae927b828a3}{get\+Budget} () const 
+\item 
+virtual Tick \hyperlink{classRTSim_1_1PollingServer_ab3fe53207fce5597242794c495a26d7c}{get\+Period} () const 
+\item 
+Tick \hyperlink{classRTSim_1_1PollingServer_aa16435ebd8d61cf7768bca27381f1ee2}{change\+Budget} (const Tick \&n)
+\item 
+virtual double \hyperlink{classRTSim_1_1PollingServer_ad29d9247dc3e8175587cec2f39f44e73}{get\+Virtual\+Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_ae6cf47b26c4207441dd346a059f7fd71}{idle\+\_\+ready} ()\hypertarget{classRTSim_1_1PollingServer_ae6cf47b26c4207441dd346a059f7fd71}{}\label{classRTSim_1_1PollingServer_ae6cf47b26c4207441dd346a059f7fd71}
+
+\begin{DoxyCompactList}\small\item\em from idle to active contending (new work to do) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_a5c1c336bbf157da1cf594720ac9b96da}{releasing\+\_\+ready} ()\hypertarget{classRTSim_1_1PollingServer_a5c1c336bbf157da1cf594720ac9b96da}{}\label{classRTSim_1_1PollingServer_a5c1c336bbf157da1cf594720ac9b96da}
+
+\begin{DoxyCompactList}\small\item\em from active non contending to active contending (more work) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_ab37e7fe01d800f4d4b09b6f1f5165582}{ready\+\_\+executing} ()\hypertarget{classRTSim_1_1PollingServer_ab37e7fe01d800f4d4b09b6f1f5165582}{}\label{classRTSim_1_1PollingServer_ab37e7fe01d800f4d4b09b6f1f5165582}
+
+\begin{DoxyCompactList}\small\item\em from active contending to executing (dispatching) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_a01df62d8d91397160c74148cf076711a}{executing\+\_\+ready} ()\hypertarget{classRTSim_1_1PollingServer_a01df62d8d91397160c74148cf076711a}{}\label{classRTSim_1_1PollingServer_a01df62d8d91397160c74148cf076711a}
+
+\begin{DoxyCompactList}\small\item\em from executing to active contenting (preemption) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_a8b99ec96de9e425d2b551f70fc8ebba8}{executing\+\_\+releasing} ()\hypertarget{classRTSim_1_1PollingServer_a8b99ec96de9e425d2b551f70fc8ebba8}{}\label{classRTSim_1_1PollingServer_a8b99ec96de9e425d2b551f70fc8ebba8}
+
+\begin{DoxyCompactList}\small\item\em from executing to active non contending (no more work) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_acc8d9a98cd49bb715979e2f9a9b376b1}{releasing\+\_\+idle} ()\hypertarget{classRTSim_1_1PollingServer_acc8d9a98cd49bb715979e2f9a9b376b1}{}\label{classRTSim_1_1PollingServer_acc8d9a98cd49bb715979e2f9a9b376b1}
+
+\begin{DoxyCompactList}\small\item\em from active non contending to idle (no lag) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_a4deb0880a4db27809b68c0cb978e23ed}{executing\+\_\+recharging} ()\hypertarget{classRTSim_1_1PollingServer_a4deb0880a4db27809b68c0cb978e23ed}{}\label{classRTSim_1_1PollingServer_a4deb0880a4db27809b68c0cb978e23ed}
+
+\begin{DoxyCompactList}\small\item\em from executing to recharging (budget exhausted) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_a362ff5df3360c2cd2b1bcbdef1115cbe}{recharging\+\_\+ready} ()\hypertarget{classRTSim_1_1PollingServer_a362ff5df3360c2cd2b1bcbdef1115cbe}{}\label{classRTSim_1_1PollingServer_a362ff5df3360c2cd2b1bcbdef1115cbe}
+
+\begin{DoxyCompactList}\small\item\em from recharging to active contending (budget recharged) \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1PollingServer_a738af8d6f94081a8393a590298c81e0b}{recharging\+\_\+idle} ()\hypertarget{classRTSim_1_1PollingServer_a738af8d6f94081a8393a590298c81e0b}{}\label{classRTSim_1_1PollingServer_a738af8d6f94081a8393a590298c81e0b}
+
+\begin{DoxyCompactList}\small\item\em from recharging to active contending (budget recharged) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}!change\+Budget@{change\+Budget}}
+\index{change\+Budget@{change\+Budget}!R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}}
+\subsubsection[{\texorpdfstring{change\+Budget(const Tick \&n)}{changeBudget(const Tick &n)}}]{\setlength{\rightskip}{0pt plus 5cm}Tick R\+T\+Sim\+::\+Polling\+Server\+::change\+Budget (
+\begin{DoxyParamCaption}
+\item[{const Tick \&}]{new\+\_\+budget}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1PollingServer_aa16435ebd8d61cf7768bca27381f1ee2}{}\label{classRTSim_1_1PollingServer_aa16435ebd8d61cf7768bca27381f1ee2}
+Dynamically changes the budget.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+budget} & the new budget. Can be higher or lower than the current one\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the function returns the time at which the new budget has been imposed. Usually, an increase in the budget is immediately enforced, so it returns the current time. A decrease in the budget, instead, cannot be enforced immediately, so the function will return the time in the future when the new budget has been enforced. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classRTSim_1_1Server_a48d58b30f36de937de7ce3e4700bd18c}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}!get\+Budget@{get\+Budget}}
+\index{get\+Budget@{get\+Budget}!R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}}
+\subsubsection[{\texorpdfstring{get\+Budget() const }{getBudget() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Polling\+Server\+::get\+Budget (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1PollingServer_acc372522f1f24aa331969ae927b828a3}{}\label{classRTSim_1_1PollingServer_acc372522f1f24aa331969ae927b828a3}
+Get budget 
+
+Implements \hyperlink{classRTSim_1_1Server_a9a631df5ed8fcf2939eaa117cc652c90}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}!get\+Period@{get\+Period}}
+\index{get\+Period@{get\+Period}!R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}}
+\subsubsection[{\texorpdfstring{get\+Period() const }{getPeriod() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Polling\+Server\+::get\+Period (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1PollingServer_ab3fe53207fce5597242794c495a26d7c}{}\label{classRTSim_1_1PollingServer_ab3fe53207fce5597242794c495a26d7c}
+Returns the period 
+
+Implements \hyperlink{classRTSim_1_1Server_a0e3112770d8344442fcb51b88cf7ce3d}{R\+T\+Sim\+::\+Server}.
+
+\index{R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}!get\+Virtual\+Time@{get\+Virtual\+Time}}
+\index{get\+Virtual\+Time@{get\+Virtual\+Time}!R\+T\+Sim\+::\+Polling\+Server@{R\+T\+Sim\+::\+Polling\+Server}}
+\subsubsection[{\texorpdfstring{get\+Virtual\+Time()}{getVirtualTime()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double R\+T\+Sim\+::\+Polling\+Server\+::get\+Virtual\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1PollingServer_ad29d9247dc3e8175587cec2f39f44e73}{}\label{classRTSim_1_1PollingServer_ad29d9247dc3e8175587cec2f39f44e73}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000006}{Todo}]to be completed \end{DoxyRefDesc}
+
+
+Implements \hyperlink{classRTSim_1_1Server_a1397b6ddbad8ed5857c7242261ec737d}{R\+T\+Sim\+::\+Server}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/pollingserver.\+hpp\item 
+src/pollingserver.\+cpp\end{DoxyCompactItemize}

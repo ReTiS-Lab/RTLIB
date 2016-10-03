@@ -1,0 +1,14 @@
+digraph "RTSim::Supervisor"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="RTSim::Supervisor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="RTSim::SchedPoint",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d7/d69/classRTSim_1_1SchedPoint.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="RTSim::SchedRTA",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d0/de3/classRTSim_1_1SchedRTA.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="RTSim::SparePot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d5/d13/classRTSim_1_1SparePot.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="RTSim::SuperCBS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$da/d06/classRTSim_1_1SuperCBS.html"];
+}

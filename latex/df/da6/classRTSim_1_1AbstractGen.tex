@@ -1,0 +1,51 @@
+\hypertarget{classRTSim_1_1AbstractGen}{}\section{R\+T\+Sim\+:\+:Abstract\+Gen$<$ VA, T $>$ Class Template Reference}
+\label{classRTSim_1_1AbstractGen}\index{R\+T\+Sim\+::\+Abstract\+Gen$<$ V\+A, T $>$@{R\+T\+Sim\+::\+Abstract\+Gen$<$ V\+A, T $>$}}
+
+
+{\ttfamily \#include $<$load.\+hpp$>$}
+
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Abstract\+Gen$<$ VA, T $>$\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+VA {\bfseries get} (int i)\hypertarget{classRTSim_1_1AbstractGen_a01da27daaac13fc2066a6818d1f58c93}{}\label{classRTSim_1_1AbstractGen_a01da27daaac13fc2066a6818d1f58c93}
+
+\item 
+void {\bfseries bind} (\hyperlink{classRTSim_1_1RandomTaskSetFactory}{Random\+Task\+Set\+Factory} $\ast$ts)\hypertarget{classRTSim_1_1AbstractGen_a30450f7fe2e17b7a957ec124d8811eff}{}\label{classRTSim_1_1AbstractGen_a30450f7fe2e17b7a957ec124d8811eff}
+
+\item 
+virtual bool {\bfseries generate} ()=0\hypertarget{classRTSim_1_1AbstractGen_a924bfd143ba3f83f773e30505dd04395}{}\label{classRTSim_1_1AbstractGen_a924bfd143ba3f83f773e30505dd04395}
+
+\item 
+virtual T {\bfseries get\+Avg} (int i) const =0\hypertarget{classRTSim_1_1AbstractGen_abbfc66f3e9918ce94f10c9782fbf452b}{}\label{classRTSim_1_1AbstractGen_abbfc66f3e9918ce94f10c9782fbf452b}
+
+\item 
+virtual T {\bfseries get\+Min} (int i) const =0\hypertarget{classRTSim_1_1AbstractGen_a9983f28193fcf259817d931a4f1581e4}{}\label{classRTSim_1_1AbstractGen_a9983f28193fcf259817d931a4f1581e4}
+
+\item 
+virtual T {\bfseries get\+Max} (int i) const =0\hypertarget{classRTSim_1_1AbstractGen_a245a27ef1e9daa0e4767cf37d1d375c5}{}\label{classRTSim_1_1AbstractGen_a245a27ef1e9daa0e4767cf37d1d375c5}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ VA $>$ {\bfseries va}\hypertarget{classRTSim_1_1AbstractGen_a12b83e8a4ffd827738cd57d82ef8c88b}{}\label{classRTSim_1_1AbstractGen_a12b83e8a4ffd827738cd57d82ef8c88b}
+
+\item 
+\hyperlink{classRTSim_1_1RandomTaskSetFactory}{Random\+Task\+Set\+Factory} $\ast$ {\bfseries task\+Set}\hypertarget{classRTSim_1_1AbstractGen_a6b6db5eedb190702271c86968457141f}{}\label{classRTSim_1_1AbstractGen_a6b6db5eedb190702271c86968457141f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class VA = Random\+Var $\ast$, class T = Tick$>$\\*
+class R\+T\+Sim\+::\+Abstract\+Gen$<$ V\+A, T $>$}
+
+The generator main class, from which all generators are derived. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/load.\+hpp\end{DoxyCompactItemize}

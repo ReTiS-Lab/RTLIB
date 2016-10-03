@@ -1,0 +1,47 @@
+\hypertarget{classRTSim_1_1PreemptionStat}{}\section{R\+T\+Sim\+:\+:Preemption\+Stat$<$ Measure $>$ Class Template Reference}
+\label{classRTSim_1_1PreemptionStat}\index{R\+T\+Sim\+::\+Preemption\+Stat$<$ Measure $>$@{R\+T\+Sim\+::\+Preemption\+Stat$<$ Measure $>$}}
+
+
+{\ttfamily \#include $<$taskstat.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Preemption\+Stat$<$ Measure $>$\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Preemption\+Stat$<$ Measure $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Preemption\+Stat} (string name=\char`\"{}\char`\"{})\hypertarget{classRTSim_1_1PreemptionStat_a8f36fe420755a6cef637e11a0b3a829b}{}\label{classRTSim_1_1PreemptionStat_a8f36fe420755a6cef637e11a0b3a829b}
+
+\item 
+void {\bfseries probe} (const \hyperlink{classRTSim_1_1DeschedEvt}{Desched\+Evt} \&e)\hypertarget{classRTSim_1_1PreemptionStat_a4dd6b4097c26c0b46554b7a3f693fb1b}{}\label{classRTSim_1_1PreemptionStat_a4dd6b4097c26c0b46554b7a3f693fb1b}
+
+\item 
+void {\bfseries probe} (const \hyperlink{classRTSim_1_1SchedEvt}{Sched\+Evt} \&e)\hypertarget{classRTSim_1_1PreemptionStat_ad7c4d98930366ece2cf3b56e10fb3f55}{}\label{classRTSim_1_1PreemptionStat_ad7c4d98930366ece2cf3b56e10fb3f55}
+
+\item 
+void {\bfseries probe} (const \hyperlink{classRTSim_1_1EndEvt}{End\+Evt} \&e)\hypertarget{classRTSim_1_1PreemptionStat_ae82993a5f1b56904e782845680ec4248}{}\label{classRTSim_1_1PreemptionStat_ae82993a5f1b56904e782845680ec4248}
+
+\item 
+void {\bfseries attach\+To\+Task} (\hyperlink{classRTSim_1_1Task}{Task} $\ast$t)\hypertarget{classRTSim_1_1PreemptionStat_a795f0465929b1c4325e8e67606c61b32}{}\label{classRTSim_1_1PreemptionStat_a795f0465929b1c4325e8e67606c61b32}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Measure$>$\\*
+class R\+T\+Sim\+::\+Preemption\+Stat$<$ Measure $>$}
+
+Abstract Statistical Probe Definitions; the user need to combine an abstract probe referring the quantity to measure with the kind of measure to do over it
+
+Ex\+: class Mean\+F\+T\+Stat \+: public Finishing\+Time\+Stat$<$\+Mean\+Stat$>$;
+
+Counts the number of preemptions for a single job of a single task. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/taskstat.\+hpp\end{DoxyCompactItemize}

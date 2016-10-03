@@ -1,0 +1,62 @@
+\hypertarget{classRTSim_1_1CTGen}{}\section{R\+T\+Sim\+:\+:C\+T\+Gen Class Reference}
+\label{classRTSim_1_1CTGen}\index{R\+T\+Sim\+::\+C\+T\+Gen@{R\+T\+Sim\+::\+C\+T\+Gen}}
+
+
+{\ttfamily \#include $<$load.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:C\+T\+Gen\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:C\+T\+Gen\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries C\+T\+Gen} (Tick c=C\+M\+I\+N\+\_\+\+D\+EF)\hypertarget{classRTSim_1_1CTGen_a6c2b0d75030cd4b632560838792ae66a}{}\label{classRTSim_1_1CTGen_a6c2b0d75030cd4b632560838792ae66a}
+
+\item 
+void {\bfseries bind} (\hyperlink{classRTSim_1_1RandomTaskSetFactory}{Random\+Task\+Set\+Factory} $\ast$ts, \hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$i)\hypertarget{classRTSim_1_1CTGen_a46987193217869fed7bd29e3a7a98404}{}\label{classRTSim_1_1CTGen_a46987193217869fed7bd29e3a7a98404}
+
+\item 
+virtual Tick {\bfseries get\+Min} (int i) const \hypertarget{classRTSim_1_1CTGen_aaea46b3c7fb073511433b163b0ae4729}{}\label{classRTSim_1_1CTGen_aaea46b3c7fb073511433b163b0ae4729}
+
+\item 
+virtual Tick {\bfseries get\+Avg} (int i) const \hypertarget{classRTSim_1_1CTGen_a9fb4ab0bb47b3f4cfe577c91f2c03934}{}\label{classRTSim_1_1CTGen_a9fb4ab0bb47b3f4cfe577c91f2c03934}
+
+\item 
+virtual Tick {\bfseries get\+Max} (int i) const \hypertarget{classRTSim_1_1CTGen_a3b333b3df8c5f238397e672f7cf309b8}{}\label{classRTSim_1_1CTGen_a3b333b3df8c5f238397e672f7cf309b8}
+
+\item 
+virtual void {\bfseries sinthesize} (\hyperlink{classRTSim_1_1Task}{Task} $\ast$t, int i)\hypertarget{classRTSim_1_1CTGen_a3bd0f6d5979742a97bbff1ae4a54f02d}{}\label{classRTSim_1_1CTGen_a3bd0f6d5979742a97bbff1ae4a54f02d}
+
+\item 
+virtual void {\bfseries rebuild} ()\hypertarget{classRTSim_1_1CTGen_a545b1c1d9b34b48d763d3d8459d7bc4a}{}\label{classRTSim_1_1CTGen_a545b1c1d9b34b48d763d3d8459d7bc4a}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Tick {\bfseries C\+M\+I\+N\+\_\+\+D\+EF} = 1\hypertarget{classRTSim_1_1CTGen_a951a2c2a4bea0745a375c2724ef64497}{}\label{classRTSim_1_1CTGen_a951a2c2a4bea0745a375c2724ef64497}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1IATGen}{I\+A\+T\+Gen} $\ast$ {\bfseries iat\+Gen}\hypertarget{classRTSim_1_1CTGen_a34d7b4a08fa9394e1a3e3836effa5c2e}{}\label{classRTSim_1_1CTGen_a34d7b4a08fa9394e1a3e3836effa5c2e}
+
+\item 
+Tick {\bfseries minC}\hypertarget{classRTSim_1_1CTGen_a5f1b6af4145601f064f1b4c9bdbe0522}{}\label{classRTSim_1_1CTGen_a5f1b6af4145601f064f1b4c9bdbe0522}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Computation Time Sub Generator Model generates and sinthesize accordingly the task behavior (Pseudo Instructions). It relies on the existence of an I\+AT Sub-\/\+Generator and \hyperlink{classRTSim_1_1RandomTaskSetFactory}{Random\+Task\+Set\+Factory} to derive from T\+\_\+i and U\+\_\+i the required c\+\_\+i The basic sinthesize() behavior is just to add an Exec\+Instr(va\mbox{[}i\mbox{]})... 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/load.\+hpp\item 
+src/load.\+cpp\end{DoxyCompactItemize}

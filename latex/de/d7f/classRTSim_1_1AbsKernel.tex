@@ -1,0 +1,156 @@
+\hypertarget{classRTSim_1_1AbsKernel}{}\section{R\+T\+Sim\+:\+:Abs\+Kernel Class Reference}
+\label{classRTSim_1_1AbsKernel}\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+
+
+{\ttfamily \#include $<$abskernel.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Abs\+Kernel\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classRTSim_1_1AbsKernel_a95dfc89a0d57114bf8fe17adfd7b8e7f}{$\sim$\+Abs\+Kernel} ()
+\item 
+virtual void \hyperlink{classRTSim_1_1AbsKernel_a046cdfcc244a266c8a8d7dd9af0a72fa}{activate} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)=0
+\item 
+virtual void \hyperlink{classRTSim_1_1AbsKernel_abdd7e9a6b00559870675d92a1f8c150e}{suspend} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)=0
+\item 
+virtual void \hyperlink{classRTSim_1_1AbsKernel_a29fab5d7ee3a481cec66f806ba823098}{dispatch} ()=0
+\item 
+virtual void \hyperlink{classRTSim_1_1AbsKernel_a17a0e68b2a00117beaf78fe0f57ed37a}{on\+Arrival} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)=0
+\item 
+virtual void \hyperlink{classRTSim_1_1AbsKernel_a4f851da0832c325ba8d0ae7744cede48}{on\+End} (\hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$t)=0
+\item 
+virtual \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1AbsKernel_a03749f0af85a6bb857569131c1f628f8}{get\+Processor} (const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$) const =0
+\item 
+virtual \hyperlink{classRTSim_1_1CPU}{C\+PU} $\ast$ \hyperlink{classRTSim_1_1AbsKernel_a9ea84933a3ce4e6b1a2dd114429d1971}{get\+Old\+Processor} (const \hyperlink{classRTSim_1_1AbsRTTask}{Abs\+R\+T\+Task} $\ast$) const =0
+\item 
+virtual double {\bfseries get\+Speed} () const =0\hypertarget{classRTSim_1_1AbsKernel_a6f8093f5db1ca98f570154bc4a26c0af}{}\label{classRTSim_1_1AbsKernel_a6f8093f5db1ca98f570154bc4a26c0af}
+
+\item 
+virtual double \hyperlink{classRTSim_1_1AbsKernel_a7620a0196c742f3b722498f05987e0ca}{set\+Speed} (double new\+Load)=0
+\item 
+virtual bool \hyperlink{classRTSim_1_1AbsKernel_aa807b5abf438398cb6bd5c895af7d517}{is\+Context\+Switching} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abtract Kernel interface. It defines the minimal functionality that should be implemented by a kernel. A Kernel is a generic objects that handles tasks. See also the definition of abstract task. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!````~Abs\+Kernel@{$\sim$\+Abs\+Kernel}}
+\index{````~Abs\+Kernel@{$\sim$\+Abs\+Kernel}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{$\sim$\+Abs\+Kernel()}{~AbsKernel()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual R\+T\+Sim\+::\+Abs\+Kernel\+::$\sim$\+Abs\+Kernel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a95dfc89a0d57114bf8fe17adfd7b8e7f}{}\label{classRTSim_1_1AbsKernel_a95dfc89a0d57114bf8fe17adfd7b8e7f}
+Virtual destructor. It avoids a warning for the presence of virtual functions. 
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!activate@{activate}}
+\index{activate@{activate}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{activate(\+Abs\+R\+T\+Task $\ast$t)=0}{activate(AbsRTTask *t)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Abs\+Kernel\+::activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a046cdfcc244a266c8a8d7dd9af0a72fa}{}\label{classRTSim_1_1AbsKernel_a046cdfcc244a266c8a8d7dd9af0a72fa}
+Inserts the task in the ready queue. It doesn\textquotesingle{}t check if the task has to be scheduled and doesn\textquotesingle{}t make any context switch 
+
+Implemented in \hyperlink{classRTSim_1_1Server_a1e80dc262500cad03877b16aec5d74d5}{R\+T\+Sim\+::\+Server}, and \hyperlink{classRTSim_1_1RTKernel_a87d98a7fe77c37cb49034a132311a552}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{dispatch()=0}{dispatch()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Abs\+Kernel\+::dispatch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a29fab5d7ee3a481cec66f806ba823098}{}\label{classRTSim_1_1AbsKernel_a29fab5d7ee3a481cec66f806ba823098}
+Checks if the current executing task is equal to the newly scheduled task. If so, does nothing. Otherwise, descheduler the old executing task and schedule the newly executing task. 
+
+Implemented in \hyperlink{classRTSim_1_1Server_a5befba12bcb9642de20f4a5553fa7eed}{R\+T\+Sim\+::\+Server}, \hyperlink{classRTSim_1_1MRTKernel_a2c93872c83ec92ebb02f788d80a3a874}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}, and \hyperlink{classRTSim_1_1RTKernel_ac50b6580580d5380261d7b9e84f5e08a}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!get\+Old\+Processor@{get\+Old\+Processor}}
+\index{get\+Old\+Processor@{get\+Old\+Processor}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Old\+Processor(const Abs\+R\+T\+Task $\ast$) const =0}{getOldProcessor(const AbsRTTask *) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf C\+PU}$\ast$ R\+T\+Sim\+::\+Abs\+Kernel\+::get\+Old\+Processor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Abs\+R\+T\+Task} $\ast$}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a9ea84933a3ce4e6b1a2dd114429d1971}{}\label{classRTSim_1_1AbsKernel_a9ea84933a3ce4e6b1a2dd114429d1971}
+Returns a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on whitch t was running before being suspended (N\+U\+LL if t was not running on any \hyperlink{classRTSim_1_1CPU}{C\+PU}) 
+
+Implemented in \hyperlink{classRTSim_1_1Server_aa9ac1d7d7b850a266a607cec9d454b13}{R\+T\+Sim\+::\+Server}, \hyperlink{classRTSim_1_1RTKernel_aeb28ef73743303f89bf6c8faa20aae17}{R\+T\+Sim\+::\+R\+T\+Kernel}, and \hyperlink{classRTSim_1_1MRTKernel_a132a1ad4926f4c91fdce20335e1312f3}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!get\+Processor@{get\+Processor}}
+\index{get\+Processor@{get\+Processor}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{get\+Processor(const Abs\+R\+T\+Task $\ast$) const =0}{getProcessor(const AbsRTTask *) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf C\+PU}$\ast$ R\+T\+Sim\+::\+Abs\+Kernel\+::get\+Processor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Abs\+R\+T\+Task} $\ast$}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a03749f0af85a6bb857569131c1f628f8}{}\label{classRTSim_1_1AbsKernel_a03749f0af85a6bb857569131c1f628f8}
+Returns a pointer to the \hyperlink{classRTSim_1_1CPU}{C\+PU} on whitch t is running (N\+U\+LL if t is not running on any \hyperlink{classRTSim_1_1CPU}{C\+PU}) 
+
+Implemented in \hyperlink{classRTSim_1_1Server_a826e9b88fe242e6094cb1671ce0e9cea}{R\+T\+Sim\+::\+Server}, \hyperlink{classRTSim_1_1RTKernel_a243501a194428985a2b0b26848e06f9a}{R\+T\+Sim\+::\+R\+T\+Kernel}, and \hyperlink{classRTSim_1_1MRTKernel_a465c7322be4b9ce5c4ef2594bd9e213a}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!is\+Context\+Switching@{is\+Context\+Switching}}
+\index{is\+Context\+Switching@{is\+Context\+Switching}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{is\+Context\+Switching() const =0}{isContextSwitching() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool R\+T\+Sim\+::\+Abs\+Kernel\+::is\+Context\+Switching (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_aa807b5abf438398cb6bd5c895af7d517}{}\label{classRTSim_1_1AbsKernel_aa807b5abf438398cb6bd5c895af7d517}
+??? 
+
+Implemented in \hyperlink{classRTSim_1_1Server_afcacde6ebafc96c299ad19310a44f691}{R\+T\+Sim\+::\+Server}, and \hyperlink{classRTSim_1_1RTKernel_a7f9afeb2b707eff616671f92b4f7f690}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!on\+Arrival@{on\+Arrival}}
+\index{on\+Arrival@{on\+Arrival}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{on\+Arrival(\+Abs\+R\+T\+Task $\ast$t)=0}{onArrival(AbsRTTask *t)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Abs\+Kernel\+::on\+Arrival (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a17a0e68b2a00117beaf78fe0f57ed37a}{}\label{classRTSim_1_1AbsKernel_a17a0e68b2a00117beaf78fe0f57ed37a}
+Invoked when a task \char`\"{}arrives\char`\"{}. 
+
+Implemented in \hyperlink{classRTSim_1_1Server_a777883d417bd4d18e8dfeff809616644}{R\+T\+Sim\+::\+Server}, \hyperlink{classRTSim_1_1MRTKernel_abf3b27a6c51995a47539214345d9b193}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}, and \hyperlink{classRTSim_1_1RTKernel_aec25abba77131876143e5fd395fe7b7e}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!on\+End@{on\+End}}
+\index{on\+End@{on\+End}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{on\+End(\+Abs\+R\+T\+Task $\ast$t)=0}{onEnd(AbsRTTask *t)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Abs\+Kernel\+::on\+End (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a4f851da0832c325ba8d0ae7744cede48}{}\label{classRTSim_1_1AbsKernel_a4f851da0832c325ba8d0ae7744cede48}
+Invoked when a task ends. 
+
+Implemented in \hyperlink{classRTSim_1_1Server_ade06774c1c175b776c6f65da5ab8fcc8}{R\+T\+Sim\+::\+Server}, \hyperlink{classRTSim_1_1RTKernel_af3d6767555d2d7ea9ee029a892d5bc43}{R\+T\+Sim\+::\+R\+T\+Kernel}, and \hyperlink{classRTSim_1_1MRTKernel_a9bc95fb1eaa73383b470ed6122770f44}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!set\+Speed@{set\+Speed}}
+\index{set\+Speed@{set\+Speed}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{set\+Speed(double new\+Load)=0}{setSpeed(double newLoad)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double R\+T\+Sim\+::\+Abs\+Kernel\+::set\+Speed (
+\begin{DoxyParamCaption}
+\item[{double}]{new\+Load}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_a7620a0196c742f3b722498f05987e0ca}{}\label{classRTSim_1_1AbsKernel_a7620a0196c742f3b722498f05987e0ca}
+It sets the speed of the \hyperlink{classRTSim_1_1CPU}{C\+PU} accordingly to the new system load, and returns the new speed. 
+
+Implemented in \hyperlink{classRTSim_1_1Server_abf07ee6a2d5250b24bed30ff5f126d6b}{R\+T\+Sim\+::\+Server}, and \hyperlink{classRTSim_1_1RTKernel_a19595afa9a8e1da3cf8f631487fa6d4a}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+\index{R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}!suspend@{suspend}}
+\index{suspend@{suspend}!R\+T\+Sim\+::\+Abs\+Kernel@{R\+T\+Sim\+::\+Abs\+Kernel}}
+\subsubsection[{\texorpdfstring{suspend(\+Abs\+R\+T\+Task $\ast$t)=0}{suspend(AbsRTTask *t)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Abs\+Kernel\+::suspend (
+\begin{DoxyParamCaption}
+\item[{{\bf Abs\+R\+T\+Task} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classRTSim_1_1AbsKernel_abdd7e9a6b00559870675d92a1f8c150e}{}\label{classRTSim_1_1AbsKernel_abdd7e9a6b00559870675d92a1f8c150e}
+Extract the task from the ready queue. Again, this function doesn\textquotesingle{}t check if the task has to be descheduled. 
+
+Implemented in \hyperlink{classRTSim_1_1Server_a331017a70b4fdd53aed45bbd96726a08}{R\+T\+Sim\+::\+Server}, \hyperlink{classRTSim_1_1MRTKernel_a016ed93346f3505e11389cb8a8cdc777}{R\+T\+Sim\+::\+M\+R\+T\+Kernel}, and \hyperlink{classRTSim_1_1RTKernel_a9cc3e67f5f9ca883246d024d071a13b1}{R\+T\+Sim\+::\+R\+T\+Kernel}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/abskernel.\+hpp\end{DoxyCompactItemize}

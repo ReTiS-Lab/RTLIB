@@ -1,0 +1,175 @@
+\hypertarget{classRTSim_1_1SchedInstr}{}\section{R\+T\+Sim\+:\+:Sched\+Instr Class Reference}
+\label{classRTSim_1_1SchedInstr}\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+
+
+{\ttfamily \#include $<$schedinstr.\+hpp$>$}
+
+
+
+Inheritance diagram for R\+T\+Sim\+:\+:Sched\+Instr\+:
+% FIG 0
+
+
+Collaboration diagram for R\+T\+Sim\+:\+:Sched\+Instr\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRTSim_1_1SchedInstr_ab12a273a1a2d654dd7ae96648844a514}{Sched\+Instr} (\hyperlink{classRTSim_1_1Task}{Task} $\ast$f, const string \&s, char $\ast$n=\char`\"{}\char`\"{})
+\item 
+virtual void \hyperlink{classRTSim_1_1SchedInstr_a85b99b66167703c31c640fd9de989511}{schedule} ()\hypertarget{classRTSim_1_1SchedInstr_a85b99b66167703c31c640fd9de989511}{}\label{classRTSim_1_1SchedInstr_a85b99b66167703c31c640fd9de989511}
+
+\begin{DoxyCompactList}\small\item\em Virtual methods from \hyperlink{classRTSim_1_1Instr}{Instr}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classRTSim_1_1SchedInstr_acdc1bcfd6d73d6d068d82e1767448c76}{deschedule} ()
+\item 
+virtual Tick \hyperlink{classRTSim_1_1SchedInstr_a2a989587281682f4c61685cb3d4eaf52}{get\+Exec\+Time} () const 
+\item 
+virtual Tick \hyperlink{classRTSim_1_1SchedInstr_ace2b9938db30911c2f14181942fcacc8}{get\+Duration} () const 
+\item 
+virtual Tick \hyperlink{classRTSim_1_1SchedInstr_a610b5dc3e4611e0e4d8a42c84b6dcc7f}{get\+W\+C\+ET} () const   throw (\+Random\+Var\+::\+Max\+Exception)
+\item 
+virtual void \hyperlink{classRTSim_1_1SchedInstr_a7fc472cc708642c97a2e855aebf6aef1}{reset} ()
+\item 
+virtual void {\bfseries set\+Trace} (Trace $\ast$)\hypertarget{classRTSim_1_1SchedInstr_a93867435d325338fa9eeccc9e546dc3e}{}\label{classRTSim_1_1SchedInstr_a93867435d325338fa9eeccc9e546dc3e}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1SchedInstr_ac77197afccbfc7238d3945d1ba04ecfc}{on\+End} ()
+\item 
+virtual void {\bfseries new\+Run} ()\hypertarget{classRTSim_1_1SchedInstr_aaeefcd8bea84fc8b60768127a4d21b38}{}\label{classRTSim_1_1SchedInstr_aaeefcd8bea84fc8b60768127a4d21b38}
+
+\item 
+virtual void {\bfseries end\+Run} ()\hypertarget{classRTSim_1_1SchedInstr_a2d2fc07925740257760a1bc1f90ab94a}{}\label{classRTSim_1_1SchedInstr_a2d2fc07925740257760a1bc1f90ab94a}
+
+\item 
+virtual void \hyperlink{classRTSim_1_1SchedInstr_a0cfd007b2be8a9dcdd5c96a0cc41439e}{refresh\+Exec} (double, double)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classRTSim_1_1Instr}{Instr} $\ast$ {\bfseries create\+Instance} (vector$<$ string $>$ \&par)\hypertarget{classRTSim_1_1SchedInstr_a9e1a2539bb2d4e129f7495607f1cdc74}{}\label{classRTSim_1_1SchedInstr_a9e1a2539bb2d4e129f7495607f1cdc74}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Simple classes which model instruction to set a preemption threshold \begin{DoxyAuthor}{Author}
+Francesco Prosperi 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classRTSim_1_1Instr}{Instr} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!Sched\+Instr@{Sched\+Instr}}
+\index{Sched\+Instr@{Sched\+Instr}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{Sched\+Instr(\+Task $\ast$f, const string \&s, char $\ast$n="""")}{SchedInstr(Task *f, const string &s, char *n="")}}]{\setlength{\rightskip}{0pt plus 5cm}R\+T\+Sim\+::\+Sched\+Instr\+::\+Sched\+Instr (
+\begin{DoxyParamCaption}
+\item[{{\bf Task} $\ast$}]{f, }
+\item[{const string \&}]{s, }
+\item[{char $\ast$}]{n = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRTSim_1_1SchedInstr_ab12a273a1a2d654dd7ae96648844a514}{}\label{classRTSim_1_1SchedInstr_ab12a273a1a2d654dd7ae96648844a514}
+This is the constructor of the \hyperlink{classRTSim_1_1SchedInstr}{Sched\+Instr}. 
+\begin{DoxyParams}{Parameters}
+{\em f} & is a pointer to the task containing the pseudo instruction \\
+\hline
+{\em r} & is the name of the resorce manager handling the resource which the task is accessing \\
+\hline
+{\em nr} & is the number of resources being taken \\
+\hline
+{\em n} & is the instruction name \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!deschedule@{deschedule}}
+\index{deschedule@{deschedule}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{deschedule()}{deschedule()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Sched\+Instr\+::deschedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_acdc1bcfd6d73d6d068d82e1767448c76}{}\label{classRTSim_1_1SchedInstr_acdc1bcfd6d73d6d068d82e1767448c76}
+Called when the instruction is descheduled. 
+
+Implements \hyperlink{classRTSim_1_1Instr_a747331d23e49cd1e976508bba6621d86}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!get\+Duration@{get\+Duration}}
+\index{get\+Duration@{get\+Duration}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{get\+Duration() const }{getDuration() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Sched\+Instr\+::get\+Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_ace2b9938db30911c2f14181942fcacc8}{}\label{classRTSim_1_1SchedInstr_ace2b9938db30911c2f14181942fcacc8}
+Returns the total computation time of the instruction 
+
+Implements \hyperlink{classRTSim_1_1Instr_acd03599661897f2bd4ed4eb67a9d91de}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!get\+Exec\+Time@{get\+Exec\+Time}}
+\index{get\+Exec\+Time@{get\+Exec\+Time}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{get\+Exec\+Time() const }{getExecTime() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Sched\+Instr\+::get\+Exec\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_a2a989587281682f4c61685cb3d4eaf52}{}\label{classRTSim_1_1SchedInstr_a2a989587281682f4c61685cb3d4eaf52}
+Returns how long the instrucion has been executed from the last \hyperlink{classRTSim_1_1SchedInstr_a7fc472cc708642c97a2e855aebf6aef1}{reset()}.
+
+N\+O\+TE\+: the reset\+Execd\+Time is now implicit!!!! 
+
+Implements \hyperlink{classRTSim_1_1Instr_a52e0132196ab12de7083a76351c3a883}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!get\+W\+C\+ET@{get\+W\+C\+ET}}
+\index{get\+W\+C\+ET@{get\+W\+C\+ET}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{get\+W\+C\+E\+T() const }{getWCET() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual Tick R\+T\+Sim\+::\+Sched\+Instr\+::get\+W\+C\+ET (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  Random\+Var\+::\+Max\+Exception) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_a610b5dc3e4611e0e4d8a42c84b6dcc7f}{}\label{classRTSim_1_1SchedInstr_a610b5dc3e4611e0e4d8a42c84b6dcc7f}
+Returns the worst-\/case execution time for this instruction. 
+
+Implements \hyperlink{classRTSim_1_1Instr_aa47f89b0339f259998576787d787a64a}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!on\+End@{on\+End}}
+\index{on\+End@{on\+End}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{on\+End()}{onEnd()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+Sim\+::\+Sched\+Instr\+::on\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_ac77197afccbfc7238d3945d1ba04ecfc}{}\label{classRTSim_1_1SchedInstr_ac77197afccbfc7238d3945d1ba04ecfc}
+Called upon the instruction end event 
+
+Reimplemented from \hyperlink{classRTSim_1_1Instr_a5cef8bd2a108f0781087ed436c3c31e7}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!refresh\+Exec@{refresh\+Exec}}
+\index{refresh\+Exec@{refresh\+Exec}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{refresh\+Exec(double, double)}{refreshExec(double, double)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Sched\+Instr\+::refresh\+Exec (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_a0cfd007b2be8a9dcdd5c96a0cc41439e}{}\label{classRTSim_1_1SchedInstr_a0cfd007b2be8a9dcdd5c96a0cc41439e}
+Function inherited from clss Instr.\+It refreshes the state of the executing instruction when a change of the \hyperlink{classRTSim_1_1CPU}{C\+PU} speed occurs. 
+
+Implements \hyperlink{classRTSim_1_1Instr_a2cc82b248c136c45e9d7132a1bff46da}{R\+T\+Sim\+::\+Instr}.
+
+\index{R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}!reset@{reset}}
+\index{reset@{reset}!R\+T\+Sim\+::\+Sched\+Instr@{R\+T\+Sim\+::\+Sched\+Instr}}
+\subsubsection[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void R\+T\+Sim\+::\+Sched\+Instr\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classRTSim_1_1SchedInstr_a7fc472cc708642c97a2e855aebf6aef1}{}\label{classRTSim_1_1SchedInstr_a7fc472cc708642c97a2e855aebf6aef1}
+This method permits to kill a task which is currently executing. It resets the internal state of the executing instruction.
+
+This is currently used only by the fault-\/tolerant scheduling algorithms. 
+
+Implements \hyperlink{classRTSim_1_1Instr_af76965cd2bc75ccbeaa1737cceebaa87}{R\+T\+Sim\+::\+Instr}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/schedinstr.\+hpp\item 
+src/schedinstr.\+cpp\end{DoxyCompactItemize}
