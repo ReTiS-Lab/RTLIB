@@ -32,6 +32,8 @@ endif()
 
 # Create the executable.
 add_executable(tests test_main.cpp cbs.cpp test_task.cpp test_mrt.cpp test_AVR.cpp)
+add_executable(cbs_test test_main.cpp cbs2.cpp)
 
 # Indicate that rtlib need rtlib library.
 target_link_libraries(tests rtlib ${metasim_LIBRARY})
+target_link_libraries(cbs_test rtlib ${metasim_LIBRARY})
