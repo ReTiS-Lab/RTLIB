@@ -375,6 +375,22 @@ namespace RTSim {
 
 	virtual bool isContextSwitching() const { return false; }
 
+            /**
+           Forwards the request of resource r from task t to
+           the resource manager. If the resource manager has
+           not been set, a RTKernelExc exception is raised.
+        */
+        virtual bool requestResource(AbsRTTask *t, const string &r, int n=1)
+            throw(ServerExc);
+    
+        /**
+           Forwards the release of the resource r by task t to
+           the resource manager. If the resource manager has
+           not been set, a RTKernelExc is raised.
+        */
+        virtual void releaseResource(AbsRTTask *t, const string &r, int n=1)
+            throw(ServerExc);
+
 //	virtual std::vector<std::string> getRunningTasks() = 0;
     };
 } // namespace RTSim

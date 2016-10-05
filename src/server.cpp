@@ -299,6 +299,33 @@ namespace RTSim {
         }
     }
 
+     bool Server::requestResource(AbsRTTask *t, const string &r, int n) 
+        throw(ServerExc)
+    {
+        DBGENTER(_KERNEL_DBG_LEV);
+
+        if (globResManager == 0) throw ServerExc("Resource Manager not set!","Server::requestResource()");
+        bool ret = globResManager->request(t,r,n);
+        if (!ret) 
+            dispatch();
+        return ret;
+    } 
+
+    void Server::releaseResource(AbsRTTask *t, const string &r, int n) 
+        throw(ServerExc)
+    { 
+        if (globResManager == 0) throw ServerExc("Resource Manager not set!","Server::releaseResource()");
+
+        globResManager->release(t,r,n);
+
+        dispatch();
+    }
+
+    void Server::setGlobalResManager(ResManager *rm)
+    {
+        globResManager=rm;
+    }
+
 }
 
 

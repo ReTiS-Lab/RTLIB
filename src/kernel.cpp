@@ -97,7 +97,6 @@ namespace RTSim {
     void RTKernel::activate(AbsRTTask *task)
     { 
         DBGENTER(_KERNEL_DBG_LEV);
-
         _sched->insert(task);        
     }
     
@@ -109,7 +108,6 @@ namespace RTSim {
     void RTKernel::suspend(AbsRTTask *task)
     {
         DBGENTER(_KERNEL_DBG_LEV);
-
         _sched->extract(task);
 
         if (_currExe == task) {
@@ -129,7 +127,6 @@ namespace RTSim {
         DBGENTER(_KERNEL_DBG_LEV);
 	 DBGPRINT_2("Inserting ",
                    taskname(task));
-	
 	_sched->insert(task);
 
 	if(!_isContextSwitching){

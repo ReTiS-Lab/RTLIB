@@ -27,58 +27,68 @@ TEST_CASE("CBS algorithm: da esempio")
         FCFSResManager *rm = new FCFSResManager("FCFSResManager");
         rm->addResource("PRes");
         kern.setResManager(rm);
-      
-        PeriodicTask t2(10,10 , 2, "TaskB"); 
-        t2.insertCode("wait(PRes);delay(2);signal(PRes);fixed(1);");
+
+        PeriodicTask t1(12,12,2, "TaskTau1");
+        t1.insertCode("fixed(2);wait(PRes);delay(2);signal(PRes);");
+        t1.setAbort(false);
+
+        PeriodicTask t2(17, 17, 0, "TaskTau2"); 
+        t2.insertCode("fixed(1);wait(PRes);delay(4);signal(PRes);");
         t2.setAbort(false);
 
-        PeriodicTask t3(20, 20, 0, "TaskC"); 
-        t3.insertCode("fixed(1);wait(PRes);delay(2);signal(PRes);");
-        t3.setAbort(false);
-
-        /*PeriodicTask t11(15, 15, 0, "TaskA1");
-        t11.insertCode("fixed(2);");
-        t11.setAbort(false);
-
-        /*
-        PeriodicTask t12(20, 20, 0, "TaskA2");
-        t12.insertCode("fixed(4);");
-        t12.setAbort(false); 
-        */
-
-        //ttrace.attachToTask(&t11);
-        //ttrace.attachToTask(&t12);
+        ttrace.attachToTask(&t1);
         ttrace.attachToTask(&t2);
-        ttrace.attachToTask(&t3);
-          
-        CBServer serv(4, 15,15,"hard",  "server1", "FIFOSched");//"RRSched(2);");
+        /** 3° param true = Hard, false = soft*/
+        CBServer serv(3, 12,12,true, "Server1", "FIFOSched");//"RRSched(2);");
         serv.setGlobalResManager(rm);
-        //serv.addTask(t11);
-        //serv.addTask(t12);
-        serv.addTask(t3);
-        kern.addTask(serv, ""); 
-    
-        kern.addTask(t2, "");
-        //kern.addTask(t3, "");
 
+        
+        serv.addTask(t2);
+        kern.addTask(serv, "");
+        kern.addTask(t1, "");
+        
         SIMUL.initSingleRun();
 
+        SIMUL.run_to(1);
+        REQUIRE(t2.getExecTime() == 1);
+        REQUIRE(serv.get_remaining_budget() == 2);
+        SIMUL.run_to(2);
+        REQUIRE(t1.getExecTime() == 0);
+        REQUIRE(t2.getExecTime() == 2);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(3);
+        REQUIRE(t1.getExecTime() == 0);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 0);
         SIMUL.run_to(4);
-        //REQUIRE(t2.getExecTime() == 1);
-        //REQUIRE(t3.getExecTime() == 3);
-        //REQUIRE(t11.getExecTime() == 0);
-       // REQUIRE(t12.getExecTime() == 0);
-        //REQUIRE(serv.getDeadline() == 15);
-        //REQUIRE(t11.getExecTime() == 2);
-       // REQUIRE(serv.get_remaining_budget() == 2);
-        SIMUL.run_to(7);
-        //REQUIRE(t2.getExecTime() == 3);
-        //REQUIRE(t3.getExecTime() == 4);
-        //REQUIRE(t12.getExecTime() == 2);
-        //REQUIRE(serv.get_remaining_budget() == 4);
-       // REQUIRE(serv.getDeadline() == 30);
-        SIMUL.run_to(20);
-        REQUIRE(serv.getBudget() == 4);
+        REQUIRE(t1.getExecTime() == 1);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(5);
+        REQUIRE(t1.getExecTime() == 2);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(6);
+        REQUIRE(t1.getExecTime() == 2);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(10);
+        REQUIRE(t1.getExecTime() == 2);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(12);
+        REQUIRE(t1.getExecTime() == 2);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 3);
+        SIMUL.run_to(14);
+        REQUIRE(t1.getExecTime() == 2);
+        REQUIRE(t2.getExecTime() == 5);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(16);
+        //REQUIRE(t1.getExecTime() == 4);
+        REQUIRE(t2.getExecTime() == 5);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(17);
         SIMUL.endSingleRun();
     }  catch (BaseExc &e) {
             cout << e.what() << endl;
