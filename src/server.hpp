@@ -39,12 +39,13 @@ namespace RTSim {
                   READY, 
                   EXECUTING,
                   RELEASING, 
-                  RECHARGING} ServerStatus;
+                  RECHARGING,
+                  WAITING} ServerStatus;
   
     class ServerExc : public BaseExc {
     public:
-        ServerExc(const string& m, const string& cl) : 
-            BaseExc(m,cl,"Server") {};
+        ServerExc(const string& m, const string& cl, const string &module = "Server") :
+            BaseExc(m,cl,module) {};
     };
 
     /** 

@@ -15,6 +15,7 @@
 
 #include <kernel.hpp>
 #include <server.hpp>
+#include <broeserver.hpp>
 #include <task.hpp>
 #include <waitinstr.hpp>
 
@@ -70,14 +71,14 @@ namespace RTSim {
 
         RTKernel    *k = dynamic_cast<RTKernel *>(_father->getKernel());
         Server      *ks = dynamic_cast<Server *>(_father->getKernel());
+        BROEServer  *kb = dynamic_cast<BROEServer *>(_father->getKernel());
 
-
-        if (k == nullptr&& ks == nullptr)
+        if (k == nullptr && ks == nullptr && kb == nullptr)
             throw BaseExc("Kernel not found!");
         
         if (k != nullptr)
             k->requestResource(_father, _res, _numberOfRes);
-        else    ks->requestResource(_father, _res, _numberOfRes);
+        else    kb->requestResource(_father, _res, _numberOfRes);
 
         _waitEvt.process();
     }

@@ -70,12 +70,12 @@ namespace RTSim {
         
         void check_repl();
 
-    private:
+    //private:
         Tick Q,P,d;
         Tick cap; 
         Tick last_time;
         Tick recharging_time;
-        int HR;
+        recharging_policy_t HR;
         
         /// replenishment: it is a pair of <t,b>, meaning that
         /// at time t the budget should be replenished by b.

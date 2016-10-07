@@ -145,7 +145,6 @@ namespace RTSim {
 
         _bandExEvt.drop();
         vtime.stop();
-
         DBGPRINT_2("Capacity before: ", cap);
         DBGPRINT_2("Time is: ", SIMUL.getTime());
         DBGPRINT_2("Last time is: ", last_time);
@@ -225,7 +224,7 @@ namespace RTSim {
                 sched_->notify(nullptr);
             }
         }
-        else if (status == READY || status == EXECUTING) 
+        else if (status == READY || status == EXECUTING || status == WAITING)
         {
             if (sched_->getFirst() == this) 
             {

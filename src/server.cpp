@@ -173,7 +173,6 @@ namespace RTSim {
     void Server::onEnd(AbsRTTask *t)
     {
         DBGENTER(_SERVER_DBG_LEV);
-
         assert(status == EXECUTING);
         sched_->extract(t);
         currExe_ = NULL;
