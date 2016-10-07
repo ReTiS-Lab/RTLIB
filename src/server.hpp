@@ -77,6 +77,12 @@ namespace RTSim {
         Server, etc. Need to implement TBS as well.
       
         @todo simplify the interface (now it is too fat)
+        
+        ******************************************************************
+        Modica Celia 05/10/2016
+        Added RequestResource, ReleaseResource, for support resource managing
+        also when the server do the kernel. 
+        Implemented the function setGlobalResManager.
     */
     class Server :
         virtual public AbsRTTask, virtual public AbsKernel,
@@ -378,7 +384,7 @@ namespace RTSim {
             /**
            Forwards the request of resource r from task t to
            the resource manager. If the resource manager has
-           not been set, a RTKernelExc exception is raised.
+           not been set, a ServerExc exception is raised.
         */
         virtual bool requestResource(AbsRTTask *t, const string &r, int n=1)
             throw(ServerExc);
@@ -386,7 +392,7 @@ namespace RTSim {
         /**
            Forwards the release of the resource r by task t to
            the resource manager. If the resource manager has
-           not been set, a RTKernelExc is raised.
+           not been set, a ServerExc is raised.
         */
         virtual void releaseResource(AbsRTTask *t, const string &r, int n=1)
             throw(ServerExc);

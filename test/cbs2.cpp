@@ -14,7 +14,7 @@ using namespace MetaSim;
 using namespace RTSim;
     
     
-TEST_CASE("CBS algorithm: da esempio")
+TEST_CASE("CBS algorithm: test with Resource")
 {   
     
     try{
@@ -39,7 +39,7 @@ TEST_CASE("CBS algorithm: da esempio")
         ttrace.attachToTask(&t1);
         ttrace.attachToTask(&t2);
         /** 3° param true = Hard, false = soft*/
-        CBServer serv(3, 12,12,true, "Server1", "FIFOSched");//"RRSched(2);");
+        CBServer serv(3, 12,12,CBServer::HARD, "Server1", "FIFOSched");//"RRSched(2);");
         serv.setGlobalResManager(rm);
 
         
@@ -89,6 +89,92 @@ TEST_CASE("CBS algorithm: da esempio")
         REQUIRE(t2.getExecTime() == 5);
         REQUIRE(serv.get_remaining_budget() == 1);
         SIMUL.run_to(17);
+        SIMUL.endSingleRun();
+    }  catch (BaseExc &e) {
+            cout << e.what() << endl;
+    } catch (parse_util::ParseExc &e2) {
+        cout << e2.what() << endl;
+
+    } 
+}
+
+TEST_CASE("CBS algorithm: Test Hard CBS Overload")
+{   
+    
+    try{
+        TextTrace ttrace("trace.txt");
+  
+        // create the scheduler and the kernel
+        EDFScheduler sched;
+        RTKernel kern(&sched);
+
+        PeriodicTask t1(23,23,0, "TaskTau1");
+        t1.insertCode("fixed(16);");
+        t1.setAbort(false);
+
+        PeriodicTask t2(28, 28, 0, "TaskTau2"); 
+        t2.insertCode("fixed(5);");
+        t2.setAbort(false);
+
+        ttrace.attachToTask(&t1);
+        ttrace.attachToTask(&t2);
+
+        CBServer serv(1, 4,4,CBServer::HARD, "Server1", "FIFOSched");//"RRSched(2);");
+        
+        serv.addTask(t2);
+        kern.addTask(serv, "");
+        kern.addTask(t1, "");
+        
+        SIMUL.initSingleRun();
+
+        SIMUL.run_to(1);
+        REQUIRE(t1.getExecTime() == 0);
+        REQUIRE(t2.getExecTime() == 1);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(2);
+        REQUIRE(t1.getExecTime() == 1);
+        REQUIRE(t2.getExecTime() == 1);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(3);
+        REQUIRE(t1.getExecTime() == 2);
+        REQUIRE(t2.getExecTime() == 1);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(4);
+        REQUIRE(t1.getExecTime() == 3);
+        REQUIRE(t2.getExecTime() == 1);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(5);
+        REQUIRE(t1.getExecTime() == 3);
+        REQUIRE(t2.getExecTime() == 2);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(8);
+        REQUIRE(t1.getExecTime() == 6);
+        REQUIRE(t2.getExecTime() == 2);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(9);
+        REQUIRE(t1.getExecTime() == 6);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(12);
+        REQUIRE(t1.getExecTime() == 9);
+        REQUIRE(t2.getExecTime() == 3);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(13);
+        REQUIRE(t1.getExecTime() == 9);
+        REQUIRE(t2.getExecTime() == 4);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(16);
+        REQUIRE(t1.getExecTime() == 12);
+        REQUIRE(t2.getExecTime() == 4);
+        REQUIRE(serv.get_remaining_budget() == 1);
+        SIMUL.run_to(17);
+        REQUIRE(t1.getExecTime() == 12);
+        REQUIRE(t2.getExecTime() == 5);
+        REQUIRE(serv.get_remaining_budget() == 0);
+        SIMUL.run_to(21);
+        REQUIRE(t1.getExecTime() == 16);
+        REQUIRE(t2.getExecTime() == 5);
+        REQUIRE(serv.get_remaining_budget() == 1);
         SIMUL.endSingleRun();
     }  catch (BaseExc &e) {
             cout << e.what() << endl;

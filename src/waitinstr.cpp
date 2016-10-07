@@ -59,7 +59,7 @@ namespace RTSim {
         _endEvt.addTrace(t); 
         _waitEvt.addTrace(t);
     }
-    /**Modica Celia
+    /** Modica Celia
     *   Modified for support server kernel
     */
     void WaitInstr::onEnd() 
@@ -72,10 +72,10 @@ namespace RTSim {
         Server      *ks = dynamic_cast<Server *>(_father->getKernel());
 
 
-        if (k == NULL && ks == NULL)
+        if (k == nullptr&& ks == nullptr)
             throw BaseExc("Kernel not found!");
         
-        if (k != NULL)
+        if (k != nullptr)
             k->requestResource(_father, _res, _numberOfRes);
         else    ks->requestResource(_father, _res, _numberOfRes);
 
@@ -118,7 +118,9 @@ namespace RTSim {
         _endEvt.addTrace(t);
         _signalEvt.addTrace(t);
     }
-
+    /** Modica Celia
+    *   Modified for support server kernel
+    */
     void SignalInstr::onEnd() 
     {
         DBGENTER(_INSTR_DBG_LEV);
@@ -130,11 +132,11 @@ namespace RTSim {
         RTKernel    *k = dynamic_cast<RTKernel *>(_father->getKernel());
         Server      *ks = dynamic_cast<Server *>(_father->getKernel());
 
-        if (k == 0 && ks ==NULL) {
+        if (k == nullptr && ks == nullptr) {
             throw BaseExc("SignalInstr has no kernel set!");
         }
 
-        if (k != NULL)
+        if (k != nullptr)
             k->releaseResource(_father, _res, _numberOfRes);
         else    ks->releaseResource(_father, _res, _numberOfRes); 
     }
