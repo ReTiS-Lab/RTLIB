@@ -8,6 +8,8 @@
 #include <resmanager.hpp>
 #include <resource.hpp>
 #include <scheduler.hpp>
+#include <rmsched.hpp>
+#include <edfsched.hpp>
 
 namespace RTSim {
 
@@ -72,6 +74,12 @@ namespace RTSim {
         AbsRTTask* getNewExeTask() const;
 
     protected:
+        /** Modica Celia - 13/10/2016
+        *   Sort tasks based on the
+        *   policy of the scheduler type
+        */
+        void SortTasksBySched(vector<AbsRTTask *> *tasks);
+
         /**
            Returns true if the resource can be locked, false otherwise
            (in such a case, the task should be blocked)

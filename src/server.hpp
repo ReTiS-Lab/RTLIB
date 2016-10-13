@@ -103,6 +103,7 @@ namespace RTSim {
 
         AbsKernel *kernel;
         ResManager *globResManager;
+        ResManager *localResmanager;
 
         GEvent<Server> _bandExEvt;
         GEvent<Server> _dlineMissEvt;
@@ -259,6 +260,13 @@ namespace RTSim {
             @todo think about interaction between local and global resman!
         */
         void setGlobalResManager(ResManager *rm);
+
+        /** Modica Celia - 13/10/2016
+            this is used to set the local res manager
+            that use the server like a kernel and
+            set the server scheduler in the resm manager
+        */
+        void setLocalResManager(ResManager *rm);
 
         /** Inherited from AbsRTTask. Returns the current
             absolute deadline */

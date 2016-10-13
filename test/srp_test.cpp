@@ -18,6 +18,7 @@ TEST_CASE("SRP: test su preemption level e System Ceiling")
 
        // create the scheduler and the kernel
         EDFScheduler sched;
+        //RMScheduler sched;
         RTKernel kern(&sched);
 
         SRPManager *rm = new SRPManager("");

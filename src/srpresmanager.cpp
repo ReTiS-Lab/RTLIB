@@ -11,14 +11,38 @@ namespace RTSim {
     {
     }
 
+    void SRPManager::SortTasksBySched(vector<AbsRTTask*> *tasks)
+    {
+        RMScheduler* rmsched = dynamic_cast<RMScheduler*>(_sched);
+        EDFScheduler* edfsched = dynamic_cast<EDFScheduler*>(_sched);
+
+        if (rmsched)
+        {
+            sort(tasks->begin(),tasks->end(),
+                 [](AbsRTTask *t1, AbsRTTask *t2) -> bool
+                {
+                    PeriodicTask *pt1 = dynamic_cast<PeriodicTask*>(t1);
+                    PeriodicTask *pt2 = dynamic_cast<PeriodicTask*>(t2);
+                    if (!pt1 || !pt2)
+                        throw SRPManagerExc("Rate Monotonic need Periodic Task","SRPManager::SortTasksBySched()");
+                    return pt1->getPeriod() < pt2->getPeriod();
+                });
+        }
+        else if(edfsched)
+        {
+            sort(tasks->begin(),tasks->end(),
+                 [](const AbsRTTask *t1, const AbsRTTask *t2) -> bool
+                {
+                    return t1->getRelDline() < t2->getRelDline();
+                });
+        }else
+            throw SRPManagerExc("Scheduler Type non supported","SRPManager::InizializeSRPManager()");
+    }
+
     void SRPManager::InitializeSRPManager(vector<AbsRTTask*> *tasks)
     {
-        sort(tasks->begin(),tasks->end(),
-             [](const AbsRTTask *t1, const AbsRTTask *t2) -> bool
-            {
-                return t1->getRelDline() < t2->getRelDline();
-            });
 
+        SortTasksBySched(tasks);
         vector<AbsRTTask*>::iterator I = tasks->begin();
         int plevel=tasks->size();
         while (I != tasks->end())

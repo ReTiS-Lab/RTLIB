@@ -320,6 +320,12 @@ namespace RTSim {
         dispatch();
     }
 
+    void Server::setLocalResManager(ResManager *rm)
+    {
+        localResmanager =  rm;
+        localResmanager->setKernel(this, _sched);
+    }
+
     void Server::setGlobalResManager(ResManager *rm)
     {
         globResManager=rm;
