@@ -37,8 +37,6 @@ TEST_CASE("BROE algorithm: test Bounded-delay without wait")
         ttrace.attachToTask(&t1);
         ttrace.attachToTask(&t2);
 
-
-
         RHTmap_t map;
 
         map["TaskTau1_PRes"] = 2;

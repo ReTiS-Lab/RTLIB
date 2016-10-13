@@ -64,7 +64,7 @@ namespace RTSim
             cap = Q;
             d=tr+P;
             setAbsDead(d);
-            status = EXECUTING;
+            //status = EXECUTING;
             vtime.start((double)P/double(Q));
             _bandExEvt.post(SIMUL.getTime() + cap);
             bool ret = globResManager->request(t,r,n);

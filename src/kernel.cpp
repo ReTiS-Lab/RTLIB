@@ -18,6 +18,7 @@
 #include <cpu.hpp>
 #include <kernel.hpp>
 #include <resmanager.hpp>
+#include <srpresmanager.hpp>
 #include <scheduler.hpp>
 #include <task.hpp>
 #include <reginstr.hpp>
@@ -137,6 +138,11 @@ namespace RTSim {
 	}
     }
 
+
+    /** Modica Celia - 12/10/2016
+    *   Modified to support SRP,
+    *   maintainend back-compatibility
+    */
     void RTKernel::onEnd(AbsRTTask *task)
     {
         DBGENTER(_KERNEL_DBG_LEV);
@@ -145,7 +151,8 @@ namespace RTSim {
             throw RTKernelExc("Received a onEnd of a non executing task");
         }
         _sched->extract(task);
-        _currExe = NULL;
+
+        _currExe = nullptr;
         
         dispatch();
     }
@@ -160,31 +167,41 @@ namespace RTSim {
         beginDispatchEvt.post(SIMUL.getTime());
     }
 
+    /** Modica Celia - 11/10/2016
+    *   Modified to support SRP,
+    *   maintainend back-compatibility
+    */
     void RTKernel::onBeginDispatch(Event* e)
     {
         DBGENTER(_KERNEL_DBG_LEV);
 
-        AbsRTTask *newExe = _sched->getFirst();
+        AbsRTTask *newExe = nullptr;
+
+        SRPManager *r = dynamic_cast<SRPManager*>(_resMng);
+        ///check if the resource manager use
+        /// SRP policy
+        newExe = (r != nullptr)? r->getNewExeTask() : _sched->getFirst();
 
         if (newExe != NULL)
             DBGPRINT_2("From sched: ",
                        taskname(newExe));
 
-        if(_currExe != newExe){
-                if (_currExe != NULL){ 
-			_currExe->deschedule();
-		}
-		if( newExe != NULL) { 
-			_isContextSwitching = true;
-                	_currExe = newExe;
-                	endDispatchEvt.post(SIMUL.getTime() + _contextSwitchDelay);
-		}
+        if(_currExe != newExe)
+        {
+           if (_currExe != NULL) _currExe->deschedule();
+
+           if( newExe != NULL)
+           {
+               _isContextSwitching = true;
+               _currExe = newExe;
+               endDispatchEvt.post(SIMUL.getTime() + _contextSwitchDelay);
+           }
         }
-        else {
-                _sched->notify(newExe);
-                if (newExe != NULL)
-                    DBGPRINT_2("Now Running: ",
-                               taskname(newExe));
+        else
+        {
+            _sched->notify(newExe);
+            if (_currExe != NULL)
+                DBGPRINT_2("Now Running: ",taskname(newExe));
         }
     }
 

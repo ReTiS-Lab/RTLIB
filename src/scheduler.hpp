@@ -46,13 +46,17 @@ namespace RTSim {
        trees of the task models and of the schedulers are similar.  
     */
     class TaskModel {
+        const int DEFAULT_PLEVEL = 1;
     protected:
         AbsRTTask* _rtTask;
         bool active;
         int _insertTime;
-
-	int _threshold;
-
+        int _threshold;
+        /** modica celia - 11/10/2016
+        *   adding preemption level param
+        *   to support SRP
+        */
+        int _pLevel;
     public:
         TaskModel(AbsRTTask *t);
 
@@ -114,6 +118,16 @@ namespace RTSim {
         */ 
         virtual Tick getInsertTime() { return _insertTime; }
 
+        /** Modica Celia 11/10/2016
+         * Returns the preemption level of the task
+         */
+        inline int getPLevel() const { return _pLevel; }
+
+        /** Modica Celia 11/10/2016
+         * Set the preemption level of the task
+         */
+        inline void setPLevel(int p) { _pLevel = p; }
+
         class TaskModelCmp {
         public:
             /* 
@@ -158,6 +172,7 @@ namespace RTSim {
         a scheduler contains a queue of task models. The
         responsibility of this class is to mantain the queue. */
     class Scheduler : public MetaSim::Entity {
+        const int DEFAULT_SYSCEILING = 0;
     public:
 
         /**
@@ -253,6 +268,24 @@ namespace RTSim {
         virtual void endRun();
         virtual void print();
 
+        /** Modica Celia 11/10/2016
+         * Returns the System Ceiling
+         */
+        inline int getSysCeiling() const { return _sys_ceiling; }
+
+        /** Modica Celia 11/10/2016
+         * Set the System Ceiling
+         */
+        inline void setSysCeiling(int p) { _sys_ceiling = p; }
+
+        /** Modica Celia 11/10/2016
+         *  Check if the task Preemplevel is greater than
+         *  the System Ceiling
+         */
+        bool checkPLevel(AbsRTTask *task);
+
+        inline TaskModel* getTaskModel(AbsRTTask *task) {return find(task);};
+
     protected:
         /// pointer to the kernel
         AbsKernel* _kernel;
@@ -264,10 +297,16 @@ namespace RTSim {
         map<AbsRTTask*, TaskModel*> _tasks;
         
         /// current executing task
-	AbsRTTask* _currExe;
+        AbsRTTask* _currExe;
 
         // stores the old task priorities
         map<AbsRTTask *, int> oldPriorities;
+
+        /** Modica Celia - 11/10/2016
+        *   Adding System Ceiling to
+        *   support SRP
+        */
+        int _sys_ceiling;
 
         /**
            This is the internal version of the addTask, it
@@ -284,6 +323,8 @@ namespace RTSim {
     
         /// @todo change it into ResManager
         friend class PIRManager;
+
+        friend class SRPManager;
     };
 
     

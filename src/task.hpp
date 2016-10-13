@@ -65,6 +65,10 @@ namespace RTSim {
 
     */
     class Task : public Entity, virtual public AbsRTTask {
+
+    public:
+        typedef std::vector<std::string> parlist;
+        typedef std::pair<std::string, parlist> InstrInstance;
     private:
 	// Hide copy constructor and assignment, tasks cannot be copied
 	Task(const Task &);
@@ -91,6 +95,9 @@ namespace RTSim {
         InstrList instrQueue;
         InstrIterator actInstr;
 
+
+        std::vector<InstrInstance> InstrVect;
+
         AbsKernel *_kernel;
 
         MetaSim::Tick _lastSched;
@@ -100,6 +107,8 @@ namespace RTSim {
         AbstractFeedbackModule *feedback;
 
     public:
+
+
         // Events need to be public to avoid an excessive fat interface.
         // Rhis is especially true when considering the probing mechanism
         // (for statistical collection and tracing). 
@@ -131,6 +140,11 @@ namespace RTSim {
          */
         void resetInstrQueue();
 
+        /** Modica Celia - 12/10/2016
+        *   Return a Vector of pair
+        *   instruction - params
+        */
+        std::vector<InstrInstance> getInstrVector() const;
     protected:
         friend class ArrEvt;
         friend class EndEvt;
@@ -373,6 +387,11 @@ namespace RTSim {
 
         /** Returns the executed time of the last (or current) instance */
         Tick getExecTime() const;
+
+        /** Modica Celia - 13/10/2016
+        *   Returns the task state
+        */
+        task_state GetState() const;
 
 	Tick getMinIAT() const { return Tick(int_time->getMinimum());}
 

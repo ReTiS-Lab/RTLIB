@@ -62,6 +62,7 @@ namespace RTSim {
     }
     /** Modica Celia
     *   Modified for support server kernel
+    *   ans support BroeServer kernel
     */
     void WaitInstr::onEnd() 
     {
@@ -76,9 +77,14 @@ namespace RTSim {
         if (k == nullptr && ks == nullptr && kb == nullptr)
             throw BaseExc("Kernel not found!");
         
-        if (k != nullptr)
+        /// N.B. The order of the if is very Important because a BroeServer
+        /// is also a Server but not vice versa.
+        if (k != nullptr) /// wait from a task managed by RTKernel
             k->requestResource(_father, _res, _numberOfRes);
-        else    kb->requestResource(_father, _res, _numberOfRes);
+        else if (kb != nullptr) /// wait from a task managed by BROEServer
+            kb->requestResource(_father, _res, _numberOfRes);
+        else /// wait from a task managed by Server
+            ks->requestResource(_father,_res,_numberOfRes);
 
         _waitEvt.process();
     }
@@ -121,6 +127,10 @@ namespace RTSim {
     }
     /** Modica Celia
     *   Modified for support server kernel
+    *   we don't need any change for
+    *   support BROEServer because in the
+    *   signal it's behaviour
+    *   is the same of the normal server.
     */
     void SignalInstr::onEnd() 
     {
