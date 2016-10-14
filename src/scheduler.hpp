@@ -215,21 +215,21 @@ namespace RTSim {
         void changePriority(AbsRTTask* task, const std::string &params) 
             throw(RTSchedExc);
 
-	/**
-	 * Manages the request of a task to raise his own 
-	 * preemption threshold
-	 */
-	virtual void setThreshold(AbsRTTask *t, const int th) throw(RTSchedExc);           
+        /**
+        * Manages the request of a task to raise his own 
+        * preemption threshold
+        */
+        virtual void setThreshold(AbsRTTask *t, const int th) throw(RTSchedExc);           
+        
         virtual int enableThreshold(AbsRTTask* t) throw(RTSchedExc);
 
         virtual void disableThreshold(AbsRTTask* t) throw(RTSchedExc);
 
-	/**
-         * Returns the preemption threshold of task t. Throws an exception
-         * if the task does not exist
-         */
-	virtual int getThreshold(AbsRTTask *t) throw(RTSchedExc);
-
+        /**
+        * Returns the preemption threshold of task t. Throws an exception
+        * if the task does not exist
+        */
+        virtual int getThreshold(AbsRTTask *t) throw(RTSchedExc);
 
         /**
          *  returns the first task in the queue, or NULL if
@@ -248,14 +248,12 @@ namespace RTSim {
          */
         virtual int getSize() { return _queue.size(); }
 
-
         /**
            Notify the scheduler that the task has been
            dispatched and it is now executing. This function
            is useful for some schedulers (for example RR).
         */
         virtual void notify(AbsRTTask *);
-
 
         /** 
          * Discards all tasks from the scheduler.
@@ -265,7 +263,9 @@ namespace RTSim {
         virtual void discardTasks(bool f);
  
         virtual void newRun();
+
         virtual void endRun();
+
         virtual void print();
 
         /** Modica Celia 11/10/2016

@@ -168,7 +168,7 @@ namespace RTSim {
     }
 
     /** Modica Celia - 11/10/2016
-    *   Modified to support SRP,
+    *   Modified to support SRP's schedule policy,
     *   maintainend back-compatibility
     */
     void RTKernel::onBeginDispatch(Event* e)
@@ -178,13 +178,12 @@ namespace RTSim {
         AbsRTTask *newExe = nullptr;
 
         SRPManager *r = dynamic_cast<SRPManager*>(_resMng);
-        ///check if the resource manager use
-        /// SRP policy
-        newExe = (r != nullptr)? r->getNewExeTask() : _sched->getFirst();
+        
+        ///check if r is an SRP manager
+        newExe = (r != nullptr) ? r->getNewExeTask() : _sched->getFirst();
 
         if (newExe != NULL)
-            DBGPRINT_2("From sched: ",
-                       taskname(newExe));
+            DBGPRINT_2("From sched: ", taskname(newExe));
 
         if(_currExe != newExe)
         {

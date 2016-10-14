@@ -1,0 +1,3 @@
+/home/marco/Scrivania/csbd/RTLIB/test/CMakeFiles/edit_cache.dir
+/home/marco/Scrivania/csbd/RTLIB/test/CMakeFiles/rebuild_cache.dir
+/home/marco/Scrivania/csbd/RTLIB/test/CMakeFiles/tests.dir

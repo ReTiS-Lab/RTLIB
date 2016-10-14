@@ -1,5 +1,5 @@
-#ifndef __BROESERVER_H__
-#define __BROESERVER_H__
+#ifndef __SRPMANAGER_H__
+#define __SRPMANAGER_H__
 
 #include <map>
 #include <stack>
@@ -10,9 +10,9 @@
 #include <scheduler.hpp>
 #include <rmsched.hpp>
 #include <edfsched.hpp>
+#include <task.hpp>
 
 namespace RTSim {
-
 
     using namespace MetaSim;
     using namespace std;
@@ -31,7 +31,7 @@ namespace RTSim {
     class SRPManager : public ResManager {
 
         map<string,int> ceilingTable;
-        stack<int> SysCeilingIncrement;
+        stack<int>      SysCeilingIncrement;
 
     public:
 
@@ -40,12 +40,11 @@ namespace RTSim {
          */
         SRPManager(const std::string &n = "");
 
+        virtual ~SRPManager();
+
         /** Modica Celia - 12/10/2016
-        *   Function to compute the
-        *   resource ceiling table
-        *   for each task-resource,
-        *   and the preemption level
-        *   of each task
+        *   Computes Tasks' preemption levels
+        *   and Resources' Ceiling Table
         */
         void InitializeSRPManager(vector<AbsRTTask *> *tasks);
 
@@ -54,36 +53,43 @@ namespace RTSim {
          */
 //         void setScheduler(Scheduler *s);
 
-        /**
-         * @todo clear the maps!!
-         */
         void newRun();
 
         void endRun();
 
         /** Modica Celia - 12/10/2016
-        *   Return true if a resource
-        *   is locked froma task t
+        *   Returns true if at least one of 
+        *   the resources linked to the manager
+        *   is locked from task t
         */
         bool isLocked(AbsRTTask* t) const;
 
         /** Modica Celia - 13/10/2016
-        *   Return the task that must
-        *   be executing with SRP policy
+        *   Returns the next executing task
+        *   according to SRP policy
         */
         AbsRTTask* getNewExeTask() const;
 
-    protected:
         /** Modica Celia - 13/10/2016
-        *   Sort tasks based on the
-        *   policy of the scheduler type
+        *   Returns Resource Celing, from
+        *   pointer or name 
+        */
+        int getResCeil(Resource* r) const;
+        int getResCeil(string name) const;
+
+    protected:
+
+        /** Modica Celia - 13/10/2016
+        *   Sorts tasks based on the
+        *   scheduler policy (RM or EDF)
         */
         void SortTasksBySched(vector<AbsRTTask *> *tasks);
 
         /**
-           Returns true if the resource can be locked, false otherwise
-           (in such a case, the task should be blocked)
-         */
+        *   Locks resource r, sets t as owner then returns true.
+        *   Rises an exception if r is already locked, 
+        *   (see SRP's policy).
+        */
         virtual bool request(AbsRTTask *t, Resource *r, int n=1);
 
         /**
@@ -92,11 +98,10 @@ namespace RTSim {
         virtual void release(AbsRTTask *t, Resource *r, int n=1);
 
         /** Modica Celia - 12/10/2016
-        *   Return the list of resource
-        *   used from the task t
+        *   Returns a list of resources' names
+        *   used from task t
         */
         vector<string> getUsedRes(Task* t);
-
     };
 }
 

@@ -75,16 +75,16 @@ namespace RTSim {
 	Task & operator=(const Task &);
 
     protected:
-	MetaSim::RandomVar *int_time;  // The task is owner of this varible
+	    MetaSim::RandomVar *int_time;  // The task is owner of this varible
         MetaSim::Tick lastArrival;     // The arrival of the last instance!
         MetaSim::Tick phase;           // Initial phasing for first arrival
         MetaSim::Tick arrival;         // Arrival time of the current (last) instance
         MetaSim::Tick execdTime;       // Actual Real-Time execution of the task
         MetaSim::Tick _maxC;           // Maximum computation time 
-	std::deque <MetaSim::Tick> arrQueue; // Arrival queue, sorted FIFO
+	    std::deque <MetaSim::Tick> arrQueue; // Arrival queue, sorted FIFO
         int arrQueueSize;      // -1 stands for no-limit
 
-	task_state state;      // IDLE, READY, EXECUTING, BLOCKED 
+	    task_state state;      // IDLE, READY, EXECUTING, BLOCKED 
 
         //bool active;           // true if the current request has not completed
         //bool executing;        // true if the task is currently executing
@@ -95,7 +95,11 @@ namespace RTSim {
         InstrList instrQueue;
         InstrIterator actInstr;
 
-
+        /** Modica-Celia:
+        *   Holds a list of pairs instruction-parameters list.
+        *   Needed from an SRP manager to detect if a task uses
+        *   one or more resources.
+        */
         std::vector<InstrInstance> InstrVect;
 
         AbsKernel *_kernel;
@@ -142,7 +146,7 @@ namespace RTSim {
 
         /** Modica Celia - 12/10/2016
         *   Return a Vector of pair
-        *   instruction - params
+        *   instruction - param. list
         */
         std::vector<InstrInstance> getInstrVector() const;
     protected:
@@ -343,9 +347,9 @@ namespace RTSim {
         virtual void onInstrEnd();
 
 
-	void block();
-	void unblock();
-
+	   void block();
+	   
+       void unblock();
 
         /** 
             Specify that this task has to be traced 

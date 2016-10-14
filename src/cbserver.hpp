@@ -28,10 +28,10 @@ namespace RTSim {
 
         Tick changeQ(const Tick &n);
         virtual double getVirtualTime();
-	Tick get_remaining_budget(); 
+	    Tick get_remaining_budget(); 
 
-	policy_t get_policy() const { return idle_policy; }
-	void set_policy(policy_t p) { idle_policy = p; }  
+	    policy_t get_policy() const { return idle_policy; }
+	    void set_policy(policy_t p) { idle_policy = p; }  
 
     protected:
                 
@@ -83,7 +83,7 @@ namespace RTSim {
 
         /// queue of replenishments
         /// all times are in the future!
-	std::list<repl_t> repl_queue;
+	    std::list<repl_t> repl_queue;
 
         /// at the replenishment time, the replenishment is moved
         /// from the repl_queue to the capacity_queue, so 
@@ -107,9 +107,8 @@ namespace RTSim {
 	    reuses the old deadline, and computes a new "safe" budget as 
 	    floor((d - vtime) * Q / P). 
 	*/
-	policy_t idle_policy; 
+	    policy_t idle_policy; 
     };
 }
-
 
 #endif

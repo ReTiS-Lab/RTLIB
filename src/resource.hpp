@@ -80,7 +80,6 @@ namespace RTSim {
 
         void newRun();
         void endRun();
-
     };
 
 } // namespace RTSim

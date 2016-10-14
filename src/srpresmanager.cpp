@@ -1,7 +1,6 @@
 #include <srpresmanager.hpp>
 
 
-
 namespace RTSim {
 
     using namespace MetaSim;
@@ -9,6 +8,11 @@ namespace RTSim {
 
     SRPManager::SRPManager(const std::string &n ):ResManager(n),ceilingTable(),SysCeilingIncrement()
     {
+    }
+
+    SRPManager::~SRPManager()
+    {
+        ceilingTable.clear();
     }
 
     void SRPManager::SortTasksBySched(vector<AbsRTTask*> *tasks)
@@ -24,7 +28,7 @@ namespace RTSim {
                     PeriodicTask *pt1 = dynamic_cast<PeriodicTask*>(t1);
                     PeriodicTask *pt2 = dynamic_cast<PeriodicTask*>(t2);
                     if (!pt1 || !pt2)
-                        throw SRPManagerExc("Rate Monotonic need Periodic Task","SRPManager::SortTasksBySched()");
+                        throw SRPManagerExc("RM needs Periodic Task","SRPManager::SortTasksBySched()");
                     return pt1->getPeriod() < pt2->getPeriod();
                 });
         }
@@ -54,7 +58,7 @@ namespace RTSim {
 
             Task *t = dynamic_cast<Task*>(*I);
             if (t == nullptr)
-                throw SRPManagerExc("AbsRTTAsk not is a Task","InizializeSRPManager()");
+                throw SRPManagerExc("AbsRTTAsk is not a Task","InizializeSRPManager()");
 
             vector<string> res = getUsedRes(t);
 
@@ -138,5 +142,16 @@ namespace RTSim {
         return newExe;
     }
 
-}
+    int SRPManager::getResCeil(Resource* r) const
+    {
+        return getResCeil(r->getName());
+    }
 
+    int SRPManager::getResCeil(string name) const
+    {
+        map<string, int>::const_iterator I = ceilingTable.find(name);
+        if (I == ceilingTable.end())
+            throw SRPManagerExc("Resource unknown", "SRPManager::getResCeil()");
+        return I->second;
+    }
+}
