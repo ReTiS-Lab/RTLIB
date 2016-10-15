@@ -35,6 +35,8 @@ namespace RTSim {
 
     class AbsRTTask;
 
+    typedef enum {GLOBAL_RES,LOCAL_RES} res_scope_t;
+
     /** 
         \ingroup resman
 
@@ -49,13 +51,14 @@ namespace RTSim {
     protected:
         int _total;
         int _available;
+        res_scope_t _scope;
 
         AbsRTTask* _owner;
 
     public:
   
         /// simple constructor
-        Resource(const string& n, int nr = 1);
+        Resource(const string& n, int nr = 1, res_scope_t t = GLOBAL_RES);
         
         /// copy constructor
         Resource(const Resource &r);
@@ -80,6 +83,8 @@ namespace RTSim {
 
         void newRun();
         void endRun();
+
+        res_scope_t getResScope() const;
     };
 
 } // namespace RTSim

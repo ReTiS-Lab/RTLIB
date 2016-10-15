@@ -355,6 +355,11 @@ namespace RTSim {
          running at the same time.
          */
         virtual std::vector<std::string> getRunningTasks();
+
+        /** Modica Celia - 14/10/2010
+            Return the task list
+        */
+        vector<AbsRTTask*> getTasks() const;
     };
   
 } // namespace RTSim 

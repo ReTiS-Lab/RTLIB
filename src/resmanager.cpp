@@ -61,6 +61,11 @@ namespace RTSim {
         _res.push_back(r);
     }
 
+    void ResManager::addResource(Resource *r,int n)
+    {
+        _res.push_back(r);
+    }
+
     bool ResManager::request(AbsRTTask *t, const string &name, int n) 
     {
         DBGENTER(_RESMAN_DBG_LEV);
@@ -81,6 +86,32 @@ namespace RTSim {
         release(t,r,n);
         
         
+    }
+
+    bool ResManager::find(Resource* r) const
+    {
+        return find(r->getName());
+    }
+    bool ResManager::find(string s) const
+    {
+        vector<Resource*>::const_iterator I = _res.begin();
+        for (; I != _res.end(); I++)
+            if ((*I)->getName() == s)
+                return true;
+        return false;
+    }
+
+    res_scope_t ResManager::getResScope(Resource *r) const
+    {
+        return getResScope(r->getName());
+    }
+    res_scope_t ResManager::getResScope(string s) const
+    {
+        vector<Resource*>::const_iterator I = _res.begin();
+        for (; I != _res.end(); I++)
+            if ((*I)->getName() == s)
+                return (*I)->getResScope();
+        throw BaseExc("Resource not present","ResManager::getResScope()","resmanager.cpp");
     }
 
 }

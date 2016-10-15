@@ -24,6 +24,8 @@
 #include <task.hpp>
 #include <scheduler.hpp>
 #include <resmanager.hpp>
+#include <srpresmanager.hpp>
+#include <hsrpmanager.hpp>
 
 #define _SERVER_DBG_LEV "server"
 
@@ -405,6 +407,13 @@ namespace RTSim {
         */
         virtual void releaseResource(AbsRTTask *t, const string &r, int n=1)
             throw(ServerExc);
+
+        /** Modica Celia - 14/10/2010
+            Return the task list
+        */
+        vector<AbsRTTask*> getTasks() const;
+
+        ResManager* getLocalResManager() const;
 
 //	virtual std::vector<std::string> getRunningTasks() = 0;
     };

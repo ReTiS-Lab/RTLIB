@@ -15,6 +15,7 @@
 #define __ABSKERNEL_HPP__
 
 #include <abstask.hpp>
+#include <vector>
 
 namespace RTSim {
 
@@ -85,7 +86,12 @@ namespace RTSim {
         virtual double setSpeed(double newLoad) = 0;
 
         /** ??? */ 
-	virtual bool isContextSwitching() const = 0;
+	     virtual bool isContextSwitching() const = 0;
+
+        /** Modica Celia - 14/10/2010
+        Return the task list
+        */
+        virtual std::vector<AbsRTTask*> getTasks() const = 0;
 
     };
 

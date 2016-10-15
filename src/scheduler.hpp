@@ -325,6 +325,8 @@ namespace RTSim {
         friend class PIRManager;
 
         friend class SRPManager;
+
+        friend class HSRPManager;
     };
 
     

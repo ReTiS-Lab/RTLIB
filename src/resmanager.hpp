@@ -20,6 +20,7 @@
 
 #include <entity.hpp>
 #include <scheduler.hpp>
+#include <resource.hpp>
 
 #define _RESMAN_DBG_LEV  "ResMan"
 
@@ -43,6 +44,7 @@ namespace RTSim {
     */
     class ResManager : public Entity {
         friend class RTKernel;
+        friend class Server;
     public:
         /** Constructor of ResManager */
         ResManager(const std::string &n = "");
@@ -59,6 +61,13 @@ namespace RTSim {
            by default is 1.
         */
         virtual void addResource(const std::string &name, int n=1);
+
+
+
+        /**  Adds the resource to the set of resources managed by the Resource
+             Manager.
+         */
+        virtual void addResource(Resource *r,int n=1);
 
         /**
          * Function called by a task instr (the WaitInstr) to perform an
@@ -102,6 +111,21 @@ namespace RTSim {
          */
         // virtual void addUser(AbsRTTask *t, const std::string &name, int n=1) = 0;
 
+        /** Modica Celia - 14/10/2016
+         *  Return true if the resource
+         *  is in the queue of the manager
+         *  from pointer or name
+         */
+        bool find(Resource *r) const;
+        bool find(string s) const;
+
+        /** Modica Celia - 15/10/2016
+         * Return the scope of the
+         * Resource passed by param
+         */
+        res_scope_t getResScope(Resource *r) const;
+        res_scope_t getResScope(string s) const;
+
     protected:
 
         AbsKernel *_kernel;
@@ -120,6 +144,9 @@ namespace RTSim {
 
         virtual bool request(AbsRTTask *t, Resource *r, int n=1) = 0;
         virtual void release(AbsRTTask *t, Resource *r, int n=1) = 0;
+
+
+
     };
 } // namespace RTSim 
 

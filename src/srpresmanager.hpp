@@ -11,6 +11,7 @@
 #include <rmsched.hpp>
 #include <edfsched.hpp>
 #include <task.hpp>
+#include <kernevt.hpp>
 
 namespace RTSim {
 
@@ -23,6 +24,8 @@ namespace RTSim {
             BaseExc(m,cl,module) {};
     };
 
+    typedef enum{LOCAL_SRP,GLOBAL_SRP} SRPScope_t;
+
     /**
        \ingroup resman
 
@@ -30,54 +33,14 @@ namespace RTSim {
     */
     class SRPManager : public ResManager {
 
+    protected:
+
+
+
         map<string,int> ceilingTable;
         stack<int>      SysCeilingIncrement;
-
-    public:
-
-        /**
-         * Constructor
-         */
-        SRPManager(const std::string &n = "");
-
-        virtual ~SRPManager();
-
-        /** Modica Celia - 12/10/2016
-        *   Computes Tasks' preemption levels
-        *   and Resources' Ceiling Table
-        */
-        void InitializeSRPManager(vector<AbsRTTask *> *tasks);
-
-        /**
-         * Sets the scheduler for this resmanager
-         */
-//         void setScheduler(Scheduler *s);
-
-        void newRun();
-
-        void endRun();
-
-        /** Modica Celia - 12/10/2016
-        *   Returns true if at least one of 
-        *   the resources linked to the manager
-        *   is locked from task t
-        */
-        bool isLocked(AbsRTTask* t) const;
-
-        /** Modica Celia - 13/10/2016
-        *   Returns the next executing task
-        *   according to SRP policy
-        */
-        AbsRTTask* getNewExeTask() const;
-
-        /** Modica Celia - 13/10/2016
-        *   Returns Resource Celing, from
-        *   pointer or name 
-        */
-        int getResCeil(Resource* r) const;
-        int getResCeil(string name) const;
-
-    protected:
+        SRPScope_t  scope;
+        int max_ceiling;
 
         /** Modica Celia - 13/10/2016
         *   Sorts tasks based on the
@@ -102,6 +65,50 @@ namespace RTSim {
         *   used from task t
         */
         vector<string> getUsedRes(Task* t);
+
+    public:
+
+        /**
+         * Constructor
+         */
+        SRPManager(const std::string &n = "", SRPScope_t s = GLOBAL_SRP);
+
+        virtual ~SRPManager();
+
+        /** Modica Celia - 12/10/2016
+        *   Computes Tasks' preemption levels
+        *   and Resources' Ceiling Table
+        */
+        virtual void InitializeManager();
+
+        /**
+         * Sets the scheduler for this resmanager
+         */
+//         void setScheduler(Scheduler *s);
+
+        void newRun();
+
+        void endRun();
+
+        /** Modica Celia - 12/10/2016
+        *   Returns true if at least one of
+        *   the resources linked to the manager
+        *   is locked from task t
+        */
+        bool isLocked(AbsRTTask* t) const;
+
+        /** Modica Celia - 13/10/2016
+        *   Returns the next executing task
+        *   according to SRP policy
+        */
+        AbsRTTask* getNewExeTask() const;
+
+        /** Modica Celia - 13/10/2016
+        *   Returns Resource Celing, from
+        *   pointer or name
+        */
+        int getResCeil(Resource* r) const;
+        int getResCeil(string name) const;
     };
 }
 

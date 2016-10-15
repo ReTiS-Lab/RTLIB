@@ -303,4 +303,13 @@ namespace RTSim {
 
         return tmp_ts;
     }
+
+    vector<AbsRTTask *> RTKernel::getTasks() const
+    {
+        vector<AbsRTTask*> tasks;
+        deque<AbsRTTask*>::const_iterator Q = _handled.begin();
+        for (; Q != _handled.end(); Q++)
+            tasks.push_back(*Q);
+        return tasks;
+    }
 }

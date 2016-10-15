@@ -53,12 +53,7 @@ TEST_CASE("SRP test")
         kern.addTask(t3, "");
         kern.addTask(t4, "");
 
-        vector<AbsRTTask*> task_set;
-        task_set.push_back((AbsRTTask*)&t4);
-        task_set.push_back((AbsRTTask*)&t3);
-        task_set.push_back((AbsRTTask*)&t1);
-        task_set.push_back((AbsRTTask*)&t2);
-        rm.InitializeSRPManager(&task_set);
+        rm.InitializeManager();
 
         SIMUL.initSingleRun();
         
@@ -123,11 +118,7 @@ TEST_CASE("SRP: test su preemption level e System Ceiling")
         kern.addTask(t2, "");
         kern.addTask(t3, "");
 
-        vector<AbsRTTask*> task_set;
-        task_set.push_back((AbsRTTask*)&t2);
-        task_set.push_back((AbsRTTask*)&t3);
-        task_set.push_back((AbsRTTask*)&t1);
-        rm.InitializeSRPManager(&task_set);
+        rm.InitializeManager();
 
         SIMUL.initSingleRun();
         /**

@@ -30,11 +30,12 @@ namespace RTSim {
     using namespace std;
     using namespace MetaSim;
 
-    Resource::Resource(const string &n, int nr) :
+    Resource::Resource(const string &n, int nr, res_scope_t t) :
         Entity(n),
         _owner(0), 
         _total(nr),
-        _available(nr)
+        _available(nr),
+        _scope(t)
     { 
     }
 
@@ -88,6 +89,11 @@ namespace RTSim {
     AbsRTTask* Resource::getOwner()const
     {
         return _owner;
+    }
+
+    res_scope_t Resource::getResScope() const
+    {
+        return _scope;
     }
 
 }

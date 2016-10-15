@@ -276,7 +276,15 @@ namespace RTSim {
     {
         DBGENTER(_SERVER_DBG_LEV);
 
-        AbsRTTask *newExe = sched_->getFirst();
+        //AbsRTTask *newExe = sched_->getFirst();
+
+        AbsRTTask *newExe = nullptr;
+
+        SRPManager *r = dynamic_cast<SRPManager*>(localResmanager);
+
+        ///check if r is an SRP manager
+        newExe = (r != nullptr) ? r->getNewExeTask() : sched_->getFirst();
+
 
         DBGPRINT("Current situation");
         DBGPRINT_2("newExe: ", taskname(newExe));
@@ -303,32 +311,53 @@ namespace RTSim {
     {
         DBGENTER(_KERNEL_DBG_LEV);
 
-        if (globResManager == 0) throw ServerExc("Resource Manager not set!","Server::requestResource()");
-        bool ret = globResManager->request(t,r,n);
-        if (!ret) 
-            dispatch();
-        return ret;
+        if (localResmanager == 0) throw ServerExc("Local Resource Manager not set!","Server::requestResource()");
+        SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
+        HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
+        if (!m || (gm != nullptr  && !gm->find(r)))
+        {
+            bool ret = localResmanager->request(t,r,n);
+            if (!ret)
+                dispatch();
+            return ret;
+        }else
+        {
+           localResmanager->request(t,r,n);
+           globResManager->request(t,r,n);
+           return true;
+        }
+
     } 
 
     void Server::releaseResource(AbsRTTask *t, const string &r, int n) 
         throw(ServerExc)
     { 
-        if (globResManager == 0) throw ServerExc("Resource Manager not set!","Server::releaseResource()");
+        if (localResmanager == 0) throw ServerExc("Resource Manager not set!","Server::releaseResource()");
 
-        globResManager->release(t,r,n);
+        localResmanager->release(t,r,n);
 
         dispatch();
     }
 
     void Server::setLocalResManager(ResManager *rm)
     {
-    //    localResmanager =  rm;
-    //    localResmanager->setKernel(this, _sched);
+          localResmanager =  rm;
+          localResmanager->setKernel(this, sched_);
     }
 
     void Server::setGlobalResManager(ResManager *rm)
     {
-        //globResManager=rm;
+        globResManager=rm;
+    }
+
+    vector<AbsRTTask*> Server::getTasks() const
+    {
+        return tasks;
+    }
+
+    ResManager* Server::getLocalResManager() const
+    {
+        return localResmanager;
     }
 
 }

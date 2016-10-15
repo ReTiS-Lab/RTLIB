@@ -6,13 +6,13 @@ namespace RTSim {
     using namespace MetaSim;
     using namespace std;
 
-    SRPManager::SRPManager(const std::string &n ):ResManager(n),ceilingTable(),SysCeilingIncrement()
+    SRPManager::SRPManager(const std::string &n , SRPScope_t s):ResManager(n),ceilingTable(),SysCeilingIncrement(),scope(s),max_ceiling(0)
     {
     }
 
     SRPManager::~SRPManager()
     {
-        ceilingTable.clear();
+        //ceilingTable.clear();
     }
 
     void SRPManager::SortTasksBySched(vector<AbsRTTask*> *tasks)
@@ -43,13 +43,15 @@ namespace RTSim {
             throw SRPManagerExc("Scheduler Type non supported","SRPManager::InizializeSRPManager()");
     }
 
-    void SRPManager::InitializeSRPManager(vector<AbsRTTask*> *tasks)
+    void SRPManager::InitializeManager()
     {
 
-        SortTasksBySched(tasks);
-        vector<AbsRTTask*>::iterator I = tasks->begin();
-        int plevel=tasks->size();
-        while (I != tasks->end())
+        vector<AbsRTTask*> tasks = _kernel->getTasks();
+        SortTasksBySched(&tasks);
+        vector<AbsRTTask*>::iterator I = tasks.begin();
+        int plevel=tasks.size();
+        max_ceiling = plevel;
+        while (I != tasks.end())
         {
             TaskModel * tm = _sched->find(*I);
             if (tm == nullptr)
@@ -62,11 +64,22 @@ namespace RTSim {
 
             vector<string> res = getUsedRes(t);
 
+            cout << "Task: "<<taskname(*I) << ": plevel: " <<plevel+1 <<endl;
+
             for(vector<string>::iterator I=res.begin(); I<res.end(); I++)
             {
+                if (!find(*I))
+                    throw SRPManagerExc("Resource not present","InizializeSRPManager()");
+
                 map<string,int>::iterator item = ceilingTable.find((*I));
                 if (item == ceilingTable.end())
+                {
+                   if (scope == LOCAL_SRP && getResScope(*I)==GLOBAL_RES)
+                       ceilingTable[(*I)] = max_ceiling;
+                   else
                     ceilingTable[(*I)] = tm->getPLevel();
+                   cout << getName() << " table:" << (*I) << ": ceiling: " << ceilingTable[(*I)] <<endl;
+                }
             }
             I++;
         }
@@ -89,16 +102,19 @@ namespace RTSim {
 
     bool SRPManager::request(AbsRTTask *t, Resource *r, int n)
     {
-        if (r->isLocked())
+         if (r->isLocked())
             throw SRPManagerExc("Resource already locked: not possible under SRP","SRPManager::request()");
 
-         r->lock(t);
          int NewCeiling  = ceilingTable[r->getName()];
          int CurrCeiling = _sched->getSysCeiling();
          int diff = (NewCeiling > CurrCeiling) ? (NewCeiling - CurrCeiling) : 0;
          SysCeilingIncrement.push(diff);
          if (diff > 0)
            _sched->setSysCeiling(NewCeiling);
+
+         if (!(scope == LOCAL_SRP && getResScope(r)==GLOBAL_RES))
+           r->lock(t);
+
          return true;
     }
 
