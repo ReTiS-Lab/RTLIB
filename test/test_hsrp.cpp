@@ -22,7 +22,8 @@ TEST_CASE("H-SRP under CBS servers test")
         EDFScheduler sched;
         //RMScheduler sched;
         RTKernel kern(&sched);
-        Resource R11("R11",LOCAL_RES),R12("R12",LOCAL_RES),R21("R21",LOCAL_RES),R31("R31",LOCAL_RES),RG1("RG1"),RG2("RG2"),RG3("RG3");
+        Resource R11("R11", 1, LOCAL_RES),R12("R12", 1, LOCAL_RES), R21("R21", 1, LOCAL_RES),R31("R31", 1, LOCAL_RES);
+        Resource RG1("RG1"),RG2("RG2"),RG3("RG3");
 
         HSRPManager hm("HSRPMan");
         hm.addResource(&RG1);
@@ -112,8 +113,6 @@ TEST_CASE("H-SRP under CBS servers test")
         ttrace.attachToTask(&t2);
         ttrace.attachToTask(&t3);
         ttrace.attachToTask(&t4);*/
-
-
 
         kern.addTask(serv1, "");
         kern.addTask(serv2, "");

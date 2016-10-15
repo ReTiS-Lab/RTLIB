@@ -45,7 +45,6 @@ namespace RTSim {
         *   used from task t
         */
         vector<string> getUsedRes(Server *s, SRPManager *r);
-
     };
 }
 

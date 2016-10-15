@@ -41,8 +41,11 @@ namespace RTSim {
             {
                 map<string,int>::iterator item = ceilingTable.find((*J));
                 if (item == ceilingTable.end())
-                {    ceilingTable[(*J)] = tm->getPLevel();
-                     cout << getName() << " table: " << (*J) << ": ceiling: " << ceilingTable[(*J)] <<endl;
+                {    
+                    ceilingTable[(*J)] = tm->getPLevel();
+ 
+                    cout << getName() << " table: C(" << (*J) << ") = " << 
+                           ceilingTable[(*J)] << "(from " << taskname(*I) << ")" << endl;
                 }
              }
         }
@@ -69,7 +72,4 @@ namespace RTSim {
         }
         return ret;
     }
-
-
-
 }

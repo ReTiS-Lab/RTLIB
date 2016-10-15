@@ -35,12 +35,10 @@ namespace RTSim {
 
     protected:
 
-
-
         map<string,int> ceilingTable;
         stack<int>      SysCeilingIncrement;
-        SRPScope_t  scope;
-        int max_ceiling;
+        SRPScope_t      scope;
+        int             max_ceiling;
 
         /** Modica Celia - 13/10/2016
         *   Sorts tasks based on the

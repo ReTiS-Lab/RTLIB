@@ -69,16 +69,25 @@ namespace RTSim {
             for(vector<string>::iterator I=res.begin(); I<res.end(); I++)
             {
                 if (!find(*I))
-                    throw SRPManagerExc("Resource not present","InizializeSRPManager()");
+                    throw SRPManagerExc("Task uses a Resource not present is such ResMan","InizializeSRPManager()");
 
                 map<string,int>::iterator item = ceilingTable.find((*I));
                 if (item == ceilingTable.end())
                 {
-                   if (scope == LOCAL_SRP && getResScope(*I)==GLOBAL_RES)
+                   if (scope == LOCAL_SRP && getResScope(*I) == GLOBAL_RES)
+                        /**
+                        *   case in which task uses a global resource,  
+                        *   inside the local SRP
+                        */
                        ceilingTable[(*I)] = max_ceiling;
+                   
                    else
-                    ceilingTable[(*I)] = tm->getPLevel();
-                   cout << getName() << " table:" << (*I) << ": ceiling: " << ceilingTable[(*I)] <<endl;
+                        ceilingTable[(*I)] = tm->getPLevel();
+                       
+                   cout << getName() << " table: C(" << (*I) << ") = " << 
+                           ceilingTable[(*I)] << "(from " << 
+                           ((scope == LOCAL_SRP && getResScope(*I) == GLOBAL_RES)? "MAX_CEIL":taskname(t)) <<
+                           ")" << endl;
                 }
             }
             I++;
@@ -171,4 +180,5 @@ namespace RTSim {
             throw SRPManagerExc("Resource unknown", "SRPManager::getResCeil()");
         return I->second;
     }
+
 }

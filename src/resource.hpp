@@ -26,7 +26,6 @@
 #define __RESOURCE_HPP__
 
 #include <string>
-
 #include <simul.hpp>
 
 namespace RTSim {

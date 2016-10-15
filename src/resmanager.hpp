@@ -54,20 +54,22 @@ namespace RTSim {
         /**
            Adds the resource to the set of resources managed by the Resource
            Manager.  should check if the resource is already present in such
-           set 
+           set. Resource is allocated from the Manager that will be the one
+           who have to destroy it
        
            @param name resource name;
            @param n number of unit (for supporting multi-unit resources), 
            by default is 1.
         */
-        virtual void addResource(const std::string &name, int n=1);
+        virtual void addResource(const std::string &name, int n=1, res_scope_t s = GLOBAL_RES);
 
-
-
-        /**  Adds the resource to the set of resources managed by the Resource
-             Manager.
+        /**  
+         * Adds the resource to the set of resources managed by the 
+         * Resource Manager. 
+         * WARNING: r was already allocated somewhere else, 
+         * so the manager will not destroy it.
          */
-        virtual void addResource(Resource *r,int n=1);
+        virtual void addResource(Resource *r);
 
         /**
          * Function called by a task instr (the WaitInstr) to perform an
@@ -140,13 +142,19 @@ namespace RTSim {
          */
         void setKernel(AbsKernel *k, Scheduler *s);
 
+        /**
+        *  List of all resources managed from the manager
+        */
         std::vector<Resource *> _res;
+
+        /**
+        *  List of all resources directly allocated from the manager,
+        *  for these it is in charge of their deallocation
+        */
+        std::vector<Resource *> _allocated;;
 
         virtual bool request(AbsRTTask *t, Resource *r, int n=1) = 0;
         virtual void release(AbsRTTask *t, Resource *r, int n=1) = 0;
-
-
-
     };
 } // namespace RTSim 
 

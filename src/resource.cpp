@@ -36,7 +36,7 @@ namespace RTSim {
         _total(nr),
         _available(nr),
         _scope(t)
-    { 
+    {
     }
 
     Resource::Resource(const Resource &r) :
