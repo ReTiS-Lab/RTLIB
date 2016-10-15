@@ -333,9 +333,14 @@ namespace RTSim {
         throw(ServerExc)
     { 
         if (localResmanager == 0) throw ServerExc("Resource Manager not set!","Server::releaseResource()");
+        SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
+        HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
 
         localResmanager->release(t,r,n);
-
+        if (gm != nullptr  && gm->find(r))
+        {
+            globResManager->release(t,r,n);
+        }
         dispatch();
     }
 

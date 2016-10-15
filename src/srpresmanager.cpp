@@ -119,12 +119,13 @@ namespace RTSim {
     }
 
     void SRPManager::release(AbsRTTask *t, Resource *r, int n)
-    {
-        r->unlock();
+    {     
         int dec = SysCeilingIncrement.top();
         SysCeilingIncrement.pop();
         int CurrCeiling = _sched->getSysCeiling();
         _sched->setSysCeiling(CurrCeiling-dec);
+        if (!(scope == LOCAL_SRP && getResScope(r)==GLOBAL_RES))
+            r->unlock();
     }
 
     void SRPManager::newRun(){}
