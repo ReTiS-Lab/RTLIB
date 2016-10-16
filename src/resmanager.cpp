@@ -89,6 +89,7 @@ namespace RTSim {
     {
         return find(r->getName());
     }
+    
     bool ResManager::find(string s) const
     {
         vector<Resource*>::const_iterator I = _res.begin();

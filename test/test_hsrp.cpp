@@ -46,8 +46,6 @@ TEST_CASE("H-SRP under CBS servers test")
         rm3.addResource(&RG2);
         rm3.addResource(&RG3);
 
-
-
         PeriodicTask t11(20, 4, 6, "T11");
         t11.insertCode("wait(R11);wait(R12);");
         t11.setAbort(false);
@@ -60,8 +58,6 @@ TEST_CASE("H-SRP under CBS servers test")
         t13.insertCode("wait(R12);");
         t13.setAbort(false);
 
-
-
         PeriodicTask t21(20, 5, 0, "T21");
         t21.insertCode("wait(RG1);wait(R21);");
         t21.setAbort(false);
@@ -69,7 +65,6 @@ TEST_CASE("H-SRP under CBS servers test")
         PeriodicTask t22(20, 19, 0, "T22");
         t22.insertCode("wait(RG2);wait(RG3);wait(R21);");
         t22.setAbort(false);
-
 
         PeriodicTask t31(20, 5, 6, "T31");
         t31.insertCode("wait(R31);wait(RG2);");
@@ -97,7 +92,6 @@ TEST_CASE("H-SRP under CBS servers test")
 
         serv2.addTask(t21, "");
         serv2.addTask(t22, "");
-
 
         CBServer serv3(40, 40,40,CBServer::HARD, "Server3", "EDFSched");
         serv3.setLocalResManager(&rm3);

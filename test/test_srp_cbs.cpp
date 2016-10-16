@@ -71,10 +71,16 @@ TEST_CASE("SRP under CBS server test")
         REQUIRE(rm.getResCeil("R2") == 2);
         REQUIRE(rm.getResCeil("R3") == 2);
 
+        SIMUL.run_to(0);
+        SIMUL.run_to(1);
+        SIMUL.run_to(2);
+        SIMUL.run_to(3);
+        SIMUL.run_to(4);
+        SIMUL.run_to(5);
+        SIMUL.run_to(6);
+        SIMUL.run_to(7);
         SIMUL.run_to(8);
         SIMUL.run_to(9);
-       // REQUIRE(sched.getSysCeiling()==2);
-
         SIMUL.run_to(10);
         SIMUL.run_to(11);
         SIMUL.run_to(12);

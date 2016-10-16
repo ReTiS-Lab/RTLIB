@@ -306,7 +306,7 @@ namespace RTSim {
         }
     }
 
-     bool Server::requestResource(AbsRTTask *t, const string &r, int n) 
+    bool Server::requestResource(AbsRTTask *t, const string &r, int n) 
         throw(ServerExc)
     {
         DBGENTER(_KERNEL_DBG_LEV);
@@ -314,15 +314,28 @@ namespace RTSim {
         if (localResmanager == 0) throw ServerExc("Local Resource Manager not set!","Server::requestResource()");
         SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
         HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
-        /// then case: not a srpmanager || there is a global HSRP manager && resource not global || not exist a global manager
-        if (!m || (gm != nullptr  && !gm->find(r)) || !gm)
+
+        bool HSRPactive = (gm != nullptr) ? gm->find(r) : false;
+
+        //if (!m || (gm != nullptr  && !gm->find(r)) || !gm)
+        if (!m || !HSRPactive)
         {
+            /**
+            * The local manager is not an SRP manager and 
+            * the global manager, if present, does not
+            * handle the requested resource
+            */
             bool ret = localResmanager->request(t,r,n);
             if (!ret)
                 dispatch();
             return ret;
         }else
         {
+            /**
+            * Hierarchical SRP case:
+            * - localManager = simple SRP
+            * - globalManager = HSRP
+            */
            localResmanager->request(t,r,n);
            globResManager->request(t,r,n);
            return true;
