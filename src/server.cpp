@@ -314,7 +314,8 @@ namespace RTSim {
         if (localResmanager == 0) throw ServerExc("Local Resource Manager not set!","Server::requestResource()");
         SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
         HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
-        if (!m || (gm != nullptr  && !gm->find(r)))
+        /// then case: not a srpmanager || there is a global HSRP manager && resource not global || not exist a global manager
+        if (!m || (gm != nullptr  && !gm->find(r)) || !gm)
         {
             bool ret = localResmanager->request(t,r,n);
             if (!ret)
