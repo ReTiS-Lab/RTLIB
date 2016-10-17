@@ -12,7 +12,9 @@ namespace RTSim {
     public:
 	typedef enum {ORIGINAL, REUSE_DLINE } policy_t;
 
-    /** Modica Celia: enumerate for select the recharging policy of CBS*/
+    /** Celia - Modica: 
+    * recharging policy of CBS
+    */
     typedef enum {HARD,SOFT} recharging_policy_t;
 
 	CBServer(Tick q, Tick p, Tick d, recharging_policy_t HR, const std::string &name, 

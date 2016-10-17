@@ -40,10 +40,11 @@ namespace RTSim {
     {
         DBGENTER(_SERVER_DBG_LEV);
         DBGPRINT("Status = " << status_string[status]);
+        
         if (status == IDLE)
-	    return double(SIMUL.getTime());
+	       return double(SIMUL.getTime());
         else 
-	    return vtime.get_value();
+	       return vtime.get_value();
     }
 
     void CBServer::endRun()
@@ -95,10 +96,13 @@ namespace RTSim {
     void CBServer::ready_executing()
     {
         DBGENTER(_SERVER_DBG_LEV);
+
         status = EXECUTING;
         last_time = SIMUL.getTime();
         vtime.start((double)P/double(Q));
+        
         DBGPRINT_2("Last time is: ", last_time);
+        
         _bandExEvt.post(last_time + cap);
     }
 
@@ -309,15 +313,22 @@ namespace RTSim {
 	   return 0;
     }
 
-    /**Modica Celia: added HARD CBS case */
+
+    /** Celia - Modica: Formula for computing actual budget in case of Hard CBS taken from:
+    * "Hard Constant Bandwidth Server: Comprehensive Formulation and Critical Scenarios"
+    *   vtime = t_a + (Q - q(t)) / alpha  ======> q(t) = Q - (vtime - t_a) * alpha
+    */
     Tick CBServer::get_remaining_budget()
-    {
-        if (HR == HARD && cap == 0)
-            return cap;
-	
-        double dist = (double(getDeadline()) - vtime.get_value()) * double(Q) / double(P) + 0.00000000001;
-	
-        return Tick::floor(dist);
+    {	
+        double ret;
+
+        if (HR == HARD)
+            ret = double(Q) - (vtime.get_value() - double(last_time))*(double(Q)/double(P));
+        else 
+            /// HR == SOFT
+            ret = (double(getDeadline()) - vtime.get_value()) * double(Q) / double(P) + 0.00000000001;
+       
+        return Tick::floor(ret);
     }
 }
 

@@ -31,7 +31,7 @@ namespace RTSim {
     private:
         Tick last_time;
         //Tick value;
-	double value;
+	    double value;
         status_t status;
         double der;
     };

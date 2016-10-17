@@ -190,7 +190,8 @@ namespace RTSim {
 
         _dispatchEvt.drop();
 
-	if(currExe_ != NULL){
+	    if(currExe_ != NULL)
+        {
             currExe_->deschedule();
             currExe_ = NULL;
         }

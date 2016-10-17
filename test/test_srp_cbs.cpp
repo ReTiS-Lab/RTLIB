@@ -5,7 +5,7 @@
 #include <texttrace.hpp>
 #include <srpresmanager.hpp>
 #include <cbserver.hpp>
-
+#include <fstream>
 
 using namespace MetaSim;
 using namespace RTSim;

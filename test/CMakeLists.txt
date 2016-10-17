@@ -37,6 +37,8 @@ add_executable(test_broe test_main test_broe.cpp)
 add_executable(srp_test test_main srp_test.cpp)
 add_executable(test_srp_cbs test_main test_srp_cbs.cpp)
 add_executable(test_hsrp test_main test_hsrp.cpp)
+add_executable(cbs_budget test_main cbs_budget.cpp)
+
 # Indicate that rtlib need rtlib library.
 target_link_libraries(tests rtlib ${metasim_LIBRARY})
 target_link_libraries(cbs_test rtlib ${metasim_LIBRARY})
@@ -44,3 +46,4 @@ target_link_libraries(test_broe rtlib ${metasim_LIBRARY})
 target_link_libraries(srp_test rtlib ${metasim_LIBRARY})
 target_link_libraries(test_srp_cbs rtlib ${metasim_LIBRARY})
 target_link_libraries(test_hsrp rtlib ${metasim_LIBRARY})
+target_link_libraries(cbs_budget rtlib ${metasim_LIBRARY})
