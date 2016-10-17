@@ -40,7 +40,7 @@ TEST_CASE("CBS algorithm: test with Resource")
         ttrace.attachToTask(&t2);
         /** 3° param true = Hard, false = soft*/
         CBServer serv(3, 12,12,CBServer::HARD, "Server1", "FIFOSched");//"RRSched(2);");
-        serv.setGlobalResManager(rm);
+        serv.setLocalResManager(rm,true);
 
         
         serv.addTask(t2);

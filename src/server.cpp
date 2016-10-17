@@ -35,7 +35,9 @@ namespace RTSim {
         _rechargingEvt(this, &Server::onRecharging, Event::_DEFAULT_PRIORITY - 1),
 	_schedEvt(this, &Server::onSched),
 	_deschedEvt(this, &Server::onDesched),
-	_dispatchEvt(this, &Server::onDispatch, Event::_DEFAULT_PRIORITY + 5)
+    _dispatchEvt(this, &Server::onDispatch, Event::_DEFAULT_PRIORITY + 5),
+      globResManager(0),
+      localResmanager(0)
     {
         DBGENTER(_SERVER_DBG_LEV);
         string s_name = parse_util::get_token(s);
@@ -280,6 +282,7 @@ namespace RTSim {
 
         AbsRTTask *newExe = nullptr;
 
+
         SRPManager *r = dynamic_cast<SRPManager*>(localResmanager);
 
         ///check if r is an SRP manager
@@ -358,10 +361,11 @@ namespace RTSim {
         dispatch();
     }
 
-    void Server::setLocalResManager(ResManager *rm)
+    void Server::setLocalResManager(ResManager *rm, bool shared)
     {
           localResmanager =  rm;
-          localResmanager->setKernel(this, sched_);
+          if (!shared)
+            localResmanager->setKernel(this, sched_);
     }
 
     void Server::setGlobalResManager(ResManager *rm)

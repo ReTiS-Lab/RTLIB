@@ -268,7 +268,7 @@ namespace RTSim {
             that use the server like a kernel and
             set the server scheduler in the resm manager
         */
-        void setLocalResManager(ResManager *rm);
+        void setLocalResManager(ResManager *rm, bool shared=false);
 
         /** Inherited from AbsRTTask. Returns the current
             absolute deadline */
