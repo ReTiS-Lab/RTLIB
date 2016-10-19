@@ -72,4 +72,30 @@ namespace RTSim {
         }
         return ret;
     }
+
+   bool HSRPManager::request(AbsRTTask *t, AbsRTTask *s, Resource *r, int n)
+   {
+        if (r->isLocked())
+           throw HSRPManagerExc("Resource already locked: not possible under HSRP","SRPManager::request()");
+
+        int NewCeiling  = ceilingTable[r->getName()];
+        int CurrCeiling = _sched->getSysCeiling();
+        int diff = (NewCeiling > CurrCeiling) ? (NewCeiling - CurrCeiling) : 0;
+        SysCeilingIncrement.push(diff);
+        if (diff > 0)
+          _sched->setSysCeiling(NewCeiling);
+
+        r->lock(t,s);
+
+        return true;
+   }
+
+   void HSRPManager::release(AbsRTTask *t, Resource *r, int n)
+   {
+       int dec = SysCeilingIncrement.top();
+       SysCeilingIncrement.pop();
+       int CurrCeiling = _sched->getSysCeiling();
+       _sched->setSysCeiling(CurrCeiling-dec);
+       r->unlock();
+   }
 }

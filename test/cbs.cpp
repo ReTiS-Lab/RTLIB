@@ -3,6 +3,9 @@
 #include <cbserver.hpp>
 #include <kernel.hpp>
 #include <edfsched.hpp>
+#include <fstream>
+
+#define __DEBUG__
 
 using namespace MetaSim;
 using namespace RTSim;
@@ -33,7 +36,7 @@ TEST_CASE("CBS algorithm: period ratio")
     SIMUL.run_to(3);
     REQUIRE(t1.getExecTime() == 3);
     REQUIRE(t2.getExecTime() == 0);
-    //REQUIRE(serv1.get_remaining_budget() == 3);
+    REQUIRE(serv1.get_remaining_budget() == 0);
     REQUIRE(serv1.getDeadline() == 12);
     REQUIRE(serv2.get_remaining_budget() == 4);
     REQUIRE(serv2.getDeadline() == 9);

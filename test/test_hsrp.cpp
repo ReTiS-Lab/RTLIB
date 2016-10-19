@@ -16,6 +16,116 @@ using namespace std;
 TEST_CASE("H-SRP under CBS servers test")
 {
     try{
+        TextTrace ttrace("trace_HSRP_Under_CBS_server.txt");
+
+
+        //Controllato solo tramite trace
+        //aggiungere le assertion
+
+        // create the scheduler and the kernel
+        EDFScheduler sched;
+        //RMScheduler sched;
+        RTKernel kern(&sched);
+        Resource L1("L1", 1, LOCAL_RES);
+        Resource G1("G1");
+
+        HSRPManager hm("HSRPMan");
+        hm.addResource(&G1);
+
+
+
+        SRPManager rm1("SRPLocalManagerS1",LOCAL_SRP);
+        rm1.addResource(&L1);
+        rm1.addResource(&G1);
+
+        SRPManager rm2("SRPLocalManagerS2",LOCAL_SRP);
+
+        SRPManager rm3("SRPLocalManagerS3",LOCAL_SRP);
+        rm3.addResource(&G1);
+
+
+
+
+        PeriodicTask t11(20, 5, 5, "T11");
+        t11.insertCode("fixed(1);wait(L1);delay(1);signal(L1);");
+        t11.setAbort(false);
+
+        PeriodicTask t12(20, 8, 3, "T12");
+        t12.insertCode("wait(L1);wait(G1);delay(1);signal(G1);delay(2);signal(L1);");
+        t12.setAbort(false);
+
+
+        PeriodicTask t21(20, 11, 2, "T21");
+        t21.insertCode("fixed(2);");
+        t21.setAbort(false);
+
+
+        PeriodicTask t31(20, 20, 0, "T31");
+        t31.insertCode("fixed(1);wait(G1);delay(3);signal(G1);");
+        t31.setAbort(false);
+
+        PeriodicTask t32(25, 25, 1, "T32");
+        t32.insertCode("fixed(1);");
+        t32.setAbort(false);
+
+        CBServer serv1(7, 16,16,CBServer::HARD, "Server1", "EDFSched");
+        serv1.setLocalResManager(&rm1);
+        serv1.setGlobalResManager(&hm);
+
+        serv1.addTask(t11, "");
+        serv1.addTask(t12, "");
+
+        CBServer serv2(4, 18,18,CBServer::HARD, "Server2", "EDFSched");
+        serv2.setLocalResManager(&rm2);
+        serv2.setGlobalResManager(&hm);
+
+        serv2.addTask(t21, "");
+
+        CBServer serv3(6, 30,30,CBServer::HARD, "Server3", "EDFSched");
+        serv3.setLocalResManager(&rm3);
+        serv3.setGlobalResManager(&hm);
+
+        serv3.addTask(t31, "");
+        serv3.addTask(t32, "");
+
+        kern.setResManager(&hm);
+
+        ttrace.attachToTask(&t11);
+        ttrace.attachToTask(&t12);
+        ttrace.attachToTask(&t21);
+        ttrace.attachToTask(&t31);
+        ttrace.attachToTask(&t32);
+
+        kern.addTask(serv1, "");
+        kern.addTask(serv2, "");
+        kern.addTask(serv3, "");
+
+        hm.InitializeManager();
+
+        SIMUL.initSingleRun();
+
+        SIMUL.run_to(3);
+        SIMUL.run_to(4);
+        SIMUL.run_to(8);
+        SIMUL.run_to(9);
+        SIMUL.run_to(10);
+        SIMUL.run_to(11);
+        SIMUL.run_to(12);
+        SIMUL.run_to(13);
+        SIMUL.run_to(20);
+
+        SIMUL.endSingleRun();
+    }  catch (BaseExc &e) {
+            cout << e.what() << endl;
+    } catch (parse_util::ParseExc &e2) {
+        cout << e2.what() << endl;
+    }
+}
+
+/*
+TEST_CASE("H-SRP under CBS servers test")
+{
+    try{
         TextTrace ttrace("trace0.txt");
 
         // create the scheduler and the kernel
@@ -106,7 +216,7 @@ TEST_CASE("H-SRP under CBS servers test")
         /*ttrace.attachToTask(&t1);
         ttrace.attachToTask(&t2);
         ttrace.attachToTask(&t3);
-        ttrace.attachToTask(&t4);*/
+        ttrace.attachToTask(&t4);
 
         kern.addTask(serv1, "");
         kern.addTask(serv2, "");
@@ -134,3 +244,5 @@ TEST_CASE("H-SRP under CBS servers test")
         cout << e2.what() << endl;
     }
 }
+
+*/

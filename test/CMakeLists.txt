@@ -32,18 +32,9 @@ endif()
 
 # Create the executable.
 add_executable(tests test_main.cpp cbs.cpp test_task.cpp test_mrt.cpp test_AVR.cpp)
-add_executable(cbs_test test_main.cpp cbs2.cpp)
-add_executable(test_broe test_main test_broe.cpp)
-add_executable(srp_test test_main srp_test.cpp)
-add_executable(test_srp_cbs test_main test_srp_cbs.cpp)
-add_executable(test_hsrp test_main test_hsrp.cpp)
-add_executable(cbs_budget test_main cbs_budget.cpp)
+add_executable(modica_celia test_main.cpp srp_test.cpp test_hsrp.cpp test_srp_cbs.cpp cbs2.cpp test_broe.cpp)
+
 
 # Indicate that rtlib need rtlib library.
 target_link_libraries(tests rtlib ${metasim_LIBRARY})
-target_link_libraries(cbs_test rtlib ${metasim_LIBRARY})
-target_link_libraries(test_broe rtlib ${metasim_LIBRARY})
-target_link_libraries(srp_test rtlib ${metasim_LIBRARY})
-target_link_libraries(test_srp_cbs rtlib ${metasim_LIBRARY})
-target_link_libraries(test_hsrp rtlib ${metasim_LIBRARY})
-target_link_libraries(cbs_budget rtlib ${metasim_LIBRARY})
+target_link_libraries(modica_celia rtlib ${metasim_LIBRARY})

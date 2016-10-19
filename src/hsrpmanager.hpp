@@ -38,6 +38,17 @@ namespace RTSim {
         */
         virtual void InitializeManager();
 
+
+        /** Modica Celia - 18/10/2016
+        *   Redefinition for global manager
+        */
+        virtual bool request(AbsRTTask *t, AbsRTTask *s, Resource *r, int n);
+
+        /** Modica Celia - 18/10/2016
+         *   Redefinition for global manager
+         */
+        virtual void release(AbsRTTask *t, Resource *r, int n);
+
     protected:
 
         /** Modica Celia - 12/10/2016

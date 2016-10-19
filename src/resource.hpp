@@ -52,7 +52,9 @@ namespace RTSim {
         int _available;
         res_scope_t _scope;
 
-        AbsRTTask* _owner;
+        AbsRTTask *_owner;
+        AbsRTTask *_s_owner;
+
 
     public:
   
@@ -64,6 +66,9 @@ namespace RTSim {
 
         /// lock the resource
         void lock(AbsRTTask *owner, int n = 1);
+
+        /// lock by a server
+        void lock(AbsRTTask *t, AbsRTTask *s, int n=1);
 
         /// unlock the resource
         void unlock(int n = 1);
@@ -79,6 +84,9 @@ namespace RTSim {
 
         /// returns the resource owner
         AbsRTTask* getOwner() const;
+
+        /// return the resource server owner
+        AbsRTTask* getSOwner() const;
 
         void newRun();
         void endRun();

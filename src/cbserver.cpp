@@ -210,7 +210,7 @@ namespace RTSim {
         if (status == RECHARGING || status == RELEASING || status == IDLE) 
         {
             cap = Q;//repl_queue.front().second;
-            if (sched_->getFirst() != nullptr) 
+            if (sched_->getFirst() != nullptr)
             {
                 recharging_ready();
                 kernel->onArrival(this);
@@ -322,9 +322,14 @@ namespace RTSim {
     {	
         double ret;
 
-        if (HR == HARD)
-            ret = double(Q) - (vtime.get_value() - double(last_time))*(double(Q)/double(P));
-        else 
+        /*if (HR == HARD)
+        {
+            ret = double(Q) - (getVirtualTime() - double(last_time))*(double(Q)/double(P));
+            //cout << "Q: " << Q << "VT: " << getVirtualTime() << "LT: " << double(last_time) << "alpha: " <<  (double(Q)/double(P)) << endl;
+        }
+        else*/
+        if (HR == HARD && cap==0)
+            return cap;
             /// HR == SOFT
             ret = (double(getDeadline()) - vtime.get_value()) * double(Q) / double(P) + 0.00000000001;
        

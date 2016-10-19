@@ -121,8 +121,9 @@ namespace RTSim {
          if (diff > 0)
            _sched->setSysCeiling(NewCeiling);
 
-         if (!(scope == LOCAL_SRP && getResScope(r)==GLOBAL_RES))
-           r->lock(t);
+
+         if (!(scope == LOCAL_SRP && getResScope(r) == GLOBAL_RES))
+             r->lock(t);
 
          return true;
     }
@@ -133,7 +134,7 @@ namespace RTSim {
         SysCeilingIncrement.pop();
         int CurrCeiling = _sched->getSysCeiling();
         _sched->setSysCeiling(CurrCeiling-dec);
-        if (!(scope == LOCAL_SRP && getResScope(r)==GLOBAL_RES))
+        if (!(scope == LOCAL_SRP && getResScope(r) == GLOBAL_RES))
             r->unlock();
     }
 
@@ -146,7 +147,7 @@ namespace RTSim {
         vector<Resource*>::const_iterator I = _res.begin();
         while (I != _res.end())
         {
-            if ((*I)->getOwner() == t)
+            if ((*I)->getOwner() == t || (*I)->getSOwner() == t)
                 return true;
             I++;
         }

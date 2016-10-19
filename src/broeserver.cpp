@@ -26,53 +26,70 @@ namespace RTSim
     {
         DBGENTER(_KERNEL_DBG_LEV);
 
-        if (globResManager == 0)
-            throw BROEExc("Resource Manager not set!","BROEServer::requestResource()");
+        SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
+        HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
+        bool ret = false;
+        if (!m)
+            throw BROEExc("Broe needs local SRP manager!","BROEServer::requestResource()");
+        if (!gm)
+            throw BROEExc("Broe needs global HSRP manager!","BROEServer::requestResource()");
 
-        RHTmap_t::iterator I;
-        I = RHTs->find(taskname(t)+"_"+r);
-        if (I == RHTs->end())
-            throw BROEExc("No RHT for "+taskname(t)+"_"+r,"BROEServer::requestResource()");
-        Tick curr_RHT = I->second;
-        Tick curr_budget = get_remaining_budget();
-        /// Budget enough
-        if ( curr_budget > curr_RHT)
-        {
-            bool ret = globResManager->request(t,r,n);
-            if (!ret)
-                dispatch();
-            return ret;
-        }
-        ///calculating time to recharg
-        double alpha = double(Q) / double(P);
-        Tick tr = getDeadline() - Tick::floor((double(curr_budget) / alpha) + 0.000000001);
-        ///check if waiting before recharge
-        if (SIMUL.getTime() < tr)
-        {
-            status = WAITING;
-            _bandExEvt.drop();
-            vtime.stop();
-            _recwaitEvt.post(tr);
-            task_wait_res = t;
-            res_for_wait = r;
-            n_res_manager = n;
-            return false;
-        }else
-        {
-            _bandExEvt.drop();
-            vtime.stop();
-            cap = Q;
-            d=tr+P;
-            setAbsDead(d);
-            //status = EXECUTING;
-            vtime.start((double)P/double(Q));
-            _bandExEvt.post(SIMUL.getTime() + cap);
-            bool ret = globResManager->request(t,r,n);
-            if (!ret)
-                dispatch();
-            return ret;
-        }
 
+        if (gm->find(r))
+        {
+            RHTmap_t::iterator I;
+            I = RHTs->find(taskname(t)+"_"+r);
+            if (I == RHTs->end())
+                throw BROEExc("No RHT for "+taskname(t)+"_"+r,"BROEServer::requestResource()");
+
+
+            Tick curr_RHT = I->second;
+            Tick curr_budget = get_remaining_budget();
+
+            ///Disable the local preemption of the Server
+            /// rising the local Ceiling level to the max
+            localResmanager->request(t,r,n);
+
+            /// Budget enough
+            if ( curr_budget >= curr_RHT)
+            {
+                ret = globResManager->request(t,this,r,n);
+                if (!ret)
+                    kernel->dispatch();
+                return ret;
+            }
+
+            ///calculating time to recharg
+            double alpha = double(Q) / double(P);
+            Tick tr = getDeadline() - Tick::floor((double(curr_budget) / alpha) + 0.000000001);
+
+            ///check if waiting before recharge
+            if (SIMUL.getTime() < tr)
+            {
+                status = WAITING;
+                _bandExEvt.drop();
+                vtime.stop();
+                _recwaitEvt.post(tr);
+                task_wait_res = t;
+                res_for_wait = r;
+                n_res_manager = n;
+                ret = false;
+            }else
+            {
+                _bandExEvt.drop();
+                vtime.stop();
+                cap = Q;
+                d=tr+P;
+                setAbsDead(d);
+                vtime.start((double)P/double(Q));
+                _bandExEvt.post(SIMUL.getTime() + cap);
+                ret = globResManager->request(t,this,r,n);
+            }
+        } else
+            ret = localResmanager->request(t,r,n);
+        if (!ret)
+            dispatch();
+        return ret;
     }
 
     void BROEServer::rechargeAfterWaiting(Event *e)
@@ -84,10 +101,11 @@ namespace RTSim
         d=SIMUL.getTime()+P;
         setAbsDead(d);
         status = EXECUTING;
+        last_time = SIMUL.getTime();
         vtime.start((double)P/double(Q));
         _bandExEvt.post(SIMUL.getTime() + cap);
-        bool ret = globResManager->request(task_wait_res,res_for_wait,n_res_manager);
-        if (!ret)
-            dispatch();
+        globResManager->request(task_wait_res,this,res_for_wait,n_res_manager);
+        dispatch();
+        kernel->dispatch();
     }
 }

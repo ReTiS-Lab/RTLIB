@@ -77,6 +77,15 @@ namespace RTSim {
         return ret;
     }
 
+    bool ResManager::request(AbsRTTask *t, AbsRTTask *s, const string &name, int n)
+    {
+        DBGENTER(_RESMAN_DBG_LEV);
+
+        Resource *r = dynamic_cast<Resource *>( Entity::_find(name) );
+        bool ret = request(t,s,r,n);
+        return ret;
+    }
+
     void ResManager::release(AbsRTTask *t, const string &name, int n)
     {
         DBGENTER(_RESMAN_DBG_LEV);

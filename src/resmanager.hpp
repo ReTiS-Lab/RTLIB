@@ -87,6 +87,8 @@ namespace RTSim {
          */
         bool request(AbsRTTask *t, const std::string &name, int n=1);
 
+        bool request(AbsRTTask *t, AbsRTTask *s, const string &name, int n=1);
+
         /**
          * Function called by a task instr to perform the release of a
          * specific resource. The consequence of this call could be the
@@ -154,6 +156,7 @@ namespace RTSim {
         std::vector<Resource *> _allocated;;
 
         virtual bool request(AbsRTTask *t, Resource *r, int n=1) = 0;
+        virtual bool request(AbsRTTask *t, AbsRTTask *s, Resource *r, int n=1) {}
         virtual void release(AbsRTTask *t, Resource *r, int n=1) = 0;
     };
 } // namespace RTSim 

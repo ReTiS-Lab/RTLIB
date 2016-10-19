@@ -297,7 +297,6 @@ namespace RTSim {
             Inherited from AbsKernel. Calls the corresponding
             function of RTKernel*/
         virtual CPU *getProcessor(const AbsRTTask *) const;
-
         /** 
             Inherited from AbsKernel. Calls the corresponding
             function of RTKernel*/
@@ -414,6 +413,11 @@ namespace RTSim {
         vector<AbsRTTask*> getTasks() const;
 
         ResManager* getLocalResManager() const;
+
+        /** Modica Celia 18/10/2016
+         * Returns the Server Ceiling
+         */
+        inline int getServCeiling() const { return sched_->getSysCeiling(); }
 
 //	virtual std::vector<std::string> getRunningTasks() = 0;
     };

@@ -10,11 +10,25 @@ using namespace MetaSim;
 using namespace RTSim;
 using namespace std;
 
+#define REQUIRE_STEP1(i, sched, sysCeil, et1, et2, et3, et4) \
+        SIMUL.run_to(i);                                    \
+        REQUIRE(sched.getSysCeiling() == sysCeil);          \
+        REQUIRE(t1.getExecTime() == et1);                   \
+        REQUIRE(t2.getExecTime() == et2);                   \
+        REQUIRE(t3.getExecTime() == et3);                   \
+        REQUIRE(t4.getExecTime() == et4)
+
+#define REQUIRE_STEP2(i, sched, sysCeil, et1, et2, et3)     \
+        SIMUL.run_to(i);                                    \
+        REQUIRE(sched.getSysCeiling() == sysCeil);          \
+        REQUIRE(t1.getExecTime() == et1);                   \
+        REQUIRE(t2.getExecTime() == et2);                   \
+        REQUIRE(t3.getExecTime() == et3)
 
 TEST_CASE("SRP test")
 {
     try{
-        TextTrace ttrace("trace0.txt");
+        TextTrace ttrace("trace_SRP_Test_1.txt");
 
        // create the scheduler and the kernel
         EDFScheduler sched;
@@ -55,6 +69,12 @@ TEST_CASE("SRP test")
 
         rm.InitializeManager();
 
+        int vetCeil[] = {0, 2, 2, 2, 2, 3, 3, 2, 3, 2, 2, 2,0,2,2,0,0,0};
+        int vetex1[] = {0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2};
+        int vetex2[] = {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1};
+        int vetex3[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,4};
+        int vetex4[] = {0,1,2,3,4,5,6,7,7,7,7,8,9,9,9,9,9,10};
+
         SIMUL.initSingleRun();
         
         REQUIRE((sched.getTaskModel(&t1))->getPLevel() == 3);
@@ -65,17 +85,11 @@ TEST_CASE("SRP test")
         REQUIRE(rm.getResCeil("R2") == 2);
         REQUIRE(rm.getResCeil("R3") == 2);
 
-        SIMUL.run_to(8);
-        SIMUL.run_to(9);
-        REQUIRE(sched.getSysCeiling()==2);
-
-        SIMUL.run_to(10);
-        SIMUL.run_to(11);
-        SIMUL.run_to(12);
-        SIMUL.run_to(13);
-        SIMUL.run_to(20);
-
-        SIMUL.endSingleRun();
+        for (int i=0; i<18; i++)
+        {
+            REQUIRE_STEP1(i,sched,vetCeil[i],vetex1[i],vetex2[i],vetex3[i],vetex4[i]);
+        }
+                SIMUL.endSingleRun();
     }  catch (BaseExc &e) {
             cout << e.what() << endl;
     } catch (parse_util::ParseExc &e2) {
@@ -86,7 +100,7 @@ TEST_CASE("SRP test")
 TEST_CASE("SRP: test su preemption level e System Ceiling")
 {
     try{
-        TextTrace ttrace("trace1.txt");
+        TextTrace ttrace("trace_SRP_Test_2.txt");
 
         EDFScheduler sched;
         //RMScheduler sched;
@@ -120,6 +134,11 @@ TEST_CASE("SRP: test su preemption level e System Ceiling")
 
         rm.InitializeManager();
 
+        int vetCeil[] = {0, 2, 3, 3, 3, 2, 3, 3, 3, 2, 0, 3, 3,0,0,3,0,0};
+        int vetex1[] = {0,0,0,0,0,0,1,2,3,4,4,4,4,4,4,4,4,4};
+        int vetex2[] = {0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,4,4,4};
+        int vetex3[] = {0,1,2,3,4,5,5,5,5,5,6,6,6,6,6,7,8,8};
+
         SIMUL.initSingleRun();
         /**
         *   check if all preemption levels were correctly assigned
@@ -131,60 +150,12 @@ TEST_CASE("SRP: test su preemption level e System Ceiling")
         REQUIRE(rm.getResCeil("R2") == 2);
         REQUIRE(rm.getResCeil("R3") == 3);
 
-        SIMUL.run_to(2);
-        /**
-        *   T3 already performed wait on R1
-        */
-        REQUIRE(sched.getSysCeiling() == 3);
-        REQUIRE(t3.getExecTime() == 2);
-        REQUIRE(t2.getExecTime() == 0);
 
-        SIMUL.run_to(3);
-        REQUIRE(t2.getExecTime() == 0);
-        REQUIRE(t3.getExecTime() == 3);
+        for (int i=0; i<18; i++)
+        {
+            REQUIRE_STEP2(i,sched,vetCeil[i],vetex1[i],vetex2[i],vetex3[i]);
+        }
 
-        SIMUL.run_to(4);
-        REQUIRE(t1.getExecTime() == 0);
-        REQUIRE(t3.getExecTime() == 4);
-
-        SIMUL.run_to(6);
-        REQUIRE(t1.getExecTime() == 1);
-        REQUIRE(t2.getExecTime() == 0);
-        REQUIRE(t3.getExecTime() == 5);
-        REQUIRE(sched.getSysCeiling() == 3);
-
-        SIMUL.run_to(7);
-        REQUIRE(sched.getSysCeiling() == 3);
-        
-        SIMUL.run_to(8);
-        REQUIRE(t1.getExecTime() == 3);
-        REQUIRE(sched.getSysCeiling() == 3);
-
-        SIMUL.run_to(9);
-        REQUIRE(t1.getExecTime() == 4);
-        REQUIRE(t2.getExecTime() == 0);
-        REQUIRE(sched.getSysCeiling() == 2);
-
-        SIMUL.run_to(10);
-        REQUIRE(t1.getExecTime() == 4);
-        REQUIRE(t2.getExecTime() == 0);
-        REQUIRE(t3.getExecTime() == 6);
-        /**
-        *   T3 releases R2
-        */       
-        REQUIRE(sched.getSysCeiling() == 0);
-
-        SIMUL.run_to(11);
-        REQUIRE(t2.getExecTime() == 1);
-        REQUIRE(t3.getExecTime() == 6);
-        REQUIRE(sched.getSysCeiling() == 3);
-
-        SIMUL.run_to(14);
-        REQUIRE(t2.getExecTime() == 4);
-        REQUIRE(t3.getExecTime() == 6);
-        REQUIRE(sched.getSysCeiling() == 0);
-
-        SIMUL.run_to(20);
         SIMUL.endSingleRun();
     }  catch (BaseExc &e) {
             cout << e.what() << endl;

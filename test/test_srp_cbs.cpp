@@ -11,11 +11,19 @@ using namespace MetaSim;
 using namespace RTSim;
 using namespace std;
 
+#define REQUIRE_STEP1(i, sysCeil, et1, et2, et3, et4, bud)   \
+        SIMUL.run_to(i);                                     \
+        REQUIRE(serv.getServCeiling() == sysCeil);           \
+        REQUIRE(t1.getExecTime() == et1);                    \
+        REQUIRE(t2.getExecTime() == et2);                    \
+        REQUIRE(t3.getExecTime() == et3);                    \
+        REQUIRE(t4.getExecTime() == et4);                    \
+        REQUIRE(serv.get_remaining_budget() == bud)
 
 TEST_CASE("SRP under CBS server test")
 {
     try{
-        TextTrace ttrace("trace0.txt");
+        TextTrace ttrace("Trace_SRP_on_CBS.txt");
 
         // create the scheduler and the kernel
         EDFScheduler sched;
@@ -61,31 +69,22 @@ TEST_CASE("SRP under CBS server test")
 
         rm.InitializeManager();
 
+        int vetCeil[] = {0, 2, 2, 2, 2, 3, 3, 2, 3, 2, 2, 2,0,2,2,0,0,0};
+        int vetex1[] = {0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,2,2,2};
+        int vetex2[] = {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1};
+        int vetex3[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,4};
+        int vetex4[] = {0,1,2,3,4,5,6,7,7,7,7,8,9,9,9,9,9,10};
+
         SIMUL.initSingleRun();
 
-        //REQUIRE((sched.getTaskModel(&t1))->getPLevel() == 3);
-        //REQUIRE((sched.getTaskModel(&t2))->getPLevel() == 4);
-        //REQUIRE((sched.getTaskModel(&t3))->getPLevel() == 2);
-        //REQUIRE((sched.getTaskModel(&t4))->getPLevel() == 1);
         REQUIRE(rm.getResCeil("R1") == 3);
         REQUIRE(rm.getResCeil("R2") == 2);
         REQUIRE(rm.getResCeil("R3") == 2);
 
-        SIMUL.run_to(0);
-        SIMUL.run_to(1);
-        SIMUL.run_to(2);
-        SIMUL.run_to(3);
-        SIMUL.run_to(4);
-        SIMUL.run_to(5);
-        SIMUL.run_to(6);
-        SIMUL.run_to(7);
-        SIMUL.run_to(8);
-        SIMUL.run_to(9);
-        SIMUL.run_to(10);
-        SIMUL.run_to(11);
-        SIMUL.run_to(12);
-        SIMUL.run_to(13);
-        SIMUL.run_to(20);
+        for (int i=0; i<18; i++)
+        {
+            REQUIRE_STEP1(i,vetCeil[i],vetex1[i],vetex2[i],vetex3[i],vetex4[i],20-i);
+        }
 
         SIMUL.endSingleRun();
     }  catch (BaseExc &e) {

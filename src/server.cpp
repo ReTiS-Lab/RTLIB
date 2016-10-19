@@ -210,7 +210,10 @@ namespace RTSim {
     {
         DBGENTER(_SERVER_DBG_LEV);
 
-        assert(status == READY);
+        assert(status == READY || status == WAITING);
+
+        if (status == WAITING)
+            return;
 
         ready_executing();
         dispatch();
@@ -304,8 +307,11 @@ namespace RTSim {
 
         if (currExe_ == NULL) {
             sched_->notify(NULL);
-            executing_releasing();
-            kernel->suspend(this);
+            if (status != WAITING)
+            {
+                executing_releasing();
+                kernel->suspend(this);
+            }
             kernel->dispatch();
         }
     }
@@ -341,7 +347,7 @@ namespace RTSim {
             * - globalManager = HSRP
             */
            localResmanager->request(t,r,n);
-           globResManager->request(t,r,n);
+           globResManager->request(t,this,r,n);
            return true;
         }
 
@@ -360,6 +366,7 @@ namespace RTSim {
             globResManager->release(t,r,n);
         }
         dispatch();
+        kernel->dispatch();
     }
 
     void Server::setLocalResManager(ResManager *rm, bool shared)
