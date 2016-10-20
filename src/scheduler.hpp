@@ -43,7 +43,12 @@ namespace RTSim {
        task and the set of scheduling parameters.
      
        Each scheduler has its own task model. So the class inheritance
-       trees of the task models and of the schedulers are similar.  
+       trees of the task models and of the schedulers are similar.
+
+       ---------------------------------------------------------------
+       @version 1.1
+       @authors Modica Paolo, Celia Marco
+       -Added the _plevel param for support SRP and HSRP policy and all the functions to manage it
     */
     class TaskModel {
         const int DEFAULT_PLEVEL = 1;
@@ -52,9 +57,9 @@ namespace RTSim {
         bool active;
         int _insertTime;
         int _threshold;
-        /** modica celia - 11/10/2016
-        *   adding preemption level param
-        *   to support SRP
+        /**
+        *   preemption level param
+        *   to support SRP and HSRP
         */
         int _pLevel;
     public:
@@ -118,13 +123,14 @@ namespace RTSim {
         */ 
         virtual Tick getInsertTime() { return _insertTime; }
 
-        /** Modica Celia 11/10/2016
-         * Returns the preemption level of the task
+        /** @authors Modica Paolo, Celia Marco
+         *  @return the preemption level of the task
          */
         inline int getPLevel() const { return _pLevel; }
 
-        /** Modica Celia 11/10/2016
-         * Set the preemption level of the task
+        /** @authors Modica Paolo, Celia Marco
+         *  Set the preemption level of the task
+         *  @param p preemption level
          */
         inline void setPLevel(int p) { _pLevel = p; }
 
@@ -170,7 +176,14 @@ namespace RTSim {
 
         Implements the scheduling policy for a set of tasks. Tipically
         a scheduler contains a queue of task models. The
-        responsibility of this class is to mantain the queue. */
+        responsibility of this class is to mantain the queue.
+
+        ---------------------------------------------------------------
+        @version 1.1
+        @authors Modica Paolo, Celia Marco
+
+        -Added System Ceiling parameter and all the functions to support it, this is used from the SRP and HSRP managers.
+   */
     class Scheduler : public MetaSim::Entity {
         const int DEFAULT_SYSCEILING = 0;
     public:
@@ -268,19 +281,23 @@ namespace RTSim {
 
         virtual void print();
 
-        /** Modica Celia 11/10/2016
-         * Returns the System Ceiling
+        /** @authors Modica Paolo, Celia Marco
+         *
+         *  @return the System Ceiling
          */
         inline int getSysCeiling() const { return _sys_ceiling; }
 
-        /** Modica Celia 11/10/2016
-         * Set the System Ceiling
+        /** @authors Modica Paolo, Celia Marco
+         *  Set the System Ceiling
+         *  @param p new System Ceiling
          */
         inline void setSysCeiling(int p) { _sys_ceiling = p; }
 
-        /** Modica Celia 11/10/2016
+        /** @authors Modica Paolo, Celia Marco
          *  Check if the task Preemplevel is greater than
          *  the System Ceiling
+         *  @param task task to be checked
+         *  @return True if the task pass the preemption levele check
          */
         bool checkPLevel(AbsRTTask *task);
 
@@ -302,7 +319,7 @@ namespace RTSim {
         // stores the old task priorities
         map<AbsRTTask *, int> oldPriorities;
 
-        /** Modica Celia - 11/10/2016
+        /** @authors Modica Paolo, Celia Marco
         *   Adding System Ceiling to
         *   support SRP
         */

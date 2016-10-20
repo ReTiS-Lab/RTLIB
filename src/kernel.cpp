@@ -139,10 +139,6 @@ namespace RTSim {
     }
 
 
-    /** Modica Celia - 12/10/2016
-    *   Modified to support SRP,
-    *   maintainend back-compatibility
-    */
     void RTKernel::onEnd(AbsRTTask *task)
     {
         DBGENTER(_KERNEL_DBG_LEV);
@@ -167,10 +163,7 @@ namespace RTSim {
         beginDispatchEvt.post(SIMUL.getTime());
     }
 
-    /** Modica Celia - 11/10/2016
-    *   Modified to support SRP's schedule policy,
-    *   maintainend back-compatibility
-    */
+
     void RTKernel::onBeginDispatch(Event* e)
     {
         DBGENTER(_KERNEL_DBG_LEV);

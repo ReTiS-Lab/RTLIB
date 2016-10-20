@@ -7,15 +7,25 @@
 
 namespace RTSim {
     using namespace MetaSim;
+    /**
+    This class implements the CBServer (Hard or Soft)
+    @author anonymous
+    @version 1.0
+    ------------------
+    @author Modica Paolo, Marco Celia
+    @version 1.1
 
+    - Added the recharging_policy_t type in order to select the HARD or SOFT policy.
+    - Modified the get_remaining_budget() function in order to support the HARD CBS policy.
+
+    */
     class CBServer : public Server {
     public:
 	typedef enum {ORIGINAL, REUSE_DLINE } policy_t;
 
-    /** Celia - Modica: 
-    * recharging policy of CBS
-    */
+
     typedef enum {HARD,SOFT} recharging_policy_t;
+
 
 	CBServer(Tick q, Tick p, Tick d, recharging_policy_t HR, const std::string &name, 
 		 const std::string &sched = "FIFOSched");

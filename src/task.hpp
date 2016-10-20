@@ -95,7 +95,8 @@ namespace RTSim {
         InstrList instrQueue;
         InstrIterator actInstr;
 
-        /** Modica-Celia:
+        /**
+        *   @authors Modica Paolo, Celia Marco
         *   Holds a list of pairs instruction-parameters list.
         *   Needed from an SRP manager to detect if a task uses
         *   one or more resources.

@@ -79,10 +79,11 @@ namespace RTSim
                 _bandExEvt.drop();
                 vtime.stop();
                 cap = Q;
+                last_time = SIMUL.getTime();
                 d=tr+P;
                 setAbsDead(d);
                 vtime.start((double)P/double(Q));
-                _bandExEvt.post(SIMUL.getTime() + cap);
+                _bandExEvt.post(last_time + cap);
                 ret = globResManager->request(t,this,r,n);
             }
         } else

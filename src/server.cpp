@@ -282,8 +282,6 @@ namespace RTSim {
     {
         DBGENTER(_SERVER_DBG_LEV);
 
-        //AbsRTTask *newExe = sched_->getFirst();
-
         AbsRTTask *newExe = nullptr;
 
 

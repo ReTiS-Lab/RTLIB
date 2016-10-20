@@ -52,7 +52,7 @@ namespace RTSim {
 
     /** 
         @ingroup server
-
+        @version 1.0
         This class implement a generic aperiodic server. Examples are:
         - for dynamic priority: 
         * the CBS (COnstant Bandwidth Server), 
@@ -81,11 +81,16 @@ namespace RTSim {
       
         @todo simplify the interface (now it is too fat)
         
-        ******************************************************************
-        Modica Celia 05/10/2016
-        Added RequestResource, ReleaseResource, for support resource managing
-        also when the server do the kernel. 
-        Implemented the function setGlobalResManager.
+        ---------------------------------------------------------------------
+        @version 1.1
+        @author Modica Paolo, Marco Celia
+        - Added the WAITING status to the ServerStatus, it will be used from BROEServer
+        - Added RequestResource() and ReleaseResource() functions in order to support resource managing also when the server behaves as kernel.
+        - Added member localManager in order to support a local resource manager
+        - Added the setLocalManager() function to set the manager for the local resources
+        - Implemented the setGlobalManager() function to set the manager for the global resources
+        - Added getLocalManager() function
+        - Added getServCeiling() function
     */
     class Server :
         virtual public AbsRTTask, virtual public AbsKernel,
@@ -260,13 +265,20 @@ namespace RTSim {
             global level (not inside the server, but outside!) 
 
             @todo think about interaction between local and global resman!
+
+            --------
+            Implemented to set the global manager that now support the global
+            H-SRP manager.
         */
         void setGlobalResManager(ResManager *rm);
 
-        /** Modica Celia - 13/10/2016
-            this is used to set the local res manager
-            that use the server like a kernel and
-            set the server scheduler in the resm manager
+        /**
+            This is used to set the local res manager
+            that uses the server like a kernel and
+            sets the server's scheduler in the res manager.
+            @author Modica Paolo, Celia Marco
+            @param rm Resource Manager
+            @param shared false if the manager uses the server as kernel and the server's scheduler as scheduler.
         */
         void setLocalResManager(ResManager *rm, bool shared=false);
 
@@ -407,15 +419,24 @@ namespace RTSim {
         virtual void releaseResource(AbsRTTask *t, const string &r, int n=1)
             throw(ServerExc);
 
-        /** Modica Celia - 14/10/2010
+        /**
             Return the task list
+            @authors Modica Paolo, Celia Marco
+            @return Vector of all server's tasks
         */
         vector<AbsRTTask*> getTasks() const;
 
+        /**
+         Return the local resource manager
+         @authors Modica Paolo, Celia Marco
+         @return Server's local resource manager
+         */
         ResManager* getLocalResManager() const;
 
-        /** Modica Celia 18/10/2016
+        /**
          * Returns the Server Ceiling
+         * @authors Modica Paolo, Celia Marco
+         * @return Server's Ceiling
          */
         inline int getServCeiling() const { return sched_->getSysCeiling(); }
 

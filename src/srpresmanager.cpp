@@ -12,7 +12,7 @@ namespace RTSim {
 
     SRPManager::~SRPManager()
     {
-        //ceilingTable.clear();
+        ceilingTable.clear();
     }
 
     void SRPManager::SortTasksBySched(vector<AbsRTTask*> *tasks)
@@ -45,7 +45,6 @@ namespace RTSim {
 
     void SRPManager::InitializeManager()
     {
-
         vector<AbsRTTask*> tasks = _kernel->getTasks();
         SortTasksBySched(&tasks);
         vector<AbsRTTask*>::iterator I = tasks.begin();
@@ -64,8 +63,6 @@ namespace RTSim {
 
             vector<string> res = getUsedRes(t);
 
-            cout << "Task: "<<taskname(*I) << ": plevel: " <<plevel+1 <<endl;
-
             for(vector<string>::iterator I=res.begin(); I<res.end(); I++)
             {
                 if (!find(*I))
@@ -83,11 +80,6 @@ namespace RTSim {
                    
                    else
                         ceilingTable[(*I)] = tm->getPLevel();
-                       
-                   cout << getName() << " table: C(" << (*I) << ") = " << 
-                           ceilingTable[(*I)] << "(from " << 
-                           ((scope == LOCAL_SRP && getResScope(*I) == GLOBAL_RES)? "MAX_CEIL":taskname(t)) <<
-                           ")" << endl;
                 }
             }
             I++;

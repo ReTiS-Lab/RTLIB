@@ -46,7 +46,7 @@ TEST_CASE("CBS algorithm: period ratio")
     REQUIRE(t2.getExecTime() == 4);
     REQUIRE(serv1.get_remaining_budget() == 3);
     REQUIRE(serv1.getDeadline() == 12);
-    //REQUIRE(serv2.get_remaining_budget() == 4);
+    REQUIRE(serv2.get_remaining_budget() == 0);
     REQUIRE(serv2.getDeadline() == 18);
 
     SIMUL.run_to(9);

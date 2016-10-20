@@ -35,6 +35,11 @@ TEST_CASE("SRP test")
         //RMScheduler sched;
         RTKernel kern(&sched);
 
+        /*Abilitazione debugging*/
+        ofstream f("debug_srp.txt");
+        SIMUL.dbg.setStream(f);
+        SIMUL.dbg.enable("SRPManager");
+
         SRPManager rm("");
         rm.addResource("R1");
         rm.addResource("R2");

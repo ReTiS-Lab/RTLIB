@@ -35,18 +35,12 @@ namespace RTSim {
 
             vector<string> res = getUsedRes(s,sr);
 
-            cout << "Server: "<<taskname(*I) << ": plevel: " <<plevel+1 <<endl;
 
             for(vector<string>::iterator J=res.begin(); J != res.end(); J++)
             {
                 map<string,int>::iterator item = ceilingTable.find((*J));
-                if (item == ceilingTable.end())
-                {    
+                if (item == ceilingTable.end())    
                     ceilingTable[(*J)] = tm->getPLevel();
- 
-                    cout << getName() << " table: C(" << (*J) << ") = " << 
-                           ceilingTable[(*J)] << "(from " << taskname(*I) << ")" << endl;
-                }
              }
         }
 

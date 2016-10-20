@@ -41,6 +41,15 @@ namespace RTSim {
         @todo: add simple documentation for this class.
       
         @see Resource
+
+        -----------------------------------------------------------------------
+        @version 1.1
+        @authors Modica Paolo, Celia Marco
+
+        -Modified the add resource function in order to manage the same resource in differents managers.
+        -Added a new request method to support the lock of global resource by task inside a server.
+        -Added find methods to search if a resource is present in the manager by pointer or name.
+        -Added getResScope methods to get the scope or a resource by pointer or name.
     */
     class ResManager : public Entity {
         friend class RTKernel;
@@ -56,7 +65,9 @@ namespace RTSim {
            Manager.  should check if the resource is already present in such
            set. Resource is allocated from the Manager that will be the one
            who have to destroy it
-       
+           @version 1.1
+           @authors Modica Paolo, Celia Marco
+
            @param name resource name;
            @param n number of unit (for supporting multi-unit resources), 
            by default is 1.
@@ -66,8 +77,10 @@ namespace RTSim {
         /**  
          * Adds the resource to the set of resources managed by the 
          * Resource Manager. 
-         * WARNING: r was already allocated somewhere else, 
-         * so the manager will not destroy it.
+         *
+         * @version 1.1
+         * @authors Modica Paolo, Celia Marco
+         * @warning r was already allocated somewhere else, so the manager will not destroy it.
          */
         virtual void addResource(Resource *r);
 
@@ -87,6 +100,23 @@ namespace RTSim {
          */
         bool request(AbsRTTask *t, const std::string &name, int n=1);
 
+
+        /**
+         * Function called by a task instr (the WaitInstr) to perform an
+         * access request to a specific global resource inside a server.
+         * That access could be granted or the task could be suspended.
+         * It returns
+         *
+         * @authors Modica Paolo, Celia Marco
+         *
+         * @param t task
+         * @param s server
+         * @param name resource name
+         * @param n number of units (by default is 1).
+         *
+         * @return true if the resource has been locked succesfully, false otherwise;
+         *
+         */
         bool request(AbsRTTask *t, AbsRTTask *s, const string &name, int n=1);
 
         /**
@@ -115,19 +145,40 @@ namespace RTSim {
          */
         // virtual void addUser(AbsRTTask *t, const std::string &name, int n=1) = 0;
 
-        /** Modica Celia - 14/10/2016
+        /**
          *  Return true if the resource
          *  is in the queue of the manager
-         *  from pointer or name
+         *  @authors Modica Paolo, Celia Marco
+         *  @param r Resource
+         *
+         *  @return True if the resource is present in the manager
          */
         bool find(Resource *r) const;
+        /**
+         *  Return true if the resource
+         *  is in the queue of the manager
+         *  @authors Modica Paolo, Celia Marco
+         *  @param s Resource's name
+         *
+         *  @return True if the resource is present in the manager
+         */
         bool find(string s) const;
 
-        /** Modica Celia - 15/10/2016
-         * Return the scope of the
-         * Resource passed by param
+        /**
+         * Return the scope of the Resource passed by param
+         * @author Modica Paolo, Celia Marco
+         * @param r Resource
+         *
+         * @return The scope of the Resource
          */
         res_scope_t getResScope(Resource *r) const;
+        /**
+         * Return the scope of the Resource passed by param
+         * @author Modica Paolo, Celia Marco
+         * @param s Resource's name
+         *
+         * @return The scope of the Resource
+         */
         res_scope_t getResScope(string s) const;
 
     protected:

@@ -44,15 +44,27 @@ namespace RTSim {
         section surrounded by wait and signal instructions.
     
         @see ResManager, WaitInstr, SignalInstr
+
+        -------------------------------------------------------------------
+        @version 1.1
+        @authors Modica Paolo, Celia Marco
+        -Added the res_scope_t in order to distinguish locally from globally accessible resources.
+        -Added the support to lock global resource by tasks inside a server.
+        -Added getSOwner to get the server owner of the resource
+        -Added getScope method to get the resource's scope
     */
     class Resource: public Entity
     {
     protected:
         int _total;
         int _available;
+        /// scope of the resources default as GLOBAL_RES,please note that there is difference
+        /// between global and local only in a hierchical scheme
         res_scope_t _scope;
 
+        /// task owner of the resource
         AbsRTTask *_owner;
+        /// server that contains the task owner of the resource
         AbsRTTask *_s_owner;
 
 
@@ -67,7 +79,15 @@ namespace RTSim {
         /// lock the resource
         void lock(AbsRTTask *owner, int n = 1);
 
-        /// lock by a server
+        /**
+        This function lock the global resource and is
+        called by task inside a server.
+        @authors Modica Paolo, Celia Modica
+
+        @param t Task
+        @param s Server
+        @param n Resource's units
+        */
         void lock(AbsRTTask *t, AbsRTTask *s, int n=1);
 
         /// unlock the resource
@@ -85,12 +105,19 @@ namespace RTSim {
         /// returns the resource owner
         AbsRTTask* getOwner() const;
 
-        /// return the resource server owner
+        /**
+        @authors Modica Paolo, Celia Marco
+        @return Server Task that owner the resource
+        */
         AbsRTTask* getSOwner() const;
 
         void newRun();
         void endRun();
 
+        /**
+        @authors Modica Paolo, Celia Marco
+        @return The Scope of the Resource
+        */
         res_scope_t getResScope() const;
     };
 

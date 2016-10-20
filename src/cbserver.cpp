@@ -313,25 +313,13 @@ namespace RTSim {
 	   return 0;
     }
 
-
-    /** Celia - Modica: Formula for computing actual budget in case of Hard CBS taken from:
-    * "Hard Constant Bandwidth Server: Comprehensive Formulation and Critical Scenarios"
-    *   vtime = t_a + (Q - q(t)) / alpha  ======> q(t) = Q - (vtime - t_a) * alpha
-    */
     Tick CBServer::get_remaining_budget()
     {	
         double ret;
-
-        /*if (HR == HARD)
-        {
-            ret = double(Q) - (getVirtualTime() - double(last_time))*(double(Q)/double(P));
-            //cout << "Q: " << Q << "VT: " << getVirtualTime() << "LT: " << double(last_time) << "alpha: " <<  (double(Q)/double(P)) << endl;
-        }
-        else*/
         if (HR == HARD && cap==0)
             return cap;
-            /// HR == SOFT
-            ret = (double(getDeadline()) - vtime.get_value()) * double(Q) / double(P) + 0.00000000001;
+        /// HR == SOFT
+        ret = (double(getDeadline()) - vtime.get_value()) * double(Q) / double(P) + 0.00000000001;
        
         return Tick::floor(ret);
     }
