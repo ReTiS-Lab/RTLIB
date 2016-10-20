@@ -207,7 +207,7 @@ namespace RTSim {
         std::vector<Resource *> _allocated;;
 
         virtual bool request(AbsRTTask *t, Resource *r, int n=1) = 0;
-        virtual bool request(AbsRTTask *t, AbsRTTask *s, Resource *r, int n=1) {}
+        virtual bool request(AbsRTTask *t, AbsRTTask *s, Resource *r, int n=1) {return false;}
         virtual void release(AbsRTTask *t, Resource *r, int n=1) = 0;
     };
 } // namespace RTSim 
