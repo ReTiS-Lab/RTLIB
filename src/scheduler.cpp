@@ -24,7 +24,8 @@ namespace RTSim {
 
     TaskModel::TaskModel(AbsRTTask* t)
         : _rtTask(t), active(false), 
-         _insertTime(0), _threshold(INT_MAX) 
+         _insertTime(0), _threshold(INT_MAX),
+         _pLevel(DEFAULT_PLEVEL)
     {
     }
 
@@ -60,7 +61,7 @@ namespace RTSim {
 
 /*-----------------------------------------------------------------*/
 
-    Scheduler::Scheduler(): Entity(""), _kernel(0), _queue(), _tasks(), _currExe(0)
+    Scheduler::Scheduler(): Entity(""), _kernel(0), _queue(), _tasks(), _currExe(0), _sys_ceiling(DEFAULT_SYSCEILING)
     {
     }
 
@@ -273,5 +274,14 @@ namespace RTSim {
     {
         return getTaskN(0);
  
+    }
+
+    bool Scheduler::checkPLevel(AbsRTTask *task)
+    {
+        TaskModel *model = find(task);
+
+        if (model == nullptr) throw RTSchedExc("Model not present");
+
+        return (model->getPLevel() > _sys_ceiling);
     }
 }

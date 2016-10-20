@@ -43,16 +43,25 @@ namespace RTSim {
        task and the set of scheduling parameters.
      
        Each scheduler has its own task model. So the class inheritance
-       trees of the task models and of the schedulers are similar.  
+       trees of the task models and of the schedulers are similar.
+
+       ---------------------------------------------------------------
+       @version 1.1
+       @authors Modica Paolo, Celia Marco
+       -Added the _plevel param for support SRP and HSRP policy and all the functions to manage it
     */
     class TaskModel {
+        const int DEFAULT_PLEVEL = 1;
     protected:
         AbsRTTask* _rtTask;
         bool active;
         int _insertTime;
-
-	int _threshold;
-
+        int _threshold;
+        /**
+        *   preemption level param
+        *   to support SRP and HSRP
+        */
+        int _pLevel;
     public:
         TaskModel(AbsRTTask *t);
 
@@ -114,6 +123,17 @@ namespace RTSim {
         */ 
         virtual Tick getInsertTime() { return _insertTime; }
 
+        /** @authors Modica Paolo, Celia Marco
+         *  @return the preemption level of the task
+         */
+        inline int getPLevel() const { return _pLevel; }
+
+        /** @authors Modica Paolo, Celia Marco
+         *  Set the preemption level of the task
+         *  @param p preemption level
+         */
+        inline void setPLevel(int p) { _pLevel = p; }
+
         class TaskModelCmp {
         public:
             /* 
@@ -156,8 +176,16 @@ namespace RTSim {
 
         Implements the scheduling policy for a set of tasks. Tipically
         a scheduler contains a queue of task models. The
-        responsibility of this class is to mantain the queue. */
+        responsibility of this class is to mantain the queue.
+
+        ---------------------------------------------------------------
+        @version 1.1
+        @authors Modica Paolo, Celia Marco
+
+        -Added System Ceiling parameter and all the functions to support it, this is used from the SRP and HSRP managers.
+   */
     class Scheduler : public MetaSim::Entity {
+        const int DEFAULT_SYSCEILING = 0;
     public:
 
         /**
@@ -200,21 +228,21 @@ namespace RTSim {
         void changePriority(AbsRTTask* task, const std::string &params) 
             throw(RTSchedExc);
 
-	/**
-	 * Manages the request of a task to raise his own 
-	 * preemption threshold
-	 */
-	virtual void setThreshold(AbsRTTask *t, const int th) throw(RTSchedExc);           
+        /**
+        * Manages the request of a task to raise his own 
+        * preemption threshold
+        */
+        virtual void setThreshold(AbsRTTask *t, const int th) throw(RTSchedExc);           
+        
         virtual int enableThreshold(AbsRTTask* t) throw(RTSchedExc);
 
         virtual void disableThreshold(AbsRTTask* t) throw(RTSchedExc);
 
-	/**
-         * Returns the preemption threshold of task t. Throws an exception
-         * if the task does not exist
-         */
-	virtual int getThreshold(AbsRTTask *t) throw(RTSchedExc);
-
+        /**
+        * Returns the preemption threshold of task t. Throws an exception
+        * if the task does not exist
+        */
+        virtual int getThreshold(AbsRTTask *t) throw(RTSchedExc);
 
         /**
          *  returns the first task in the queue, or NULL if
@@ -233,14 +261,12 @@ namespace RTSim {
          */
         virtual int getSize() { return _queue.size(); }
 
-
         /**
            Notify the scheduler that the task has been
            dispatched and it is now executing. This function
            is useful for some schedulers (for example RR).
         */
         virtual void notify(AbsRTTask *);
-
 
         /** 
          * Discards all tasks from the scheduler.
@@ -250,8 +276,32 @@ namespace RTSim {
         virtual void discardTasks(bool f);
  
         virtual void newRun();
+
         virtual void endRun();
+
         virtual void print();
+
+        /** @authors Modica Paolo, Celia Marco
+         *
+         *  @return the System Ceiling
+         */
+        inline int getSysCeiling() const { return _sys_ceiling; }
+
+        /** @authors Modica Paolo, Celia Marco
+         *  Set the System Ceiling
+         *  @param p new System Ceiling
+         */
+        inline void setSysCeiling(int p) { _sys_ceiling = p; }
+
+        /** @authors Modica Paolo, Celia Marco
+         *  Check if the task Preemplevel is greater than
+         *  the System Ceiling
+         *  @param task task to be checked
+         *  @return True if the task pass the preemption levele check
+         */
+        bool checkPLevel(AbsRTTask *task);
+
+        inline TaskModel* getTaskModel(AbsRTTask *task) {return find(task);};
 
     protected:
         /// pointer to the kernel
@@ -264,10 +314,16 @@ namespace RTSim {
         map<AbsRTTask*, TaskModel*> _tasks;
         
         /// current executing task
-	AbsRTTask* _currExe;
+        AbsRTTask* _currExe;
 
         // stores the old task priorities
         map<AbsRTTask *, int> oldPriorities;
+
+        /** @authors Modica Paolo, Celia Marco
+        *   Adding System Ceiling to
+        *   support SRP
+        */
+        int _sys_ceiling;
 
         /**
            This is the internal version of the addTask, it
@@ -284,6 +340,10 @@ namespace RTSim {
     
         /// @todo change it into ResManager
         friend class PIRManager;
+
+        friend class SRPManager;
+
+        friend class HSRPManager;
     };
 
     

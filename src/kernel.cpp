@@ -18,6 +18,7 @@
 #include <cpu.hpp>
 #include <kernel.hpp>
 #include <resmanager.hpp>
+#include <srpresmanager.hpp>
 #include <scheduler.hpp>
 #include <task.hpp>
 #include <reginstr.hpp>
@@ -97,7 +98,6 @@ namespace RTSim {
     void RTKernel::activate(AbsRTTask *task)
     { 
         DBGENTER(_KERNEL_DBG_LEV);
-
         _sched->insert(task);        
     }
     
@@ -109,7 +109,6 @@ namespace RTSim {
     void RTKernel::suspend(AbsRTTask *task)
     {
         DBGENTER(_KERNEL_DBG_LEV);
-
         _sched->extract(task);
 
         if (_currExe == task) {
@@ -129,7 +128,6 @@ namespace RTSim {
         DBGENTER(_KERNEL_DBG_LEV);
 	 DBGPRINT_2("Inserting ",
                    taskname(task));
-	
 	_sched->insert(task);
 
 	if(!_isContextSwitching){
@@ -140,6 +138,7 @@ namespace RTSim {
 	}
     }
 
+
     void RTKernel::onEnd(AbsRTTask *task)
     {
         DBGENTER(_KERNEL_DBG_LEV);
@@ -148,7 +147,8 @@ namespace RTSim {
             throw RTKernelExc("Received a onEnd of a non executing task");
         }
         _sched->extract(task);
-        _currExe = NULL;
+
+        _currExe = nullptr;
         
         dispatch();
     }
@@ -163,31 +163,37 @@ namespace RTSim {
         beginDispatchEvt.post(SIMUL.getTime());
     }
 
+
     void RTKernel::onBeginDispatch(Event* e)
     {
         DBGENTER(_KERNEL_DBG_LEV);
 
-        AbsRTTask *newExe = _sched->getFirst();
+        AbsRTTask *newExe = nullptr;
+
+        SRPManager *r = dynamic_cast<SRPManager*>(_resMng);
+        
+        ///check if r is an SRP manager
+        newExe = (r != nullptr) ? r->getNewExeTask() : _sched->getFirst();
 
         if (newExe != NULL)
-            DBGPRINT_2("From sched: ",
-                       taskname(newExe));
+            DBGPRINT_2("From sched: ", taskname(newExe));
 
-        if(_currExe != newExe){
-                if (_currExe != NULL){ 
-			_currExe->deschedule();
-		}
-		if( newExe != NULL) { 
-			_isContextSwitching = true;
-                	_currExe = newExe;
-                	endDispatchEvt.post(SIMUL.getTime() + _contextSwitchDelay);
-		}
+        if(_currExe != newExe)
+        {
+           if (_currExe != NULL) _currExe->deschedule();
+
+           if( newExe != NULL)
+           {
+               _isContextSwitching = true;
+               _currExe = newExe;
+               endDispatchEvt.post(SIMUL.getTime() + _contextSwitchDelay);
+           }
         }
-        else {
-                _sched->notify(newExe);
-                if (newExe != NULL)
-                    DBGPRINT_2("Now Running: ",
-                               taskname(newExe));
+        else
+        {
+            _sched->notify(newExe);
+            if (_currExe != NULL)
+                DBGPRINT_2("Now Running: ",taskname(newExe));
         }
     }
 
@@ -289,5 +295,14 @@ namespace RTSim {
             tmp_ts.push_back(tmp_name);
 
         return tmp_ts;
+    }
+
+    vector<AbsRTTask *> RTKernel::getTasks() const
+    {
+        vector<AbsRTTask*> tasks;
+        deque<AbsRTTask*>::const_iterator Q = _handled.begin();
+        for (; Q != _handled.end(); Q++)
+            tasks.push_back(*Q);
+        return tasks;
     }
 }

@@ -46,6 +46,7 @@ namespace RTSim {
 
     /** 
         \ingroup kernels
+        @version 1.0
 
         An implementation of a real-time single processor kernel.
         It contains :
@@ -75,6 +76,14 @@ namespace RTSim {
         CPU.
  
         @sa absCPUFactory, Scheduler, ResManager, AbsRTTask
+
+        -----------------------------------------------------
+        @version 1.1
+        @authors Modica Paolo, Celia marco
+
+        -getTask() function
+        -Added support for the H-SRP and SRP managers
+
     */
     class RTKernel : public Entity, public virtual AbsKernel {
     protected:
@@ -355,6 +364,13 @@ namespace RTSim {
          running at the same time.
          */
         virtual std::vector<std::string> getRunningTasks();
+
+        /**
+            Return kernel's tasks list
+            @authors Modica Paolo, Celia Marco
+            @return vector of tasks
+        */
+        vector<AbsRTTask*> getTasks() const;
     };
   
 } // namespace RTSim 

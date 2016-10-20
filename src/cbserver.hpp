@@ -7,12 +7,27 @@
 
 namespace RTSim {
     using namespace MetaSim;
+    /**
+    This class implements the CBServer (Hard or Soft)
+    @author anonymous
+    @version 1.0
+    ------------------
+    @author Modica Paolo, Marco Celia
+    @version 1.1
 
+    - Added the recharging_policy_t type in order to select the HARD or SOFT policy.
+    - Modified the get_remaining_budget() function in order to support the HARD CBS policy.
+
+    */
     class CBServer : public Server {
     public:
 	typedef enum {ORIGINAL, REUSE_DLINE } policy_t;
 
-	CBServer(Tick q, Tick p, Tick d, bool HR, const std::string &name, 
+
+    typedef enum {HARD,SOFT} recharging_policy_t;
+
+
+	CBServer(Tick q, Tick p, Tick d, recharging_policy_t HR, const std::string &name, 
 		 const std::string &sched = "FIFOSched");
 
         void newRun();
@@ -25,10 +40,10 @@ namespace RTSim {
 
         Tick changeQ(const Tick &n);
         virtual double getVirtualTime();
-	Tick get_remaining_budget(); 
+	    Tick get_remaining_budget(); 
 
-	policy_t get_policy() const { return idle_policy; }
-	void set_policy(policy_t p) { idle_policy = p; }  
+	    policy_t get_policy() const { return idle_policy; }
+	    void set_policy(policy_t p) { idle_policy = p; }  
 
     protected:
                 
@@ -67,12 +82,12 @@ namespace RTSim {
         
         void check_repl();
 
-    private:
+    //private:
         Tick Q,P,d;
         Tick cap; 
         Tick last_time;
         Tick recharging_time;
-        int HR;
+        recharging_policy_t HR;
         
         /// replenishment: it is a pair of <t,b>, meaning that
         /// at time t the budget should be replenished by b.
@@ -80,7 +95,7 @@ namespace RTSim {
 
         /// queue of replenishments
         /// all times are in the future!
-	std::list<repl_t> repl_queue;
+	    std::list<repl_t> repl_queue;
 
         /// at the replenishment time, the replenishment is moved
         /// from the repl_queue to the capacity_queue, so 
@@ -104,9 +119,8 @@ namespace RTSim {
 	    reuses the old deadline, and computes a new "safe" budget as 
 	    floor((d - vtime) * Q / P). 
 	*/
-	policy_t idle_policy; 
+	    policy_t idle_policy; 
     };
 }
-
 
 #endif

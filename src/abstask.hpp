@@ -84,6 +84,11 @@ namespace RTSim {
 	/// returns the wcet for this task, if available! otherwise returns 0.
 	virtual Tick getMaxExecutionTime() const { return 0; }
 
+  /**
+  *
+  */
+  
+
     };
 
   /**

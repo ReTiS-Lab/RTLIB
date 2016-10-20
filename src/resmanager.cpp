@@ -42,11 +42,12 @@ namespace RTSim {
 
     ResManager::~ResManager()
     {
-        std::vector<Resource *>::iterator i= _res.begin();
-        for (;i != _res.end();i++) delete *i;
+        std::vector<Resource *>::iterator i= _allocated.begin();
+        for (;i != _allocated.end();i++) delete *i;
 
         // delete the resource list
         _res.clear();
+        _allocated.clear();
     }
 
     void ResManager::setKernel(AbsKernel *k, Scheduler *s) 
@@ -55,9 +56,15 @@ namespace RTSim {
         _sched = s;
     }
 
-    void ResManager::addResource(const string &name, int n)
+    void ResManager::addResource(const string &name, int n, res_scope_t s)
     { 
-        Resource *r = new Resource(name, n);
+        Resource *r = new Resource(name, n, s);
+        _res.push_back(r);
+        _allocated.push_back(r);
+    }
+
+    void ResManager::addResource(Resource *r)
+    {
         _res.push_back(r);
     }
 
@@ -67,9 +74,15 @@ namespace RTSim {
 
         Resource *r = dynamic_cast<Resource *>( Entity::_find(name) );
         bool ret = request(t,r,n);
+        return ret;
+    }
 
-        
+    bool ResManager::request(AbsRTTask *t, AbsRTTask *s, const string &name, int n)
+    {
+        DBGENTER(_RESMAN_DBG_LEV);
 
+        Resource *r = dynamic_cast<Resource *>( Entity::_find(name) );
+        bool ret = request(t,s,r,n);
         return ret;
     }
 
@@ -78,9 +91,34 @@ namespace RTSim {
         DBGENTER(_RESMAN_DBG_LEV);
 
         Resource *r = dynamic_cast<Resource *>( Entity::_find(name) );
-        release(t,r,n);
-        
-        
+        release(t,r,n);       
+    }
+
+    bool ResManager::find(Resource* r) const
+    {
+        return find(r->getName());
+    }
+    
+    bool ResManager::find(string s) const
+    {
+        vector<Resource*>::const_iterator I = _res.begin();
+        for (; I != _res.end(); I++)
+            if ((*I)->getName() == s)
+                return true;
+        return false;
+    }
+
+    res_scope_t ResManager::getResScope(Resource *r) const
+    {
+        return getResScope(r->getName());
+    }
+    res_scope_t ResManager::getResScope(string s) const
+    {
+        vector<Resource*>::const_iterator I = _res.begin();
+        for (; I != _res.end(); I++)
+            if ((*I)->getName() == s)
+                return (*I)->getResScope();
+        throw BaseExc("Resource not present","ResManager::getResScope()","resmanager.cpp");
     }
 
 }

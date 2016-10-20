@@ -51,7 +51,8 @@ namespace RTSim {
 	  feedback(NULL),
 	  arrEvt(this), endEvt(this), schedEvt(this),
 	  deschedEvt(this), fakeArrEvt(this), killEvt(this), 
-	  deadEvt(this, false, false)
+      deadEvt(this, false, false),
+      InstrVect()
     {
     }
     
@@ -189,6 +190,11 @@ namespace RTSim {
     {
 	state = TSK_READY;
 	_kernel->onArrival(this);
+    }
+
+    task_state Task::GetState() const
+    {
+        return state;
     }
     
     Tick Task::getArrival() const
@@ -527,7 +533,11 @@ namespace RTSim {
             string param = get_param(instr[i]);
             vector<string> par_list = split_param(param);
             
+
+            InstrVect.push_back(InstrInstance(token,par_list));
+
             par_list.push_back(string(getName()));
+
             
             
             for (j=par_list.begin();j!=par_list.end(); ++j)
@@ -619,6 +629,11 @@ namespace RTSim {
     void Task::killOnMiss(bool kill)
     {
         deadEvt.setKill(kill);
+    }
+
+    vector<Task::InstrInstance> Task::getInstrVector() const
+    {
+        return InstrVect;
     }
     
 }

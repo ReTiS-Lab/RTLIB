@@ -35,7 +35,9 @@ namespace RTSim {
         _rechargingEvt(this, &Server::onRecharging, Event::_DEFAULT_PRIORITY - 1),
 	_schedEvt(this, &Server::onSched),
 	_deschedEvt(this, &Server::onDesched),
-	_dispatchEvt(this, &Server::onDispatch, Event::_DEFAULT_PRIORITY + 5)
+    _dispatchEvt(this, &Server::onDispatch, Event::_DEFAULT_PRIORITY + 5),
+      globResManager(0),
+      localResmanager(0)
     {
         DBGENTER(_SERVER_DBG_LEV);
         string s_name = parse_util::get_token(s);
@@ -173,7 +175,6 @@ namespace RTSim {
     void Server::onEnd(AbsRTTask *t)
     {
         DBGENTER(_SERVER_DBG_LEV);
-
         assert(status == EXECUTING);
         sched_->extract(t);
         currExe_ = NULL;
@@ -189,7 +190,8 @@ namespace RTSim {
 
         _dispatchEvt.drop();
 
-	if(currExe_ != NULL){
+	    if(currExe_ != NULL)
+        {
             currExe_->deschedule();
             currExe_ = NULL;
         }
@@ -208,7 +210,10 @@ namespace RTSim {
     {
         DBGENTER(_SERVER_DBG_LEV);
 
-        assert(status == READY);
+        assert(status == READY || status == WAITING);
+
+        if (status == WAITING)
+            return;
 
         ready_executing();
         dispatch();
@@ -277,7 +282,14 @@ namespace RTSim {
     {
         DBGENTER(_SERVER_DBG_LEV);
 
-        AbsRTTask *newExe = sched_->getFirst();
+        AbsRTTask *newExe = nullptr;
+
+
+        SRPManager *r = dynamic_cast<SRPManager*>(localResmanager);
+
+        ///check if r is an SRP manager
+        newExe = (r != nullptr) ? r->getNewExeTask() : sched_->getFirst();
+
 
         DBGPRINT("Current situation");
         DBGPRINT_2("newExe: ", taskname(newExe));
@@ -293,10 +305,88 @@ namespace RTSim {
 
         if (currExe_ == NULL) {
             sched_->notify(NULL);
-            executing_releasing();
-            kernel->suspend(this);
+            if (status != WAITING)
+            {
+                executing_releasing();
+                kernel->suspend(this);
+            }
             kernel->dispatch();
         }
+    }
+
+    bool Server::requestResource(AbsRTTask *t, const string &r, int n) 
+        throw(ServerExc)
+    {
+        DBGENTER(_KERNEL_DBG_LEV);
+
+        if (localResmanager == 0) throw ServerExc("Local Resource Manager not set!","Server::requestResource()");
+        SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
+        HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
+
+        bool HSRPactive = (gm != nullptr) ? gm->find(r) : false;
+
+        //if (!m || (gm != nullptr  && !gm->find(r)) || !gm)
+        if (!m || !HSRPactive)
+        {
+            /**
+            * The local manager is not an SRP manager and 
+            * the global manager, if present, does not
+            * handle the requested resource
+            */
+            bool ret = localResmanager->request(t,r,n);
+            if (!ret)
+                dispatch();
+            return ret;
+        }else
+        {
+            /**
+            * Hierarchical SRP case:
+            * - localManager = simple SRP
+            * - globalManager = HSRP
+            */
+           localResmanager->request(t,r,n);
+           globResManager->request(t,this,r,n);
+           return true;
+        }
+
+    } 
+
+    void Server::releaseResource(AbsRTTask *t, const string &r, int n) 
+        throw(ServerExc)
+    { 
+        if (localResmanager == 0) throw ServerExc("Resource Manager not set!","Server::releaseResource()");
+        SRPManager *m = dynamic_cast<SRPManager*>(localResmanager);
+        HSRPManager *gm = dynamic_cast<HSRPManager*>(globResManager);
+
+        localResmanager->release(t,r,n);
+        if (gm != nullptr  && gm->find(r))
+        {
+            globResManager->release(t,r,n);
+        }
+        dispatch();
+        kernel->dispatch();
+    }
+
+    void Server::setLocalResManager(ResManager *rm, bool shared)
+    {
+          localResmanager =  rm;
+          if (!shared)
+            localResmanager->setKernel(this, sched_);
+    }
+
+    void Server::setGlobalResManager(ResManager *rm)
+    {
+        globResManager=rm;
+    }
+
+    vector<AbsRTTask*> Server::getTasks() const
+    {
+        return tasks;
+    }
+
+    ResManager* Server::getLocalResManager() const
+    {
+        return localResmanager;
     }
 
 }

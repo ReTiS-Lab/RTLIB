@@ -20,6 +20,7 @@
 
 #include <entity.hpp>
 #include <scheduler.hpp>
+#include <resource.hpp>
 
 #define _RESMAN_DBG_LEV  "ResMan"
 
@@ -40,9 +41,19 @@ namespace RTSim {
         @todo: add simple documentation for this class.
       
         @see Resource
+
+        -----------------------------------------------------------------------
+        @version 1.1
+        @authors Modica Paolo, Celia Marco
+
+        -Modified the add resource function in order to manage the same resource in differents managers.
+        -Added a new request method to support the lock of global resource by task inside a server.
+        -Added find methods to search if a resource is present in the manager by pointer or name.
+        -Added getResScope methods to get the scope or a resource by pointer or name.
     */
     class ResManager : public Entity {
         friend class RTKernel;
+        friend class Server;
     public:
         /** Constructor of ResManager */
         ResManager(const std::string &n = "");
@@ -52,13 +63,26 @@ namespace RTSim {
         /**
            Adds the resource to the set of resources managed by the Resource
            Manager.  should check if the resource is already present in such
-           set 
-       
+           set. Resource is allocated from the Manager that will be the one
+           who have to destroy it
+           @version 1.1
+           @authors Modica Paolo, Celia Marco
+
            @param name resource name;
            @param n number of unit (for supporting multi-unit resources), 
            by default is 1.
         */
-        virtual void addResource(const std::string &name, int n=1);
+        virtual void addResource(const std::string &name, int n=1, res_scope_t s = GLOBAL_RES);
+
+        /**  
+         * Adds the resource to the set of resources managed by the 
+         * Resource Manager. 
+         *
+         * @version 1.1
+         * @authors Modica Paolo, Celia Marco
+         * @warning r was already allocated somewhere else, so the manager will not destroy it.
+         */
+        virtual void addResource(Resource *r);
 
         /**
          * Function called by a task instr (the WaitInstr) to perform an
@@ -75,6 +99,25 @@ namespace RTSim {
          * @param n number of units (by default is 1).
          */
         bool request(AbsRTTask *t, const std::string &name, int n=1);
+
+
+        /**
+         * Function called by a task instr (the WaitInstr) to perform an
+         * access request to a specific global resource inside a server.
+         * That access could be granted or the task could be suspended.
+         * It returns
+         *
+         * @authors Modica Paolo, Celia Marco
+         *
+         * @param t task
+         * @param s server
+         * @param name resource name
+         * @param n number of units (by default is 1).
+         *
+         * @return true if the resource has been locked succesfully, false otherwise;
+         *
+         */
+        bool request(AbsRTTask *t, AbsRTTask *s, const string &name, int n=1);
 
         /**
          * Function called by a task instr to perform the release of a
@@ -102,6 +145,42 @@ namespace RTSim {
          */
         // virtual void addUser(AbsRTTask *t, const std::string &name, int n=1) = 0;
 
+        /**
+         *  Return true if the resource
+         *  is in the queue of the manager
+         *  @authors Modica Paolo, Celia Marco
+         *  @param r Resource
+         *
+         *  @return True if the resource is present in the manager
+         */
+        bool find(Resource *r) const;
+        /**
+         *  Return true if the resource
+         *  is in the queue of the manager
+         *  @authors Modica Paolo, Celia Marco
+         *  @param s Resource's name
+         *
+         *  @return True if the resource is present in the manager
+         */
+        bool find(string s) const;
+
+        /**
+         * Return the scope of the Resource passed by param
+         * @author Modica Paolo, Celia Marco
+         * @param r Resource
+         *
+         * @return The scope of the Resource
+         */
+        res_scope_t getResScope(Resource *r) const;
+        /**
+         * Return the scope of the Resource passed by param
+         * @author Modica Paolo, Celia Marco
+         * @param s Resource's name
+         *
+         * @return The scope of the Resource
+         */
+        res_scope_t getResScope(string s) const;
+
     protected:
 
         AbsKernel *_kernel;
@@ -116,9 +195,19 @@ namespace RTSim {
          */
         void setKernel(AbsKernel *k, Scheduler *s);
 
+        /**
+        *  List of all resources managed from the manager
+        */
         std::vector<Resource *> _res;
 
+        /**
+        *  List of all resources directly allocated from the manager,
+        *  for these it is in charge of their deallocation
+        */
+        std::vector<Resource *> _allocated;;
+
         virtual bool request(AbsRTTask *t, Resource *r, int n=1) = 0;
+        virtual bool request(AbsRTTask *t, AbsRTTask *s, Resource *r, int n=1) {return false;}
         virtual void release(AbsRTTask *t, Resource *r, int n=1) = 0;
     };
 } // namespace RTSim 

@@ -14,6 +14,8 @@
 #include <simul.hpp>
 
 #include <kernel.hpp>
+#include <server.hpp>
+#include <broeserver.hpp>
 #include <task.hpp>
 #include <waitinstr.hpp>
 
@@ -58,18 +60,31 @@ namespace RTSim {
         _endEvt.addTrace(t); 
         _waitEvt.addTrace(t);
     }
-
+    /** Modica Celia
+    *   Modified for support server kernel
+    *   ans support BroeServer kernel
+    */
     void WaitInstr::onEnd() 
     {
         DBGENTER(_INSTR_DBG_LEV);
 
         _father->onInstrEnd();
 
-        RTKernel *k = dynamic_cast<RTKernel *>(_father->getKernel());
+        RTKernel    *k = dynamic_cast<RTKernel *>(_father->getKernel());
+        Server      *ks = dynamic_cast<Server *>(_father->getKernel());
+        BROEServer  *kb = dynamic_cast<BROEServer *>(_father->getKernel());
 
-        if (k == NULL) throw BaseExc("Kernel not found!");
-
-        k->requestResource(_father, _res, _numberOfRes);
+        if (k == nullptr && ks == nullptr && kb == nullptr)
+            throw BaseExc("Kernel not found!");
+        
+        /// N.B. The order of the if is very Important because a BroeServer
+        /// is also a Server but not vice versa.
+        if (k != nullptr) /// wait from a task managed by RTKernel
+            k->requestResource(_father, _res, _numberOfRes);
+        else if (kb != nullptr) /// wait from a task managed by BROEServer
+            kb->requestResource(_father, _res, _numberOfRes);
+        else /// wait from a task managed by Server
+            ks->requestResource(_father,_res,_numberOfRes);
 
         _waitEvt.process();
     }
@@ -110,7 +125,13 @@ namespace RTSim {
         _endEvt.addTrace(t);
         _signalEvt.addTrace(t);
     }
-
+    /** Modica Celia
+    *   Modified for support server kernel
+    *   we don't need any change for
+    *   support BROEServer because in the
+    *   signal it's behaviour
+    *   is the same of the normal server.
+    */
     void SignalInstr::onEnd() 
     {
         DBGENTER(_INSTR_DBG_LEV);
@@ -119,13 +140,16 @@ namespace RTSim {
         _signalEvt.process();         
         _father->onInstrEnd();        
 
-        RTKernel *k = dynamic_cast<RTKernel *>(_father->getKernel());
+        RTKernel    *k = dynamic_cast<RTKernel *>(_father->getKernel());
+        Server      *ks = dynamic_cast<Server *>(_father->getKernel());
 
-        if (k == 0) {
+        if (k == nullptr && ks == nullptr) {
             throw BaseExc("SignalInstr has no kernel set!");
         }
-        
-        else k->releaseResource(_father, _res, _numberOfRes); 
+
+        if (k != nullptr)
+            k->releaseResource(_father, _res, _numberOfRes);
+        else    ks->releaseResource(_father, _res, _numberOfRes); 
     }
 
 }

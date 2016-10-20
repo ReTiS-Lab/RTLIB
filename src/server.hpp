@@ -24,6 +24,8 @@
 #include <task.hpp>
 #include <scheduler.hpp>
 #include <resmanager.hpp>
+#include <srpresmanager.hpp>
+#include <hsrpmanager.hpp>
 
 #define _SERVER_DBG_LEV "server"
 
@@ -39,17 +41,18 @@ namespace RTSim {
                   READY, 
                   EXECUTING,
                   RELEASING, 
-                  RECHARGING} ServerStatus;
+                  RECHARGING,
+                  WAITING} ServerStatus;
   
     class ServerExc : public BaseExc {
     public:
-        ServerExc(const string& m, const string& cl) : 
-            BaseExc(m,cl,"Server") {};
+        ServerExc(const string& m, const string& cl, const string &module = "Server") :
+            BaseExc(m,cl,module) {};
     };
 
     /** 
         @ingroup server
-
+        @version 1.0
         This class implement a generic aperiodic server. Examples are:
         - for dynamic priority: 
         * the CBS (COnstant Bandwidth Server), 
@@ -77,6 +80,17 @@ namespace RTSim {
         Server, etc. Need to implement TBS as well.
       
         @todo simplify the interface (now it is too fat)
+        
+        ---------------------------------------------------------------------
+        @version 1.1
+        @author Modica Paolo, Marco Celia
+        - Added the WAITING status to the ServerStatus, it will be used from BROEServer
+        - Added RequestResource() and ReleaseResource() functions in order to support resource managing also when the server behaves as kernel.
+        - Added member localManager in order to support a local resource manager
+        - Added the setLocalManager() function to set the manager for the local resources
+        - Implemented the setGlobalManager() function to set the manager for the global resources
+        - Added getLocalManager() function
+        - Added getServCeiling() function
     */
     class Server :
         virtual public AbsRTTask, virtual public AbsKernel,
@@ -96,6 +110,7 @@ namespace RTSim {
 
         AbsKernel *kernel;
         ResManager *globResManager;
+        ResManager *localResmanager;
 
         GEvent<Server> _bandExEvt;
         GEvent<Server> _dlineMissEvt;
@@ -250,8 +265,22 @@ namespace RTSim {
             global level (not inside the server, but outside!) 
 
             @todo think about interaction between local and global resman!
+
+            --------
+            Implemented to set the global manager that now support the global
+            H-SRP manager.
         */
         void setGlobalResManager(ResManager *rm);
+
+        /**
+            This is used to set the local res manager
+            that uses the server like a kernel and
+            sets the server's scheduler in the res manager.
+            @author Modica Paolo, Celia Marco
+            @param rm Resource Manager
+            @param shared false if the manager uses the server as kernel and the server's scheduler as scheduler.
+        */
+        void setLocalResManager(ResManager *rm, bool shared=false);
 
         /** Inherited from AbsRTTask. Returns the current
             absolute deadline */
@@ -280,7 +309,6 @@ namespace RTSim {
             Inherited from AbsKernel. Calls the corresponding
             function of RTKernel*/
         virtual CPU *getProcessor(const AbsRTTask *) const;
-
         /** 
             Inherited from AbsKernel. Calls the corresponding
             function of RTKernel*/
@@ -374,6 +402,43 @@ namespace RTSim {
         virtual int getTaskNumber() const { return getID();}
 
 	virtual bool isContextSwitching() const { return false; }
+
+            /**
+           Forwards the request of resource r from task t to
+           the resource manager. If the resource manager has
+           not been set, a ServerExc exception is raised.
+        */
+        virtual bool requestResource(AbsRTTask *t, const string &r, int n=1)
+            throw(ServerExc);
+    
+        /**
+           Forwards the release of the resource r by task t to
+           the resource manager. If the resource manager has
+           not been set, a ServerExc is raised.
+        */
+        virtual void releaseResource(AbsRTTask *t, const string &r, int n=1)
+            throw(ServerExc);
+
+        /**
+            Return the task list
+            @authors Modica Paolo, Celia Marco
+            @return Vector of all server's tasks
+        */
+        vector<AbsRTTask*> getTasks() const;
+
+        /**
+         Return the local resource manager
+         @authors Modica Paolo, Celia Marco
+         @return Server's local resource manager
+         */
+        ResManager* getLocalResManager() const;
+
+        /**
+         * Returns the Server Ceiling
+         * @authors Modica Paolo, Celia Marco
+         * @return Server's Ceiling
+         */
+        inline int getServCeiling() const { return sched_->getSysCeiling(); }
 
 //	virtual std::vector<std::string> getRunningTasks() = 0;
     };

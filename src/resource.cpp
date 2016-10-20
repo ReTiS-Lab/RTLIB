@@ -30,12 +30,13 @@ namespace RTSim {
     using namespace std;
     using namespace MetaSim;
 
-    Resource::Resource(const string &n, int nr) :
+    Resource::Resource(const string &n, int nr, res_scope_t t) :
         Entity(n),
         _owner(0), 
         _total(nr),
-        _available(nr)
-    { 
+        _available(nr),
+        _scope(t)
+    {
     }
 
     Resource::Resource(const Resource &r) :
@@ -51,10 +52,18 @@ namespace RTSim {
         _owner = t;
     }
 
+    void Resource::lock(AbsRTTask *t, AbsRTTask *s, int n)
+    {
+        _available -= n;
+        _owner = t;
+        _s_owner = s;
+    }
+
     void Resource::unlock(int n)
     { 
         _available += n;
-        _owner = 0;
+        _owner = nullptr;
+        _s_owner = nullptr;
     }
 
     bool Resource::isLocked() const
@@ -88,6 +97,16 @@ namespace RTSim {
     AbsRTTask* Resource::getOwner()const
     {
         return _owner;
+    }
+
+    AbsRTTask* Resource::getSOwner()const
+    {
+        return _s_owner;
+    }
+
+    res_scope_t Resource::getResScope() const
+    {
+        return _scope;
     }
 
 }

@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -Wall -std=c++0x   CMakeFiles/tests.dir/test_main.o CMakeFiles/tests.dir/cbs.o CMakeFiles/tests.dir/test_task.o CMakeFiles/tests.dir/test_mrt.o CMakeFiles/tests.dir/test_AVR.o  -o tests  -L/ -rdynamic -lrtlib -lmetasim -Wl,-rpath,/ 

@@ -57,6 +57,12 @@ namespace RTSim {
       Simple classes which model wait and signal instruction to use a resource 
       @author Fabio Rossi and Giuseppe Lipari
       @see Instr 
+
+      ------------------------------------------------------------------------
+      @version 1.1
+      @authors Modica Paolo, Celia Marco
+
+      -Added the supports to manage wait instruction inside a Server and BROEServer
    */
 
   class WaitInstr : public Instr {
@@ -107,6 +113,12 @@ namespace RTSim {
      Simple class which models signal instruction to use a resource. 
      @author Fabio Rossi and Giuseppe Lipari
      @see Instr 
+
+      ------------------------------------------------------------------------
+      @version 1.1
+      @authors Modica Paolo, Celia Marco
+
+      -Added the supports to manage signal instruction inside a Server and BROEServer
    */
 
   class SignalInstr : public Instr {
